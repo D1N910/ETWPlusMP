@@ -1,21 +1,33 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.selogan{
+  margin: 0 auto;
+  padding: 60rpx 0 0 0;
+  writing-mode:tb-rl;    
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.selogan .right{
+  margin: 200rpx 0 0 0;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.enter{
+  width: 200.4rpx;
+  height: 132.8rpx;
+  display: block;
+  margin: 30rpx auto 0 auto;
 }
-
-.usermotto {
-  margin-top: 200px;
+.footer{
+  text-align: center;
+  position: absolute;
+  bottom: 30rpx;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+.logo{
+  width: 150rpx;
+  height: 150rpx;
+  position: relative;
+}
+.footer .url{
+  color: #000;
+  left: 0px;
+  bottom: 0px;
 }
