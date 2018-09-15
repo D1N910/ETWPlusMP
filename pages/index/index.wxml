@@ -1,10 +1,21 @@
 <!--pages/index/index.wxml-->
+<view
+  class="weui-loadmore"
+  wx:if="isRefreshing"
+  style='height:{{isRefreshing?"100":"0"}}rpx;'>
+  <view class="weui-loading"></view>
     <image
       src="../../static/logo.jpg"
       animation="{{loading}}"
       class="loading"
     ></image>
+</view>
 <view class="container">
+  <!-- 搜索框 -->
+  <view class="search">
+    <input></input>
+  </view>
+  <!-- 轮播图，展示最新的一期和推荐 -->
   <swiper
     class="swiper-container">
     <swiper-item
@@ -13,6 +24,36 @@
       <image
         src="{{item.tempFilePath||item.header}}"
       ></image>
+      <view
+        class="audioInformation-container">
+          <view class="audioInformation-audioId">
+            
+          </view>
+          <view class="audioInformation-title">
+            #{{item.audioId}} {{item.title}}
+          </view>
+      </view>
     </swiper-item>
   </swiper>
+  <!-- 核心信息流入口 -->
+  <!-- 全部音频 -->
+  <view class="allAudio">
+    全部声东击西音频
+  </view>
+  <!-- 本周热听 -->
+  <view class="guest">
+    本周热听
+  </view>
+  <!-- 嘉宾介绍 -->
+  <view class="guest">
+    特邀嘉宾
+  </view>
+  <!-- 关键词 -->
+  <view class="guest">
+    特邀嘉宾
+  </view>
+  <!-- 关于声东击西 -->
+  <view class="guest">
+    关于声东击西
+  </view>
 </view>
