@@ -13,7 +13,7 @@ App({
         this.gobalData.audioList = res.data
         for (let i in this.gobalData.audioList){
           wx.downloadFile({
-            url: this.gobalData.audioList[i].header, //仅为示例，并非真实的资源
+            url: this.gobalData.audioList[i].header, 
             success(res) {
               if (res.statusCode === 200) {
                 that.gobalData.audioList[i].tempFilePath = res.tempFilePath

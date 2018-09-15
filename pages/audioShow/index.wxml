@@ -1,0 +1,13 @@
+<!--pages/audioShow/index.wxml-->
+<text>pages/audioShow/index.wxml</text>
+  <button
+    id="the-id"
+    style='left:{{right}};'
+    class='test'
+    animation="{{loading}}">
+    ddd
+  </button>
+  <button
+    bindtap='StopAudioStop'>
+    ddsfsdfasasdd
+  </button>

@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/startup/index"
+    "pages/startup/index",
+    "pages/audioShow/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "声东击西ETWPlus",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   }
 }

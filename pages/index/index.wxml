@@ -1,10 +1,11 @@
 <!--pages/index/index.wxml-->
-    <image
-      src="../../static/logo.jpg"
-      animation="{{loading}}"
-      class="loading"
-    ></image>
-<view class="container">
+  <refresh-view
+    id='refreshView'
+    backgroundColor="#fff"
+    bind:onRefresh="onPullDownRefresh"
+    bind:onPullState="_pullState" />
+<view class="container"
+bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel'>
   <swiper
     class="swiper-container">
     <swiper-item
@@ -12,7 +13,9 @@
       wx:key="index">
       <image
         src="{{item.tempFilePath||item.header}}"
+        mode='aspectFill'
       ></image>
+
     </swiper-item>
   </swiper>
 </view>

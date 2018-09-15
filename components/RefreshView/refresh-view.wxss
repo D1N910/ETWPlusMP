@@ -1,0 +1,47 @@
+/* components/RefreshLayout/refresh-layout.wxss */
+
+.refresh-container {
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #999;
+  background-color: #eee;
+  display: flex;
+  width: 100%;
+}
+.refresh-layout {
+  vertical-align: center;
+  width: 100%;
+  text-align: center;
+  align-self: flex-end;
+  position: relative;  
+}
+
+.refresh-tips {
+  line-height: 30rpx;
+  font-size: 26rpx;
+  vertical-align: middle;
+  margin: auto;
+}
+
+
+  @keyframes spin {
+    0% {
+      transform:rotateX(0deg);
+    }
+    50% {
+      transform:rotateX(180deg);
+    }
+    100% {
+      transform:rotateX(360deg);
+    }
+  }
+
+  .refresh-loading {
+    width: 50rpx;
+    height: 50rpx;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    position: absolute;
+    animation: spin 1s ease-in-out infinite;
+  }

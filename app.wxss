@@ -1,5 +1,6 @@
 page{
   position: relative;
+  overflow: auto;
 }
 /**app.wxss**/
 .container{

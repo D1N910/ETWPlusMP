@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "refresh-view": "/components/RefreshView/refresh-view"
+  }
+}
