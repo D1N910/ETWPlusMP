@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view
+    class="selogan"
+    animation="{{seloganAnimationData}}">
+    <view
+      class="left">
+      两个驻美记者主持的<text style="color:{{color}};">播客，</text>
+    </view>    
+    <view
+      class="right">  
+      带你看不一样的<text style="color:{{color}};">世界。</text>
+    </view>    
+  </view>
+
+  <view
+    class="enterContainer"
+    bindtap="enter"
+    animation="{{enterShowAnimationData}}">
+    <image
+      class="enter-img"
+      src="../../static/indexLogo.png"></image> 
+      <button
+        class="enter-button">
+        ENTER
+      </button>
+  </view>
+
+  <view
+    class="footer">
+    <image
+    src="../../static/logo.jpg"
+    class="logo"></image>  
+    <view class="url">etw.fm</view>
+  </view>
+</view>

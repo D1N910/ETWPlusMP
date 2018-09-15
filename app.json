@@ -1,12 +1,13 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/startup/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "声东击西ETWPlus",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }

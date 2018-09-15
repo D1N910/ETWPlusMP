@@ -1,33 +1,29 @@
-/**index.wxss**/
-.selogan{
-  margin: 0 auto;
-  padding: 60rpx 0 0 0;
-  writing-mode:tb-rl;    
+/* pages/index/index.wxss */
+.bg{
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
 }
-.selogan .right{
-  margin: 200rpx 0 0 0;
+text{
+  color: #fff;
 }
-.enter{
-  width: 200.4rpx;
-  height: 132.8rpx;
-  display: block;
-  margin: 30rpx auto 0 auto;
+
+.swiper-container{
+  width: 100%;
+  height: 320rpx;
 }
-.footer{
-  text-align: center;
+.swiper-container swiper-item{
+  width: 100%;
+}
+
+.loading{
+  width: 60rpx;
+  height: 60rpx;
   position: absolute;
-  bottom: 30rpx;
+  top: -80rpx;
   left: 0px;
   right: 0px;
-  margin: auto;
-}
-.logo{
-  width: 150rpx;
-  height: 150rpx;
-  position: relative;
-}
-.footer .url{
-  color: #000;
-  left: 0px;
-  bottom: 0px;
+  margin: 0 auto;
 }

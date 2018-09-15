@@ -1,20 +1,18 @@
-<!--index.wxml-->
-<view class="container">
-  <view
-    class="selogan">
-    <view class="left">两个驻美记者主持的播客，</view>    
-    <view class="right">带你看不一样的世界。</view>    
-  </view>
-
-  <image
-    class="enter"
-    src="../../static/indexLogo.png"></image> 
-
-  <view
-    class="footer">
+<!--pages/index/index.wxml-->
     <image
-    src="../../static/logo.jpg"
-    class="logo"></image>  
-    <view class="url">etw.fm</view>
-  </view>
+      src="../../static/logo.jpg"
+      animation="{{loading}}"
+      class="loading"
+    ></image>
+<view class="container">
+  <swiper
+    class="swiper-container">
+    <swiper-item
+      wx:for="{{dataList}}"
+      wx:key="index">
+      <image
+        src="{{item.tempFilePath||item.header}}"
+      ></image>
+    </swiper-item>
+  </swiper>
 </view>

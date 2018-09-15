@@ -1,3 +1,6 @@
+page{
+  position: relative;
+}
 /**app.wxss**/
 .container{
   min-height: 100vh;
