@@ -1,7 +1,14 @@
-# ETWPlusMP
-声东击西Plus 微信小程序 demo
-done启动页  
-do制作首页；  
+# 声东击西ETWPlusMPPlus 微信小程序
+## [done]启动页  
+> 显示slogan
+>> slogan渐出
+> 显示吉祥物
+> 显示入口按钮
+>> 吉祥物＋入口按钮渐出［改成快速进入吧］旋转
+> 显示logo
+> 音频播放：时下《声东击西》背景音乐
+## do制作首页
+-----
 next音频页－音频  
 next音频页－简介  
 next音频页－弹幕  
