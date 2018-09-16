@@ -1,3 +1,4 @@
+import { setStatusBarHeight } from "../../utils/util.js"
 var Audio = wx.createInnerAudioContext()
 
 //index.js
@@ -21,6 +22,7 @@ Page({
     })
   },
   onLoad() {
+    setStatusBarHeight(app,this)
     Audio.src = 'https://audio.fireside.fm/podcasts/audio/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/episodes/b/b57ebd4d-31e9-409a-8f1b-a900a23c238b/b57ebd4d-31e9-409a-8f1b-a900a23c238b.mp3'
     Audio.play()
     setTimeout(()=>{

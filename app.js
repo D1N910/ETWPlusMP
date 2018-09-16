@@ -2,6 +2,12 @@
 App({
   onLaunch() {
     var that = this
+    wx.getSystemInfo({
+      success(res){
+        that.gobalData.statusBarHeight = res.statusBarHeight
+      }
+    })
+    // 获取首页轮播图内容
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })

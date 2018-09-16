@@ -1,6 +1,9 @@
 <!--index.wxml-->
 <view class="container">
   <view
+    class="topStatus"
+    style="height:{{topStatus}}px;"></view>
+  <view
     class="selogan"
     animation="{{seloganAnimationData}}">
     <view

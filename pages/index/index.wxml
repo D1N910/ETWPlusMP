@@ -11,6 +11,9 @@
     ></image>
 </view>
 <view class="container">
+  <view
+    class="topStatus"
+    style="height:{{topStatus}}px;"></view>
   <!-- 轮播图，展示最新的一期和推荐 -->
   <swiper
     animation="{{blockAnimation}}"

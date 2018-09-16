@@ -1,3 +1,5 @@
+import { setStatusBarHeight } from "../../utils/util.js"
+
 // pages/index/index.js
 var app = getApp()
 var loadingInterval
@@ -17,6 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    setStatusBarHeight(app,this)
     wx.setBackgroundTextStyle({
       textStyle: 'dark'
     })
