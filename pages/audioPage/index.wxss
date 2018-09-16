@@ -1,1 +1,60 @@
 /* pages/audioPage/index.wxss */
+/* 音频显示容器 */
+.vudioPlayer-container{
+  width: 100%;
+  height: 600rpx;
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f3f3;
+}
+/* 音频背景高斯模糊 */
+.vudioPlayer-cover{
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  filter: blur(60px);
+}
+/* 音频图片 */
+.vudioPlayer-cover-show{
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  box-shadow: 0 0 20px #fff;
+  border:1px solid #fff;
+}
+/* 缓冲图片 */
+.vudioPlayer-cover-logo-show{
+  width: 340rpx;
+  height: 340rpx;
+  position: absolute;  
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  opacity: 0.3;
+  z-index: 999；
+}
+/* 顶部阴影 */
+.topOuterBorder{
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: -webkit-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4),rgba(0,0,0,0));
+  z-index: 999;
+}
+
+/* 音频播放控制器 */
+.vudioPlayer-controller{
+
+}

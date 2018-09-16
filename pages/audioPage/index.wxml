@@ -1,2 +1,28 @@
 <!--pages/audioPage/index.wxml-->
-<text>pages/audioPage/index.wxml</text>
+<view class="container">
+    <!-- 播放器容器 -->
+    <view
+      class="vudioPlayer-container">
+        <view class="topOuterBorder"></view>      
+        <image   
+          mode="aspectFill"
+          class="vudioPlayer-cover"
+          src="{{coverImage}}"
+          bindload="haveLoad">
+        </image>
+        <image
+          wx:if="{{!logoVisiable}}"        
+          mode="aspectFill"
+          class="vudioPlayer-cover-show"
+          src="{{coverImage}}">
+        </image>
+        <image
+          wx:if="{{logoVisiable}}"
+          class="vudioPlayer-cover-logo-show"        
+          src="../../static/logo.jpg">
+        </image>
+    </view>
+    <view class="vudioPlayer-controller">
+    
+    </view>
+</view>
