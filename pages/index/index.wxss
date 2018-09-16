@@ -1,4 +1,5 @@
 /* pages/index/index.wxss */
+/* 轮播图 */
 .swiper-container{
   width: calc(100% - 60rpx);
   height: 400rpx;
@@ -7,12 +8,14 @@
   border-radius: 10rpx;
   overflow: hidden;
 }
+/* 轮播图-子元素 */
 .swiper-container swiper-item{
   width: 100%;
   border-radius: 10rpx;
   overflow: hidden;
   position: relative;
 }
+/* 轮播图-图片信息容器 */
 .audioInformation-container{
   width: 100%;
   height: 100%; 
@@ -20,6 +23,7 @@
   left: 0px;
   top: 0px;
 }
+/* 轮播图-标题 */
 .audioInformation-container .audioInformation-title{
   text-overflow:ellipsis;
   overflow: hidden;
@@ -31,26 +35,59 @@
   font-size: 32rpx;
   bottom: 0px;
   width: 100%;
-  height: 80rpx;
-  line-height: 90rpx;
+  height: 160rpx;
+  line-height: 180rpx;
   text-indent: 16rpx;
   background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.3));
 }
-.audioInformation-audioId{
+/* 轮播图-类型 标题 */
+.audioInformation-type{
   position: absolute;
-  right: 16rpx;
-  top: 16rpx;
+  top: 0px;
+  left: 0px;
+  padding: 0 16rpx;
   color: #fff;
-  font-size: 70rpx;
   text-align: center;
-  line-height: 100rpx;
-  font-weight: bold;
+  background-color: #ff7997;
+  border-radius: 10rpx;
 }
-
+/* 轮播图-类型－最新 */
+.news{
+  background-color: #e44a4b;
+}
+/* 轮播图 图片 */
 .swiper-container swiper-item image{
   width: 100%;
 }
-
+/* 最新弹幕轮播容器 */
+.LatestBarrage{
+  background: #f1f3f4;
+  margin: 30rpx 30rpx 0 30rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}
+.LatestBarrage-item{
+  display: flex;
+  justify-content: flex-start;
+} 
+.LatestBarrage-item image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.LatestBarrage-content{
+  flex: 1;  
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+.LatestBarrage-content .whereNWhen{
+  color: #e44a4b;
+  font-size: 18rpx;
+}
+.LatestBarrage-content .whereNWhe .When{
+  color: #d500f9;
+}
+/* 加载更多容器 */
 .weui-loadmore {
   width: 100%;
   height: 0;
@@ -62,6 +99,7 @@
   display: inline-block;
   vertical-align: middle;
 }
+/* 加载 */
 .loading{
   width: 80rpx;
   height: 80rpx;
@@ -69,4 +107,142 @@
   left: 0px;
   right: 0px;
   margin: 0 auto;
+}
+
+/* 核心信息流入口 */
+.informationFlowEntry{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30rpx;
+}
+.right-label{
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  margin:0 30rpx 0 0;
+}
+/* 热议 */
+/* 热议-容器 */
+.hotListen-contianer{
+  height: 300rpx;
+  border-radius: 10rpx;  
+  margin:0 15rpx 0 30rpx;
+  position: relative;
+  background-color: #ff2d6f;    
+  flex: 1;
+}
+/* 热议－标题 */
+.hotListen-contianer .hotListen-title{
+  color: #fff;
+  padding-left: 8rpx;
+}
+/* 热议－英文标题 */
+.hotListen-contianer .hotListen-title_english{
+  color: #fff;
+  font-size: 24rpx;  
+  padding-left: 8rpx;
+}
+/* 热议－小图标 */
+.hotListen-image{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+/* 热标签 */
+.hotLaber-container{
+  flex: 1;  
+  color: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  background-color: #ff80ab;
+}
+.hotLaber-title{
+  padding-left: 8rpx;
+}
+.hotLaber-title .hotLaber-title_english{
+  font-size: 24rpx;
+}
+/* 热点标签 */
+.hotLaber-image{
+  position: absolute;
+  right: 8rpx;
+  bottom: 4rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+/* 其他信息容器 */
+.other-information{
+  display: flex;
+  flex: 1;
+  margin-top: 16rpx;
+}
+/* 特邀嘉宾－容器 */
+.guest-contianer{
+  flex: 1;
+  margin: 0 16rpx 0 0;
+  background-color: #d500f9; 
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/* 特邀嘉宾标题 */
+.guest-english-title{
+  font-size: 24rpx;
+  position: relative;
+  z-index: 2;
+}
+.guest-image{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 8rpx;
+  bottom: 4rpx;
+  z-index: 1;
+}
+/* 关于声东击西 */
+.about-contianer{
+  width: 142rpx;
+}
+.about-contianer image{
+  width: 142rpx;
+}
+/* 全部声东击西音频 */
+.allAudio{
+  width: calc(100% - 60rpx);
+  height: 100rpx;
+  position: relative;
+  margin: auto;
+  border-radius: 10rpx;  
+  overflow: hidden;
+  margin-top: 16rpx;
+  color: #fff;
+}
+.allAudio-title{
+  color: #fff;
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  position: relative;
+  z-index: 2;
+  font-weight: bolder;
+  font-family: '黑体';
+}
+.allAudio image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 10rpx;  
+  overflow: hidden;
+  z-index: 1;  
 }

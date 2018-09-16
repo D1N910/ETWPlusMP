@@ -11,13 +11,14 @@
     ></image>
 </view>
 <view class="container">
-  <!-- 搜索框 -->
-  <view class="search">
-    <input></input>
-  </view>
   <!-- 轮播图，展示最新的一期和推荐 -->
   <swiper
-    class="swiper-container">
+    class="swiper-container"
+    circular
+    indicator-dots
+    autoplay
+    indicator-active-color="#e44a4b"
+    indicator-color="rgba(255,255,255,0.7)">
     <swiper-item
       wx:for="{{dataList}}"
       wx:key="index">
@@ -26,8 +27,15 @@
       ></image>
       <view
         class="audioInformation-container">
-          <view class="audioInformation-audioId">
-            
+          <view
+            wx:if="{{item.type === 'recommend'}}"
+            class="audioInformation-type">
+            HOSTS 推荐
+          </view>
+          <view
+            wx:if="{{item.type === 'news'}}"
+            class="audioInformation-type news">
+            最新一期
           </view>
           <view class="audioInformation-title">
             #{{item.audioId}} {{item.title}}
@@ -35,25 +43,96 @@
       </view>
     </swiper-item>
   </swiper>
+  <!-- 轮播最新弹幕 -->
+  <swiper
+    autoplay
+    interval="3000"  
+    class="LatestBarrage"
+    vertical
+    circular
+  >
+    <swiper-item
+      wx:for="{{5}}"
+      wx:key="index">  
+      <view
+        class="LatestBarrage-item">
+        <image
+          src="../../static/test_avator/avator{{item+1}}.png"
+          >
+        </image>
+        <view
+          class="LatestBarrage-content">
+          “感谢主播。希望后续能够跟进” <text class="whereNWhen">#2{{item}}第5分44秒 <text class="When">八分钟前</text></text>
+        </view>
+      </view>
+    </swiper-item>  
+  </swiper>
   <!-- 核心信息流入口 -->
+  <view class="informationFlowEntry">
+    <!-- 热议 -->
+    <view class="hotListen-contianer">
+      <view>
+        <view class="hotListen-title">
+          热议      
+        </view>
+        <view class="hotListen-title_english">
+          Hot Discussion      
+        </view>
+      </view>
+      <image
+        src="../../static/miaoEgg.png"
+        class="hotListen-image"
+        >
+      </image>
+    </view>
+    <view class="right-label">
+      <!-- 热标签 -->
+      <view class="hotLaber-container">
+        <view>
+          <view class="hotLaber-title">
+            热标签 <text class="hotLaber-title_english">Hot label</text>
+          </view>
+        </view>
+        <image
+          src="../../static/hotLaber.png"
+          class="hotLaber-image"
+          >
+        </image>
+      </view>
+      <!-- 其他信息容器 -->
+      <view class="other-information">    
+        <!-- 特邀嘉宾 -->
+        <view class="guest-contianer">
+          <view class="guest-title">
+            特邀嘉宾
+            <view class="guest-english-title">
+              Special guest
+            </view>
+          </view>
+          <image
+            src="../../static/star.png"
+            class="guest-image"
+          >
+          </image>
+        </view>
+        <!-- 关于声东击西 -->
+        <view class="about-contianer">
+          <image
+            mode="widthFix"
+            src="../../static/logo.jpg"
+          ></image>
+        </view>
+      </view>
+    </view>    
+  </view>
   <!-- 全部音频 -->
   <view class="allAudio">
-    全部声东击西音频
-  </view>
-  <!-- 本周热听 -->
-  <view class="guest">
-    本周热听
-  </view>
-  <!-- 嘉宾介绍 -->
-  <view class="guest">
-    特邀嘉宾
-  </view>
-  <!-- 关键词 -->
-  <view class="guest">
-    特邀嘉宾
-  </view>
-  <!-- 关于声东击西 -->
-  <view class="guest">
-    关于声东击西
+    <view class="allAudio-title">
+      全部[声东击西]音频      
+    </view>
+    <image
+      mode="center"
+      src='../../static/allAudio.png'>
+    </image>
   </view>
 </view>

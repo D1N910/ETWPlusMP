@@ -8,7 +8,8 @@ Page({
    */
   data: {
     dataList:[],
-    isRefreshing: false
+    isRefreshing: false,
+    outTime: 0
   },
 
   /**
@@ -22,6 +23,14 @@ Page({
   },
   LoadingResources(){
     clearTimeout(LoadingResourcesSet)
+    // 如果超时
+    if (this.data.outTime>=50) {
+      wx.stopPullDownRefresh()
+      this.setData({
+        isRefreshing: false
+      })
+      return false
+    }
     if (app.gobalData.audioList){
       this.setData({
         dataList: app.gobalData.audioList
@@ -35,6 +44,7 @@ Page({
       })
     }else{
       var LoadingResourcesSet = setTimeout(()=>{
+        this.data.outTime++
         this.LoadingResources()
       },500)
     }
