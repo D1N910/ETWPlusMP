@@ -13,6 +13,7 @@
 <view class="container">
   <!-- 轮播图，展示最新的一期和推荐 -->
   <swiper
+    animation="{{blockAnimation}}"
     class="swiper-container"
     circular
     indicator-dots
@@ -70,7 +71,9 @@
   <!-- 核心信息流入口 -->
   <view class="informationFlowEntry">
     <!-- 热议 -->
-    <view class="hotListen-contianer">
+    <view
+      class="hotListen-contianer"
+      animation="{{blockAnimation}}">
       <view>
         <view class="hotListen-title">
           热议      
@@ -87,7 +90,9 @@
     </view>
     <view class="right-label">
       <!-- 热标签 -->
-      <view class="hotLaber-container">
+      <view
+        class="hotLaber-container"
+        animation="{{blockAnimation}}">
         <view>
           <view class="hotLaber-title">
             热标签 <text class="hotLaber-title_english">Hot label</text>
@@ -102,7 +107,9 @@
       <!-- 其他信息容器 -->
       <view class="other-information">    
         <!-- 特邀嘉宾 -->
-        <view class="guest-contianer">
+        <view
+          class="guest-contianer"
+          animation="{{blockAnimation}}">
           <view class="guest-title">
             特邀嘉宾
             <view class="guest-english-title">
@@ -116,7 +123,9 @@
           </image>
         </view>
         <!-- 关于声东击西 -->
-        <view class="about-contianer">
+        <view
+          class="about-contianer"
+          animation="{{blockAnimation}}">
           <image
             mode="widthFix"
             src="../../static/logo.jpg"
@@ -126,7 +135,9 @@
     </view>    
   </view>
   <!-- 全部音频 -->
-  <view class="allAudio">
+  <view
+    class="allAudio"
+    animation="{{blockAnimation}}">
     <view class="allAudio-title">
       全部[声东击西]音频      
     </view>
@@ -134,5 +145,11 @@
       mode="center"
       src='../../static/allAudio.png'>
     </image>
+  </view>
+  <!-- 其他小程序信息 -->
+  <view
+    class="footer">
+    Powered by D1n910 | 
+    1767 在线 <text class="fade">最高记录 3762</text>
   </view>
 </view>

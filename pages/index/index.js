@@ -8,6 +8,7 @@ Page({
    */
   data: {
     dataList:[],
+    blockAnimation: [],
     isRefreshing: false,
     outTime: 0
   },
@@ -40,6 +41,27 @@ Page({
           this.setData({
             isRefreshing: false
           })
+
+          var blockAnimation = wx.createAnimation({
+            duration: 600,
+            timingFunction: 'ease',
+          })
+
+          this.blockAnimation = blockAnimation
+
+          blockAnimation.rotateX(180).opacity(0).step()
+
+          this.setData({
+            blockAnimation: blockAnimation.export()
+          })
+          setTimeout(()=>{
+
+            blockAnimation.rotateX(0).opacity(1).step()
+
+            this.setData({
+              blockAnimation: blockAnimation.export()
+            })
+          },600)
         }, 1000)
       })
     }else{

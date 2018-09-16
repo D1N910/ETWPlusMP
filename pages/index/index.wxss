@@ -246,3 +246,20 @@
   overflow: hidden;
   z-index: 1;  
 }
+
+/* 底部信息 */
+.footer{
+  position: absolute;
+  bottom: 0px;
+  font-size: 24rpx;
+  width: 100%;
+  color: gray;
+  text-align: center;
+  height: 80rpx;
+  padding-top: 10rpx;
+  border-top: 1px solid rgba(0,0,0,.22);
+  background-color: #fff;
+}
+.footer .fade{
+  color: #ccc;
+}

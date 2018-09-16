@@ -3,6 +3,8 @@ page{
 }
 /**app.wxss**/
 .container{
-  min-height: calc(100vh - 30rpx);
+  min-height: calc(100vh - 30rpx - 92rpx);
   padding-top: 30rpx;
+  padding-bottom: 92rpx;
+  position: relative;
 }
