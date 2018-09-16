@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/startup/index",
-    "pages/index/index"
+    "pages/audioPage/index",
+    "pages/index/index",
+    "pages/startup/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

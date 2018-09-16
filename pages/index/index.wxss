@@ -4,7 +4,7 @@
   width: calc(100% - 60rpx);
   height: 400rpx;
   background-color: #f3f3f3;
-  margin: auto;
+  margin: 30rpx auto 0 auto;
   border-radius: 10rpx;
   overflow: hidden;
 }

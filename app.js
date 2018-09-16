@@ -5,6 +5,13 @@ App({
     wx.getSystemInfo({
       success(res){
         that.gobalData.statusBarHeight = res.statusBarHeight
+        console.log()
+        // 检测是安卓还是苹果
+        if (res.system.indexOf('Android')==0){
+          that.gobalData.capsuleHeight = 48
+        }else{
+          that.gobalData.capsuleHeight = 44
+        }
       }
     })
     // 获取首页轮播图内容
