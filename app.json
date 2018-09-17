@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/audioPage/index",
-    "pages/index/index",
-    "pages/startup/index"
+    "pages/audioPage/index",    
+    "pages/startup/index",
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,5 +10,8 @@
     "navigationBarTitleText": "声东击西ETWPlus",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
-  }
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
 }

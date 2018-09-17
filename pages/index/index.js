@@ -64,7 +64,7 @@ Page({
             this.setData({
               blockAnimation: blockAnimation.export()
             })
-          },600)
+          },800)
         }, 1000)
       })
     }else{

@@ -23,6 +23,32 @@
         </image>
     </view>
     <view class="vudioPlayer-controller">
-    
+        <!-- 显示播放进度 -->
+        <slider
+          bindchanging="handleChangeing"
+          bindchange="handleSliderChange"
+          activeColor="#fd4337"
+          backgroundColor="rgba(0,0,0,0)"
+          value="{{playPosition}}"
+          min="0"
+          max="{{maxLength}}"
+          block-size="18"/>
+        <view>
+          <!-- 点击播放 -->
+          <text
+            class="iconfont icon-bofang-yuanshijituantubiao controller-button"
+            bindtap="handlePlay"
+            ></text>
+          <!-- 点击暂停 -->            
+          <text
+            bindtap="handlePause"
+            class="iconfont icon-zanting-yuanshijituantubiao controller-button"
+            ></text>
+          <!-- 点击停止 -->                        
+          <text
+            bindtap="handleStop"          
+            class="iconfont icon-tingzhi-yuanshijituantubiao controller-button"
+            ></text>
+        </view>
     </view>
 </view>

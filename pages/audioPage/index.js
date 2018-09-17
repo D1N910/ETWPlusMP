@@ -1,3 +1,5 @@
+// 定义全局的音频
+var audioManager = wx.getBackgroundAudioManager()
 // pages/audioPage/index.js
 Page({
 
@@ -7,7 +9,14 @@ Page({
   data: {
     coverImage: 'https://images.fireside.fm/podcasts/images/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/episodes/e/efe15a9a-af08-4209-ba89-36ff79dfca60/header.jpg',
     audioUrl:'https://aphid.fireside.fm/d/1437767933/8dd8a56f-9636-415a-8c00-f9ca6778e511/efe15a9a-af08-4209-ba89-36ff79dfca60.mp3',
-    logoVisiable: true
+    audioTitle: '声东击西',
+    audioEpname: '声东击西',
+    audioSinger: '张晶，徐涛',
+    audioWebUrl: 'https://music.163.com/#/song?id=299939',
+    logoVisiable: true,
+    playPosition: 0,
+    maxLength: 0,
+    touchSlip: false
   },
 
   /**
@@ -16,6 +25,54 @@ Page({
   haveLoad(){
     this.setData({
       logoVisiable:false      
+    })
+    audioManager.onTimeUpdate(() => {
+      console.log(audioManager.currentTime)
+      if (this.data.maxLength == 0) {
+        this.setData({
+          maxLength: audioManager.duration
+        })
+      }
+      if(!this.data.touchSlip){
+        console.log(audioManager.currentTime)
+        this.setData({
+          playPosition: audioManager.currentTime
+        })
+      }
+    })
+    audioManager.src = this.data.audioUrl
+    audioManager.title = this.data.audioTitle
+    audioManager.epname = this.data.audioEpname
+    audioManager.singer = this.data.audioSinger
+    audioManager.WebUrl = this.data.audioWebUrl
+    audioManager.coverImgUrl = this.data.coverImage
+  },
+  /**
+   * 更改完成
+   */
+  handleSliderChange(e){
+    this.seekAudio(e.detail.value)
+  },
+  /**
+   * 开始更改
+   */
+  handleChangeing(){
+    this.data.touchSlip = true
+  },
+  /**
+   * 跳转页面
+   */
+  seekAudio(currentTime){
+    audioManager.seek(currentTime)
+    audioManager.onSeeking(()=>{
+      wx.showLoading({
+        title: '跳转中',
+        mask:true
+      })
+    })
+    audioManager.onSeeked(()=>{
+      wx.hideLoading()
+      this.data.touchSlip = false      
     })
   },
   /**
@@ -35,7 +92,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -71,5 +127,29 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 点击播放
+   */
+  handlePlay(){
+    console.log(audioManager)
+    if (typeof audioManager.src == 'undefined' || audioManager.src == '') {
+      audioManager.src = this.data.audioUrl
+    }else{
+      audioManager.play()
+    }
+  },
+  /**
+   * 点击暂停
+   */
+  handlePause(){
+    audioManager.pause()
+  },
+  /**
+   * 点击停止
+   */
+  handleStop(){
+    audioManager.stop()
   }
 })

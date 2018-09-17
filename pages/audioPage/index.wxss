@@ -58,3 +58,8 @@
 .vudioPlayer-controller{
 
 }
+
+/* 播放器控制按钮 */
+.controller-button{
+  font-size: 120rpx;
+}
