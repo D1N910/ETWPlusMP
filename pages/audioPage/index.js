@@ -16,16 +16,19 @@ Page({
     logoVisiable: true,
     playPosition: 0,
     maxLength: 0,
-    touchSlip: false
+    touchSlip: false,
+    playStatus:1
   },
 
   /**
    * 图片加载完成
    */
   haveLoad(){
+    // 图片加载完成后隐藏logo
     this.setData({
       logoVisiable:false      
     })
+    // 播放进度变化的时候更改进度
     audioManager.onTimeUpdate(() => {
       console.log(audioManager.currentTime)
       if (this.data.maxLength == 0) {
@@ -33,12 +36,25 @@ Page({
           maxLength: audioManager.duration
         })
       }
+      // 如果是不在拖动才动态改变
       if(!this.data.touchSlip){
         console.log(audioManager.currentTime)
         this.setData({
           playPosition: audioManager.currentTime
         })
       }
+    })
+    // 监听背景音频暂停事件
+    audioManager.onPause(()=>{
+      this.setData({
+        playStatus: 1
+      })
+    })
+    // 监听背景音频播放事件
+    audioManager.onPlay(() => {
+      this.setData({
+        playStatus: 0
+      })
     })
     audioManager.src = this.data.audioUrl
     audioManager.title = this.data.audioTitle

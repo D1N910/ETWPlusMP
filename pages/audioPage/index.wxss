@@ -55,11 +55,27 @@
 }
 
 /* 音频播放控制器 */
-.vudioPlayer-controller{
-
+.vudioPlayer-controller_contianer{
+  height: 80rpx;
+  position: absolute;
+  left: 0px;
+  top: 520rpx;
+  z-index: 999;
+  width: 100%;
+  background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.2),rgba(0,0,0,0.4));
+  display: flex;
+  align-items: center;
 }
-
-/* 播放器控制按钮 */
+/* 控制条 */
+.progressBar{
+  flex: 1;
+}
+/* 播放器控制按钮容器 */
+.vudioPlayer-controller{
+  text-align: center;
+  padding: 0 0 0 16rpx;
+}
 .controller-button{
-  font-size: 120rpx;
+  font-size: 46rpx;
+  color: #fff;
 }
