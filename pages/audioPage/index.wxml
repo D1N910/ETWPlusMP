@@ -31,13 +31,18 @@
         <text
           class="iconfont icon-play controller-button"
           bindtap="handlePlay"
-          hidden="{{!playStatus}}"
+          hidden="{{!playStatus|| !ifShowLoading}}"
           ></text>
         <!-- 点击暂停 -->            
         <text
           bindtap="handlePause"
           class="iconfont icon-pause controller-button"
-          hidden="{{playStatus}}"            
+          hidden="{{playStatus || !ifShowLoading}}"            
+          ></text>
+        <!-- 显示加载 -->
+          <text
+            class="controller-button weuiLoading"
+            wx:if="{{!ifShowLoading}}"            
           ></text>
       </view>
       <!-- 显示播放进度 -->
@@ -51,8 +56,8 @@
         min="0"
         max="{{maxLength}}"
         block-size="14"/>
-        <view class="controller-button">
-          00:12/07:27
+        <view class="audio-time">
+          {{onTimeUpdate}} / {{allTime}}
         </view>
     </view>
 </view>

@@ -1,4 +1,5 @@
 <!--pages/index/index.wxml-->
+<!-- loading动画容器 -->
 <view
   class="weui-loadmore"
   wx:if="isRefreshing"
@@ -10,9 +11,12 @@
       class="loading"
     ></image>
 </view>
+<!-- 主容器 -->
 <view class="container">
+  <!-- 状态栏撑高 -->
   <view
     style="height:{{topStatus}}px;"></view>
+  <!-- 导航栏 -->
   <view
     class="navigationBar"
     style="height:{{capsuleHeight}}px;">
@@ -41,6 +45,7 @@
     indicator-active-color="#e44a4b"
     indicator-color="rgba(255,255,255,0.7)">
     <swiper-item
+      bindtap="jumpToaudioPage"
       wx:for="{{dataList}}"
       wx:key="index">
       <image

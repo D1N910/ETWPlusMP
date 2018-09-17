@@ -17,7 +17,10 @@ Page({
     playPosition: 0,
     maxLength: 0,
     touchSlip: false,
-    playStatus:1
+    playStatus:1,
+    ifShowLoading: false,
+    onTimeUpdate: '0:00',
+    allTime: '0:00'
   },
 
   /**
@@ -30,17 +33,25 @@ Page({
     })
     // 播放进度变化的时候更改进度
     audioManager.onTimeUpdate(() => {
-      console.log(audioManager.currentTime)
       if (this.data.maxLength == 0) {
+        let minuteInt = parseInt(audioManager.duration / 60)
+        let secondInt = parseInt((audioManager.duration / 60 - minuteInt) * 60)
+        let allTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
+        let allTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
         this.setData({
-          maxLength: audioManager.duration
+          maxLength: audioManager.duration,
+          allTime: `${allTimeMinutes}:${allTimeSecond}`
         })
       }
       // 如果是不在拖动才动态改变
       if(!this.data.touchSlip){
-        console.log(audioManager.currentTime)
+        let minuteInt = parseInt(audioManager.currentTime / 60)
+        let secondInt = parseInt((audioManager.currentTime / 60 - minuteInt) * 60)
+        let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
+        let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
         this.setData({
-          playPosition: audioManager.currentTime
+          playPosition: audioManager.currentTime,
+          onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
         })
       }
     })
@@ -55,6 +66,27 @@ Page({
       this.setData({
         playStatus: 0
       })
+      wx.hideLoading()
+    })
+    // 监听音频加载中事件，当音频因为数据不足，需要停下来加载时会触发
+    audioManager.onWaiting(()=>{
+      this.setData({
+        ifShowLoading: false
+      })
+    })
+    // 监听音频进入可以播放状态的事件，但不保证后面可以流畅播放
+    audioManager.onCanplay(()=>{
+      wx.hideLoading()
+      this.setData({
+        ifShowLoading: true
+      })
+    })
+    // 监听背景音频自然停止事件
+    audioManager.onEnded(()=>{
+      this.setData({
+        playStatus: 1
+      })
+      console.log(audioManager.src)
     })
     audioManager.src = this.data.audioUrl
     audioManager.title = this.data.audioTitle
@@ -81,14 +113,14 @@ Page({
   seekAudio(currentTime){
     audioManager.seek(currentTime)
     audioManager.onSeeking(()=>{
-      wx.showLoading({
-        title: '跳转中',
-        mask:true
+      this.setData({
+        ifShowLoading: false
       })
     })
     audioManager.onSeeked(()=>{
-      wx.hideLoading()
-      this.data.touchSlip = false      
+      this.setData({
+        ifShowLoading: true
+      })   
     })
   },
   /**

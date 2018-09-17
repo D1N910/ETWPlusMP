@@ -14,7 +14,17 @@ Page({
     isRefreshing: false,
     outTime: 0
   },
-
+  /**
+   * 跳转页面
+   */
+  jumpToaudioPage() {
+    wx.navigateTo({
+      url: '../audioPage/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -28,10 +38,15 @@ Page({
   LoadingResources(){
     clearTimeout(LoadingResourcesSet)
     // 如果超时
-    if (this.data.outTime>=50) {
+    if (this.data.outTime>30) {
       wx.stopPullDownRefresh()
       this.setData({
         isRefreshing: false
+      })
+      wx.showModal({
+        title: '加载超时',
+        content: '请检查您的网络',
+        showCancel:false
       })
       return false
     }
