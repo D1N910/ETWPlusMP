@@ -7,20 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    coverImage: 'https://images.fireside.fm/podcasts/images/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/episodes/e/efe15a9a-af08-4209-ba89-36ff79dfca60/header.jpg',
-    audioUrl:'https://aphid.fireside.fm/d/1437767933/8dd8a56f-9636-415a-8c00-f9ca6778e511/efe15a9a-af08-4209-ba89-36ff79dfca60.mp3',
-    audioTitle: '声东击西',
-    audioEpname: '声东击西',
-    audioSinger: '张晶，徐涛',
-    audioWebUrl: 'https://music.163.com/#/song?id=299939',
+    coverImage: '',
+    audioUrl:'',
+    audioTitle: '',
+    audioEpname: '',
+    audioSinger: '',
+    audioWebUrl: '',
     logoVisiable: true,
     playPosition: 0,
     maxLength: 0,
     touchSlip: false,
     playStatus:1,
     ifShowLoading: false,
-    onTimeUpdate: '0:00',
-    allTime: '0:00'
+    onTimeUpdate: '',
+    allTime: ''
   },
 
   /**
@@ -31,80 +31,26 @@ Page({
     this.setData({
       logoVisiable:false      
     })
-    // 播放进度变化的时候更改进度
-    audioManager.onTimeUpdate(() => {
-      if (this.data.maxLength == 0) {
-        let minuteInt = parseInt(audioManager.duration / 60)
-        let secondInt = parseInt((audioManager.duration / 60 - minuteInt) * 60)
-        let allTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
-        let allTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
-        this.setData({
-          maxLength: audioManager.duration,
-          allTime: `${allTimeMinutes}:${allTimeSecond}`
-        })
-      }
-      // 如果是不在拖动才动态改变
-      if(!this.data.touchSlip){
-        let minuteInt = parseInt(audioManager.currentTime / 60)
-        let secondInt = parseInt((audioManager.currentTime / 60 - minuteInt) * 60)
-        let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
-        let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
-        this.setData({
-          playPosition: audioManager.currentTime,
-          onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
-        })
-      }
-    })
-    // 监听背景音频暂停事件
-    audioManager.onPause(()=>{
-      this.setData({
-        playStatus: 1
-      })
-    })
-    // 监听背景音频播放事件
-    audioManager.onPlay(() => {
-      this.setData({
-        playStatus: 0
-      })
-      wx.hideLoading()
-    })
-    // 监听音频加载中事件，当音频因为数据不足，需要停下来加载时会触发
-    audioManager.onWaiting(()=>{
-      this.setData({
-        ifShowLoading: false
-      })
-    })
-    // 监听音频进入可以播放状态的事件，但不保证后面可以流畅播放
-    audioManager.onCanplay(()=>{
-      wx.hideLoading()
-      this.setData({
-        ifShowLoading: true
-      })
-    })
-    // 监听背景音频自然停止事件
-    audioManager.onEnded(()=>{
-      this.setData({
-        playStatus: 1
-      })
-      console.log(audioManager.src)
-    })
-    audioManager.src = this.data.audioUrl
-    audioManager.title = this.data.audioTitle
-    audioManager.epname = this.data.audioEpname
-    audioManager.singer = this.data.audioSinger
-    audioManager.WebUrl = this.data.audioWebUrl
-    audioManager.coverImgUrl = this.data.coverImage
   },
   /**
    * 更改完成
    */
   handleSliderChange(e){
+    this.data.touchSlip = false
     this.seekAudio(e.detail.value)
   },
   /**
    * 开始更改
    */
-  handleChangeing(){
+  handleChangeing(e){
+    console.log(e.detail.value)
+    let minuteInt = parseInt(e.detail.value / 60)
+    let secondInt = parseInt((e.detail.value  / 60 - minuteInt) * 60)
+    let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
+    let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
+    this.setData({
+      onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
+    })
     this.data.touchSlip = true
   },
   /**
@@ -127,6 +73,107 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data._id = options._id
+    this.data._id = '5b9a850f97880d3b822d5dd7'
+    wx.cloud.init({
+      env: 'etwplus-test-485c18'
+    })
+    const db = wx.cloud.database()
+    db.collection('audioList').where({
+      _id: this.data._id
+    }).get({
+      success: res => {
+        console.log(res.data)
+        if (res.data.length>=1){
+          audioManager.src = this.data.audioUrl = res.data[0].audioUrl
+          audioManager.title = this.data.audioTitle = res.data[0].title
+          audioManager.epname = this.data.audioEpname = '声东击西'
+          let audioSinger = ''
+          for (let i in res.data[0].participant){
+            for (let j in res.data[0].participant[i]){
+              audioSinger += ` ${res.data[0].participant[i][j].name}`
+            }
+          }
+          audioManager.singer = this.data.audioSinger = audioSinger
+          audioManager.WebUrl = this.data.audioWebUrl = 'https://music.163.com/#/song?id=299939'
+          audioManager.coverImgUrl = this.data.coverImage = res.data[0].header
+          this.setData({
+            audioUrl: this.data.audioUrl,
+            audioTitle: this.data.audioTitle,
+            audioEpname: this.data.audioEpname,
+            audioWebUrl: this.data.audioWebUrl,           
+            coverImage: this.data.coverImage,
+            audioSinger: this.data.audioSinger
+          })
+        }
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+        console.error('[数据库] [查询记录] 失败：', err)
+      }
+    })
+
+    // 播放进度变化的时候更改进度
+    audioManager.onTimeUpdate(() => {
+      if (this.data.maxLength == 0) {
+        let minuteInt = parseInt(audioManager.duration / 60)
+        let secondInt = parseInt((audioManager.duration / 60 - minuteInt) * 60)
+        let allTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
+        let allTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
+        this.setData({
+          maxLength: audioManager.duration,
+          allTime: `${allTimeMinutes}:${allTimeSecond}`
+        })
+      }
+      // 如果是不在拖动才动态改变
+      if (!this.data.touchSlip) {
+        let minuteInt = parseInt(audioManager.currentTime / 60)
+        let secondInt = parseInt((audioManager.currentTime / 60 - minuteInt) * 60)
+        let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
+        let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
+        this.setData({
+          playPosition: audioManager.currentTime,
+          onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
+        }, () => {
+        })
+      }
+    })
+    // 监听背景音频暂停事件
+    audioManager.onPause(() => {
+      this.setData({
+        playStatus: 1
+      })
+    })
+    // 监听背景音频播放事件
+    audioManager.onPlay(() => {
+      this.setData({
+        playStatus: 0
+      })
+      wx.hideLoading()
+    })
+    // 监听音频加载中事件，当音频因为数据不足，需要停下来加载时会触发
+    audioManager.onWaiting(() => {
+      this.setData({
+        ifShowLoading: false
+      })
+    })
+    // 监听音频进入可以播放状态的事件，但不保证后面可以流畅播放
+    audioManager.onCanplay(() => {
+      wx.hideLoading()
+      this.setData({
+        ifShowLoading: true
+      })
+    })
+    // 监听背景音频自然停止事件
+    audioManager.onEnded(() => {
+      this.setData({
+        playStatus: 1
+      })
+      console.log(audioManager.src)
+    })
   },
 
   /**

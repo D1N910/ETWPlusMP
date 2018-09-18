@@ -47,7 +47,8 @@
     <swiper-item
       bindtap="jumpToaudioPage"
       wx:for="{{dataList}}"
-      wx:key="index">
+      wx:key="index"
+      data-_id="{{item._id}}">
       <image
         src="{{item.tempFilePath||item.header}}"
       ></image>

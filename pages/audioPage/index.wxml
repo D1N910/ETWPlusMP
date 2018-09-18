@@ -31,13 +31,13 @@
         <text
           class="iconfont icon-play controller-button"
           bindtap="handlePlay"
-          hidden="{{!playStatus|| !ifShowLoading}}"
+          wx:if="{{playStatus && ifShowLoading}}"
           ></text>
         <!-- 点击暂停 -->            
         <text
           bindtap="handlePause"
           class="iconfont icon-pause controller-button"
-          hidden="{{playStatus || !ifShowLoading}}"            
+          wx:if="{{!playStatus && ifShowLoading}}"            
           ></text>
         <!-- 显示加载 -->
           <text
@@ -57,7 +57,20 @@
         max="{{maxLength}}"
         block-size="14"/>
         <view class="audio-time">
-          {{onTimeUpdate}} / {{allTime}}
+          <view
+            wx:if="{{allTime!=''}}"
+          >{{onTimeUpdate}} / {{allTime}}</view>
         </view>
     </view>
+    <!-- 底部内容容器 -->
+    <scroll-view>
+      <view
+        class="audioTitle">
+        {{audioTitle}}
+      </view>
+      <view
+        class="audioSinger">
+        {{audioSinger}}
+      </view>
+    </scroll-view>
 </view>

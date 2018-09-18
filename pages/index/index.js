@@ -17,9 +17,9 @@ Page({
   /**
    * 跳转页面
    */
-  jumpToaudioPage() {
+  jumpToaudioPage(e) {
     wx.navigateTo({
-      url: '../audioPage/index',
+      url: `../audioPage/index?_id=${e.currentTarget.dataset._id}`,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
