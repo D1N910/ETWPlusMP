@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hiddenController: true,// 隐藏控制器
+    hiddenController: false,// 隐藏控制器
     topOuterBorderAn: [], // 顶部动画
     controllerAn: [], //控制器动画
     coverImage: '',
@@ -22,9 +22,11 @@ Page({
     touchSlip: false,
     playStatus:1,
     ifShowLoading: false,
-    onTimeUpdate: '',
+    onTimeUpdate: '00:00',
     allTime: '',
-    percent: 0
+    percent: 0,
+    nowTimeSecond:0,
+    nowTimeMinutes: 0
   },
 
   /**
@@ -47,14 +49,18 @@ Page({
    * 开始更改
    */
   handleChangeing(e){
-    console.log(e.detail.value)
     let minuteInt = parseInt(e.detail.value / 60)
     let secondInt = parseInt((e.detail.value  / 60 - minuteInt) * 60)
     let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
     let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
-    this.setData({
-      onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
-    })
+
+    if (this.data.nowTimeMinutes < minuteInt || this.data.nowTimeSecond < secondInt) {
+      this.data.nowTimeMinutes = minuteInt
+      this.data.nowTimeSecond = secondInt
+      this.setData({
+        onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
+      })
+    }
     this.data.touchSlip = true
   },
   /**
@@ -141,12 +147,16 @@ Page({
         let secondInt = parseInt((audioManager.currentTime / 60 - minuteInt) * 60)
         let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
         let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
-        this.setData({
-          percent: audioManager.buffered / audioManager.duration * 100,
-          playPosition: audioManager.currentTime,
-          onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
-        }, () => {
-        })
+        // 提高性能，每一秒才刷新一次
+        if (this.data.nowTimeMinutes < minuteInt || this.data.nowTimeSecond < secondInt){
+          this.data.nowTimeMinutes = minuteInt          
+          this.data.nowTimeSecond = secondInt
+          this.setData({
+            percent: audioManager.buffered / audioManager.duration * 100,
+            playPosition: audioManager.currentTime,
+            onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
+          })
+        }
       }
     })
     // 监听背景音频暂停事件
@@ -195,7 +205,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.hiddenControl(true)
+    this.hiddenControl(false)
   },
 
   /**
@@ -259,46 +269,18 @@ Page({
   // 隐藏控制器
   hiddenControl(ifshow){
     if (ifshow) {
-      var topOuterBorderAn = wx.createAnimation({
-        duration: 400,
-        timingFunction: 'ease',
-      })
-      var controllerAn = wx.createAnimation({
-        duration: 400,
-        timingFunction: 'ease',
-      })
-      this.topOuterBorderAn = topOuterBorderAn
-      this.controllerAn = controllerAn
-
-      topOuterBorderAn.translateY(80).step()
-      controllerAn.translateY(-80).step()
       this.setData({
-        topOuterBorderAn: topOuterBorderAn.export(),
-        controllerAn: controllerAn.export()
-      })
+        hiddenController: true
+      })    
     }else{
-      var topOuterBorderAn = wx.createAnimation({
-        duration: 0,
-        timingFunction: 'step-start',
-      })
-      var controllerAn = wx.createAnimation({
-        duration: 0,
-        timingFunction: 'step-start',
-      })
-      this.topOuterBorderAn = topOuterBorderAn
-      this.controllerAn = controllerAn
-
-      topOuterBorderAn.translateY(-80).step()
-      controllerAn.translateY(80).step()
       this.setData({
-        topOuterBorderAn: topOuterBorderAn.export(),
-        controllerAn: controllerAn.export()
-      })
+        hiddenController: false
+      })    
     }
-    this.data.hiddenController = !ifshow      
+
   },
   // 点击了主播放器
   handleVudiPlayertap(){
-    this.hiddenControl(this.data.hiddenController)
+    this.hiddenControl(!this.data.hiddenController)
   }
 })

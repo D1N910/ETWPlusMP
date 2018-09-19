@@ -2,7 +2,7 @@
 <view class="container">
   <view class="play-tc">
     <view
-      class="topOuterBorder"
+      class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}}"
       animation="{{topOuterBorderAn}}"></view>      
       <!-- 播放器容器 -->
     <view
@@ -29,7 +29,7 @@
       <!-- 播放器控制容器 -->
     <view
       animation="{{controllerAn}}"      
-      class="vudioPlayer-controller_contianer">
+      class="vudioPlayer-controller_contianer {{hiddenController?'':'controllerShow'}}">
       <!-- 播放控制按钮容器 -->    
       <view
         class="vudioPlayer-controller">
