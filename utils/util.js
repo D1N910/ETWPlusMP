@@ -3,7 +3,8 @@ const setStatusBarHeight = (app,that) => {
   if (typeof app.gobalData.statusBarHeight != 'undefined') {
     that.setData({
       topStatus: app.gobalData.statusBarHeight,
-      capsuleHeight: app.gobalData.capsuleHeight
+      capsuleHeight: app.gobalData.capsuleHeight,
+      pageLength: getCurrentPages().length
     })
   }
 }

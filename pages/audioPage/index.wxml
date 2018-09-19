@@ -11,19 +11,19 @@
         class="navigationBar"
         style="height:{{capsuleHeight}}px;">
           <view
-            class="userAvatar">
-            <open-data
-              type="userAvatarUrl"
-            ></open-data>
-          </view>
-          <view
-            class="seach-container">
+            class="navigationController">
+            <!-- 返回 -->
             <i
-              class="iconfont icon-web-icon- input-icon"></i>
-            <input
-              placeholder="搜索喜欢的内容"
-              class="input"></input>
-          </view>      
+              wx:if="{{pageLength>1}}"
+              data-status="-1"
+              bindtap="navigateTo"
+              class="iconfont icon-fanhui"></i>
+            <!-- 回到主页 -->            
+            <i
+              data-status="999"            
+              bindtap="navigateTo"            
+              class="iconfont icon-shouye"></i>  
+          </view>
         </view>
       </view>      
       <!-- 播放器容器 -->
@@ -199,10 +199,4 @@
       <view class="footer">
       </view>
     </scroll-view>
-        <slider
-          activeColor="#fd4337"
-          backgroundColor="rgba(255,255,255,1)"
-          min="0"
-          max="1000"
-          block-size="14"/>
 </view>

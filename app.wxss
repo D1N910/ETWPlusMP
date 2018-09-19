@@ -47,3 +47,25 @@ page{
   left: 16rpx;
   margin: auto;
 }
+.navigationController{
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 20px;
+  margin-left: 10px;
+  background: rgba(0, 0, 0, 0.1)
+}
+.navigationController .iconfont {
+  font-weight: bolder;
+  font-size: 16px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 0 15px;
+}
+.navigationController .iconfont:nth-child(2n){
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
