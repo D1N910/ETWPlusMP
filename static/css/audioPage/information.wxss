@@ -1,16 +1,24 @@
 /* 底部内容容器 */
 .button_container{
-  height: calc(100vh - 600rpx);
-  padding: 0 0 0 30rpx;
+  height: calc(100vh - 600rpx - 30rpx);
+  padding: 30rpx 0 0 30rpx;
   width: calc(100vw - 30rpx);
 }
 /* 标题 */
 .audioTitle{
-  font-size: 36rpx;
   padding: 0 0 8rpx 0;
-  border-bottom: 1rpx solid #ededed;
-  margin: 16rpx 16rpx 30rpx 0;
+  margin: 16rpx 0 0 0;
   width: 100%;
+}
+.keywords-container{
+  display: flex;
+  font-size: 24rpx;
+  flex-wrap: wrap;
+}
+.keywords-item{
+  padding: 4rpx 8rpx;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 8rpx;
 }
 /* 详细内容 */
 .button_container-content{
@@ -33,6 +41,7 @@
   width: 100%;
   display: flex;
   font-size: 28rpx;
+  flex-wrap: wrap;
   margin: 0 0 30rpx 0;
 }
 /* 主持人子容器 */
@@ -40,7 +49,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 30rpx 0 0;
+  margin: 0 30rpx 16rpx 0;
+  flex: 1;
+  min-width: 150rpx;
 }
 /* 头像 */
 .audioSingerIcon{
@@ -60,4 +71,7 @@
 }
 .guest .Identity{
   background-color: #337ab7;
+}
+.footer{
+  height: 70rpx;
 }
