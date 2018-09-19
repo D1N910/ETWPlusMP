@@ -1,4 +1,7 @@
-@import './information.wxss';
+@import '../../static/css/audioPage/information.wxss';
+.container{
+  padding-bottom: 0rpx;
+}
 /* pages/audioPage/index.wxss */
 .play-tc{
   width: 100%;
@@ -143,7 +146,7 @@
 
 /* 播放时间 */
 .audio-time{
-  font-size: 18rpx;
+  font-size: 24rpx;
   color:#fff;
   min-width: 140rpx;
   text-align: center;

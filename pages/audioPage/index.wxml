@@ -2,8 +2,7 @@
 <view class="container">
   <view class="play-tc">
     <view
-      class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}}"
-      animation="{{topOuterBorderAn}}"></view>      
+      class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}}"></view>      
       <!-- 播放器容器 -->
     <view
       class="vudioPlayer-container"
@@ -11,14 +10,14 @@
         <image   
           mode="aspectFill"
           class="vudioPlayer-cover"
-          src="{{coverImage}}"
+          src="{{audioInformationList.header}}"
           bindload="haveLoad">
         </image>
         <image
           wx:if="{{!logoVisiable}}"        
           mode="aspectFill"
           class="vudioPlayer-cover-show"
-          src="{{coverImage}}">
+          src="{{audioInformationList.header}}">
         </image>
         <image
           wx:if="{{logoVisiable}}"
@@ -28,7 +27,6 @@
     </view>
       <!-- 播放器控制容器 -->
     <view
-      animation="{{controllerAn}}"      
       class="vudioPlayer-controller_contianer {{hiddenController?'':'controllerShow'}}">
       <!-- 播放控制按钮容器 -->    
       <view
@@ -81,14 +79,87 @@
     </view>
   </view>
     <!-- 底部内容容器 -->
-    <scroll-view>
+    <scroll-view
+      scroll-y="true"
+      class="button_container"
+      wx:if="{{audioInformationList.title}}">
+      <view>
+
+      </view>
+      <!-- 标题 -->
       <view
         class="audioTitle">
-        {{audioTitle}}
+        {{audioInformationList.title}}
       </view>
+      <!-- 详细内容 -->
       <view
-        class="audioSinger">
-        {{audioSinger}}
+        class="button_container-content">
+        <view
+          class="button_container-content-title">
+          ABOUT THIS EPISODE
+        </view>
+        {{audioInformationList.about}}
+      </view>
+      <!-- 其他内容 -->
+      <view
+        class="button_container-content"
+        wx:for="{{audioInformationList.relatedInformation}}"
+        wx:key="index1">
+        <view
+          class="button_container-content-title">
+        {{item.title}}
+        </view>
+        <view
+          wx:for="{{item.content}}"
+          wx:key="index2"
+          class="otherInformationItem {{item.url!='0'?'haveUrl':''}}"
+          bindtap="copyUrl"
+          data-url="{{item.url}}">
+          {{item.title}}
+          <!-- {{item.url}} -->
+        </view>
+      </view>
+      <!-- 节目出声 -->
+      <view
+        class="audioSingerContainer">
+        <block
+          wx:for="{{audioInformationList.participant.host}}"
+          wx:key="item">
+          <view class="singerItem">
+            <image
+              mode="widthFix"
+              class="audioSingerIcon"
+              src="{{item.icon}}">
+            </image>
+            <view>
+              {{item.name}}
+            </view>
+            <view
+              class="Identity">
+              EPISODE HOST
+            </view>
+          </view>
+        </block>
+        <block
+          wx:for="{{audioInformationList.participant.guest}}"
+          wx:key="item">
+          <view class="singerItem guest">
+            <image
+              mode="widthFix"
+              class="audioSingerIcon"
+              src="{{item.icon}}">
+            </image>
+            <view>
+              {{item.name}}
+            </view>
+            <view
+              class="Identity">
+              SPECIAL GUEST
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="footer">
       </view>
     </scroll-view>
 </view>

@@ -8,14 +8,6 @@ Page({
    */
   data: {
     hiddenController: false,// 隐藏控制器
-    topOuterBorderAn: [], // 顶部动画
-    controllerAn: [], //控制器动画
-    coverImage: '',
-    audioUrl:'',
-    audioTitle: '',
-    audioEpname: '',
-    audioSinger: '',
-    audioWebUrl: '',
     logoVisiable: true,
     playPosition: 0,
     maxLength: 0,
@@ -26,7 +18,8 @@ Page({
     allTime: '',
     percent: 0,
     nowTimeSecond:0,
-    nowTimeMinutes: 0
+    nowTimeMinutes: 0,
+    audioInformationList: []
   },
 
   /**
@@ -86,8 +79,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data._id = options._id
-    this.data._id = '5b9a850f97880d3b822d5dd7'
+    this.data._id = options._id || '5b9a850f97880d3b822d5dd7'
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })
@@ -98,25 +90,24 @@ Page({
       success: res => {
         console.log(res.data)
         if (res.data.length>=1){
-          audioManager.src = this.data.audioUrl = res.data[0].audioUrl
-          audioManager.title = this.data.audioTitle = res.data[0].title
-          audioManager.epname = this.data.audioEpname = '声东击西'
-          let audioSinger = ''
-          for (let i in res.data[0].participant){
-            for (let j in res.data[0].participant[i]){
-              audioSinger += ` ${res.data[0].participant[i][j].name}`
-            }
-          }
-          audioManager.singer = this.data.audioSinger = audioSinger
-          audioManager.WebUrl = this.data.audioWebUrl = 'https://music.163.com/#/song?id=299939'
-          audioManager.coverImgUrl = this.data.coverImage = res.data[0].header
           this.setData({
-            audioUrl: this.data.audioUrl,
-            audioTitle: this.data.audioTitle,
-            audioEpname: this.data.audioEpname,
-            audioWebUrl: this.data.audioWebUrl,           
-            coverImage: this.data.coverImage,
-            audioSinger: this.data.audioSinger
+            audioInformationList: res.data[0]
+          },()=>{
+            // 音频链接
+            audioManager.src = this.data.audioInformationList.audioUrl;
+            // 音频标题
+            audioManager.title = this.data.audioInformationList.title;
+            // 专辑名
+            audioManager.epname = '声东击西'
+            audioManager.WebUrl = 'https://www.etw.fm/'
+            let audioSinger = ''
+            for (let i in this.data.audioInformationList.participant) {
+              for (let j in this.data.audioInformationList.participant[i]) {
+                audioSinger += ` ${this.data.audioInformationList.participant[i][j].name}`
+              }
+            }
+            audioManager.singer = audioSinger
+            audioManager.coverImgUrl = this.data.audioInformationList.header
           })
         }
       },
@@ -249,7 +240,7 @@ Page({
   handlePlay(){
     console.log(audioManager)
     if (typeof audioManager.src == 'undefined' || audioManager.src == '') {
-      audioManager.src = this.data.audioUrl
+      audioManager.src = this.data.audioInformationList.audioUrl;
     }else{
       audioManager.play()
     }
@@ -282,5 +273,20 @@ Page({
   // 点击了主播放器
   handleVudiPlayertap(){
     this.hiddenControl(!this.data.hiddenController)
+  },
+ // 复制链接
+  copyUrl(e) {
+    console.log(e.target.dataset.url)
+    if (e.target.dataset.url!='0'){
+      wx.setClipboardData({
+        data: e.target.dataset.url,
+        success: function (res) {
+          wx.showToast({
+            icon:'none',
+            title: '链接成功复制到剪贴板'
+          })
+        }
+      })
+    }
   }
 })
