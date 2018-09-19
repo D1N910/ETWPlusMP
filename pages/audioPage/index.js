@@ -7,6 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hiddenController: true,// 隐藏控制器
+    topOuterBorderAn: [], // 顶部动画
+    controllerAn: [], //控制器动画
     coverImage: '',
     audioUrl:'',
     audioTitle: '',
@@ -20,7 +23,8 @@ Page({
     playStatus:1,
     ifShowLoading: false,
     onTimeUpdate: '',
-    allTime: ''
+    allTime: '',
+    percent: 0
   },
 
   /**
@@ -57,6 +61,9 @@ Page({
    * 跳转页面
    */
   seekAudio(currentTime){
+    if (this.data.playStatus){
+      audioManager.play()
+    }
     audioManager.seek(currentTime)
     audioManager.onSeeking(()=>{
       this.setData({
@@ -135,6 +142,7 @@ Page({
         let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
         let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
         this.setData({
+          percent: audioManager.buffered / audioManager.duration * 100,
           playPosition: audioManager.currentTime,
           onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
         }, () => {
@@ -187,6 +195,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.hiddenControl(true)
   },
 
   /**
@@ -246,5 +255,50 @@ Page({
    */
   handleStop(){
     audioManager.stop()
+  },
+  // 隐藏控制器
+  hiddenControl(ifshow){
+    if (ifshow) {
+      var topOuterBorderAn = wx.createAnimation({
+        duration: 400,
+        timingFunction: 'ease',
+      })
+      var controllerAn = wx.createAnimation({
+        duration: 400,
+        timingFunction: 'ease',
+      })
+      this.topOuterBorderAn = topOuterBorderAn
+      this.controllerAn = controllerAn
+
+      topOuterBorderAn.translateY(80).step()
+      controllerAn.translateY(-80).step()
+      this.setData({
+        topOuterBorderAn: topOuterBorderAn.export(),
+        controllerAn: controllerAn.export()
+      })
+    }else{
+      var topOuterBorderAn = wx.createAnimation({
+        duration: 0,
+        timingFunction: 'step-start',
+      })
+      var controllerAn = wx.createAnimation({
+        duration: 0,
+        timingFunction: 'step-start',
+      })
+      this.topOuterBorderAn = topOuterBorderAn
+      this.controllerAn = controllerAn
+
+      topOuterBorderAn.translateY(-80).step()
+      controllerAn.translateY(80).step()
+      this.setData({
+        topOuterBorderAn: topOuterBorderAn.export(),
+        controllerAn: controllerAn.export()
+      })
+    }
+    this.data.hiddenController = !ifshow      
+  },
+  // 点击了主播放器
+  handleVudiPlayertap(){
+    this.hiddenControl(this.data.hiddenController)
   }
 })

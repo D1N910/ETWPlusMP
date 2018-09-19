@@ -1,9 +1,13 @@
 <!--pages/audioPage/index.wxml-->
 <view class="container">
-    <!-- 播放器容器 -->
+  <view class="play-tc">
     <view
-      class="vudioPlayer-container">
-        <view class="topOuterBorder"></view>      
+      class="topOuterBorder"
+      animation="{{topOuterBorderAn}}"></view>      
+      <!-- 播放器容器 -->
+    <view
+      class="vudioPlayer-container"
+      bindtap="handleVudiPlayertap">
         <image   
           mode="aspectFill"
           class="vudioPlayer-cover"
@@ -22,8 +26,10 @@
           src="../../static/logo.jpg">
         </image>
     </view>
-    <!-- 播放器控制容器 -->
-    <view class="vudioPlayer-controller_contianer">
+      <!-- 播放器控制容器 -->
+    <view
+      animation="{{controllerAn}}"      
+      class="vudioPlayer-controller_contianer">
       <!-- 播放控制按钮容器 -->    
       <view
         class="vudioPlayer-controller">
@@ -46,22 +52,34 @@
           ></text>
       </view>
       <!-- 显示播放进度 -->
-      <slider
-        class="progressBar"
-        bindchanging="handleChangeing"
-        bindchange="handleSliderChange"
-        activeColor="#fd4337"
-        backgroundColor="rgba(255,255,255,0.3)"
-        value="{{playPosition}}"
-        min="0"
-        max="{{maxLength}}"
-        block-size="14"/>
-        <view class="audio-time">
-          <view
-            wx:if="{{allTime!=''}}"
-          >{{onTimeUpdate}} / {{allTime}}</view>
-        </view>
+      <view
+        class="progressBar">
+        <slider
+          class="playSlider"
+          bindchanging="handleChangeing"
+          bindchange="handleSliderChange"
+          activeColor="#fd4337"
+          backgroundColor="rgba(255,255,255,0)"
+          value="{{playPosition}}"
+          min="0"
+          max="{{maxLength}}"
+          block-size="14"/>
+        <!-- 缓冲条 -->
+        <progress
+          class="playProgress"        
+          activeColor="rgba(255,255,255,0.7)"
+          backgroundColor="rgba(255,255,255,0.3)"
+          stroke-width="2"
+          percent="{{percent}}"
+          active />
+      </view>
+      <view class="audio-time">
+        <view
+          wx:if="{{allTime!=''}}"
+        >{{onTimeUpdate}} / {{allTime}}</view>
+      </view>
     </view>
+  </view>
     <!-- 底部内容容器 -->
     <scroll-view>
       <view
