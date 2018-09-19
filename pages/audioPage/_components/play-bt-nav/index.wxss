@@ -1,0 +1,27 @@
+/* pages/audioPage/_components/play-bt-nav/index.wxss */
+.nav-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  position: relative;
+  font-size: 28rpx;
+  padding: 8rpx 0;
+  margin: 0 0 16rpx 0;
+}
+.nav-item{
+  flex: 1;
+}
+.underLine{
+  position: absolute;
+  width: 56rpx;
+  height: 6rpx;
+  border-radius: 6rpx;
+  background-color: #e23f3e;
+  bottom: 0px;
+  left: calc(25% - 28rpx);
+  transition: left 0.4s ease;
+}
+.underLinePing{
+  left: calc(75% - 28rpx);
+}

@@ -1,0 +1,96 @@
+<!--音频信息－简介-->
+<scroll-view
+  scroll-y="true"
+  class="button_container"
+  wx:if="{{audioInformationList.title}}">
+  <!-- 节目出声 -->
+  <view
+    class="audioSingerContainer">
+    <block
+      wx:for="{{audioInformationList.participant.host}}"
+      wx:key="item">
+      <view class="singerItem">
+        <image
+          mode="widthFix"
+          class="audioSingerIcon"
+          src="{{item.icon}}">
+        </image>
+        <view>
+          {{item.name}}
+        </view>
+        <view
+          class="Identity">
+          EPISODE HOST
+        </view>
+      </view>
+    </block>
+    <block
+      wx:for="{{audioInformationList.participant.guest}}"
+      wx:key="item">
+      <view class="singerItem guest">
+        <image
+          mode="widthFix"
+          class="audioSingerIcon"
+          src="{{item.icon}}">
+        </image>
+        <view>
+          {{item.name}}
+        </view>
+        <view
+          class="Identity">
+          SPECIAL GUEST
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 音频流信息 -->
+  <view class="audioTitle">
+    #{{audioInformationList.audioId}} {{audioInformationList.title}}
+  </view>
+  <!-- 关键词 -->
+  <view
+    class="keywords-container">
+    <view
+      class="keywords-item"
+      wx:for="{{audioInformationList.keywords}}"
+      wx:key="index">
+      {{item}}
+    </view>          
+  </view>
+  <!-- 标题 -->
+  <view
+    class="audioInformation">
+    {{audioInformationList.pubDate}}
+    
+  </view>
+  <!-- 详细内容 -->
+  <view
+    class="button_container-content">
+    <!-- <view
+      class="button_container-content-title">
+      ABOUT THIS EPISODE
+    </view> -->
+    {{audioInformationList.about}}
+  </view>
+  <!-- 其他内容 -->
+  <view
+    class="button_container-content"
+    wx:for="{{audioInformationList.relatedInformation}}"
+    wx:key="index1">
+    <view
+      class="button_container-content-title">
+    {{item.title}}
+    </view>
+    <view
+      wx:for="{{item.content}}"
+      wx:key="index2"
+      class="otherInformationItem {{item.url!='0'?'haveUrl':''}}"
+      bindtap="copyUrl"
+      data-url="{{item.url}}">
+      {{item.title}}
+      <!-- {{item.url}} -->
+    </view>
+  </view>
+  <view class="footer">
+  </view>
+</scroll-view>

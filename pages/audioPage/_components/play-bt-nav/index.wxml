@@ -1,0 +1,20 @@
+<!--pages/audioPage/_components/play-bt-nav/index.wxml-->
+  <view
+    class="play-bt-nav">
+    <view
+      class="nav-container">
+      <view
+        class="nav-item"
+        data-nav='0'
+        bindtap='clickNav'>
+        简介
+      </view>
+      <view
+        class="nav-item"      
+        data-nav='1'      
+        bindtap="clickNav">
+        评论
+      </view>
+      <view class="underLine {{ifping?'underLinePing':''}}"></view>
+    </view>
+  </view>

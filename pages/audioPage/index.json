@@ -1,3 +1,7 @@
 {
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "audio-blurb": "./_components/blurb/index",
+    "play-bt-nav": "./_components/play-bt-nav/index"
+  }
 }

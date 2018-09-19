@@ -22,9 +22,38 @@ Page({
     percent: 0,
     nowTimeSecond:0,
     nowTimeMinutes: 0,
-    audioInformationList: []
+    audioInformationList: [],
+    ifping: false,
+    current: 0
   },
 
+  /**
+   * clickNav
+   */
+  clickNav(e){
+    if (e.detail.currentTarget.dataset.nav == '0'){
+      this.data.ifping = false
+      this.data.current = 0
+    }else{
+      this.data.ifping = true      
+      this.data.current = 1      
+    }
+    this.setData({
+      ifping: this.data.ifping,
+      current: this.data.current
+    })
+  },
+  swiperChange(e){
+    this.data.current = e.detail.current
+    if (e.detail.current==0){
+      this.data.ifping = false      
+    }else{
+      this.data.ifping = true      
+    }
+    this.setData({
+      ifping: this.data.ifping
+    })
+  },
   /**
    * 图片加载完成
    */
@@ -95,7 +124,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log()
     setStatusBarHeight(app, this)    
     this.data._id = options._id || '5b9a869e97880d3b822d5e8d'
     wx.cloud.init({
