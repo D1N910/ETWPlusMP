@@ -1,5 +1,8 @@
 // 定义全局的音频
 var audioManager = wx.getBackgroundAudioManager()
+import { setStatusBarHeight } from "../../utils/util.js"
+const app = getApp()
+
 // pages/audioPage/index.js
 Page({
 
@@ -79,7 +82,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data._id = options._id || '5b9a850f97880d3b822d5dd7'
+    setStatusBarHeight(app, this)    
+    this.data._id = options._id || '5b9a869e97880d3b822d5e8d'
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })

@@ -1,8 +1,31 @@
 <!--pages/audioPage/index.wxml-->
 <view class="container">
   <view class="play-tc">
+    <!-- 顶部容器 -->
     <view
-      class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}}"></view>      
+      class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}}">
+        <!-- 状态栏撑高 -->
+      <view
+        style="height:{{topStatus}}px;"></view>
+      <view
+        class="navigationBar"
+        style="height:{{capsuleHeight}}px;">
+          <view
+            class="userAvatar">
+            <open-data
+              type="userAvatarUrl"
+            ></open-data>
+          </view>
+          <view
+            class="seach-container">
+            <i
+              class="iconfont icon-web-icon- input-icon"></i>
+            <input
+              placeholder="搜索喜欢的内容"
+              class="input"></input>
+          </view>      
+        </view>
+      </view>      
       <!-- 播放器容器 -->
     <view
       class="vudioPlayer-container"
@@ -91,6 +114,20 @@
         class="audioTitle">
         {{audioInformationList.title}}
       </view>
+      <view
+        class='time'>
+        {{audioInformationList.pubDate}}
+      </view>
+      <!-- 关键词 -->
+      <view
+        class="keywords-container">
+        <view
+          class="keywords-item"
+          wx:for="{{audioInformationList.keywords}}"
+          wx:key="index">
+          {{item}}
+        </view>          
+      </view>
       <!-- 详细内容 -->
       <view
         class="button_container-content">
@@ -162,4 +199,10 @@
       <view class="footer">
       </view>
     </scroll-view>
+        <slider
+          activeColor="#fd4337"
+          backgroundColor="rgba(255,255,255,1)"
+          min="0"
+          max="1000"
+          block-size="14"/>
 </view>

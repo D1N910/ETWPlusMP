@@ -56,7 +56,6 @@
 /* 顶部阴影 */
 .topOuterBorder{
   width: 100%;
-  height: 40px;
   position: absolute;
   left: 0px;
   top: -80px;
