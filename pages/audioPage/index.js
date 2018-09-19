@@ -54,7 +54,7 @@ Page({
     let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
     let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
 
-    if (this.data.nowTimeMinutes < minuteInt || this.data.nowTimeSecond < secondInt) {
+    if (this.data.nowTimeMinutes != minuteInt || this.data.nowTimeSecond != secondInt) {
       this.data.nowTimeMinutes = minuteInt
       this.data.nowTimeSecond = secondInt
       this.setData({
@@ -148,7 +148,7 @@ Page({
         let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
         let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
         // 提高性能，每一秒才刷新一次
-        if (this.data.nowTimeMinutes < minuteInt || this.data.nowTimeSecond < secondInt){
+        if (this.data.nowTimeMinutes != minuteInt || this.data.nowTimeSecond != secondInt){
           this.data.nowTimeMinutes = minuteInt          
           this.data.nowTimeSecond = secondInt
           this.setData({
