@@ -1,0 +1,52 @@
+  <!-- 播放控制容器 -->
+    <view
+      class="vudioPlayer-controller_contianer {{hiddenController?'':'controllerShow'}}">
+      <!-- 播放控制按钮容器 -->    
+      <view
+        class="vudioPlayer-controller">
+        <!-- 点击播放 -->
+        <text
+          class="iconfont icon-play controller-button"
+          bindtap="handlePlay"
+          wx:if="{{playStatus && ifShowLoading}}"
+          ></text>
+        <!-- 点击暂停 -->            
+        <text
+          bindtap="handlePause"
+          class="iconfont icon-pause controller-button"
+          wx:if="{{!playStatus && ifShowLoading}}"            
+          ></text>
+        <!-- 显示加载 -->
+          <text
+            class="controller-button weuiLoading"
+            wx:if="{{!ifShowLoading}}"            
+          ></text>
+      </view>
+      <!-- 显示播放进度 -->
+      <view
+        class="progressBar">
+        <slider
+          class="playSlider"
+          bindchanging="handleChangeing"
+          bindchange="handleSliderChange"
+          activeColor="#fd4337"
+          backgroundColor="rgba(255,255,255,0)"
+          value="{{playPosition}}"
+          min="0"
+          max="{{maxLength}}"
+          block-size="14"/>
+        <!-- 缓冲条 -->
+        <progress
+          class="playProgress"        
+          activeColor="rgba(255,255,255,0.7)"
+          backgroundColor="rgba(255,255,255,0.3)"
+          stroke-width="2"
+          percent="{{percent}}"
+          active />
+      </view>
+      <view class="audio-time">
+        <view
+          wx:if="{{allTime!=''}}"
+        >{{onTimeUpdate}} / {{allTime}}</view>
+      </view>
+    </view>

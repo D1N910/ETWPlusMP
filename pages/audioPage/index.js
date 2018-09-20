@@ -64,28 +64,10 @@ Page({
   /**
    * 更改完成
    */
-  handleSliderChange(e){
-    this.data.touchSlip = false
-    this.seekAudio(e.detail.value)
-  },
-  /**
-   * 开始更改
-   */
-  handleChangeing(e){
-    let minuteInt = parseInt(e.detail.value / 60)
-    let secondInt = parseInt((e.detail.value  / 60 - minuteInt) * 60)
-    let nowTimeMinutes = minuteInt < 10 ? '0' + minuteInt : minuteInt
-    let nowTimeSecond = secondInt < 10 ? '0' + secondInt : secondInt
-
-    if (this.data.nowTimeMinutes != minuteInt || this.data.nowTimeSecond != secondInt) {
-      this.data.nowTimeMinutes = minuteInt
-      this.data.nowTimeSecond = secondInt
-      this.setData({
-        onTimeUpdate: `${nowTimeMinutes}:${nowTimeSecond}`
-      })
-    }
-    this.data.touchSlip = true
-  },
+  // handleSliderChange(e){
+  //   this.data.touchSlip = false
+  //   this.seekAudio(e.detail.value)
+  // },
   /**
    * 跳转进度
    */
@@ -264,7 +246,16 @@ Page({
   onShareAppMessage: function () {
 
   },
-
+  // 播放条修改事件
+  handSlider(e){
+    if (e.detail.touchSlip){
+      this.data.touchSlip = e.detail.touchSlip      
+    }else{
+      console.log(e)
+      this.data.touchSlip = e.detail.touchSlip      
+      this.seekAudio(e.detail.value)
+    }
+  },
   /**
    * 点击播放
    */
