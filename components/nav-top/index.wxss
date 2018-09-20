@@ -1,0 +1,15 @@
+@import '../../app.wxss';
+/* components/nav-top/index.wxss */
+/* 顶部阴影 */
+.topOuterBorder{
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: -80px;
+  background: -webkit-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4),rgba(0,0,0,0));
+  z-index: 999;
+  transition: all 0.4s ease;
+}
+.topOuterBorderShow{
+  top: 0;
+}

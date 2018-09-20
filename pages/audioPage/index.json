@@ -2,6 +2,7 @@
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "audio-blurb": "./_components/blurb/index",
-    "play-bt-nav": "./_components/play-bt-nav/index"
+    "play-bt-nav": "./_components/play-bt-nav/index",
+    "nav-top": "../../components/nav-top/index"
   }
 }

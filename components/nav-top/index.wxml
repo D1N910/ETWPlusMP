@@ -1,0 +1,25 @@
+<!-- 顶部导航栏 -->
+<view
+  class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}}">
+    <!-- 状态栏撑高 -->
+  <view
+    style="height:{{topStatus}}px;"></view>
+    <view
+      class="navigationBar"
+      style="height:{{capsuleHeight}}px;">
+      <view
+        class="navigationController">
+        <!-- 返回 -->
+        <i
+          wx:if="{{pageLength>1}}"
+          data-status="-1"
+          bindtap="navigateTo"
+          class="iconfont icon-fanhui"></i>
+        <!-- 回到主页 -->            
+        <i
+          data-status="999"            
+          bindtap="navigateTo"            
+          class="iconfont icon-shouye"></i>  
+      </view>
+    </view>
+  </view>      
