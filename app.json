@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/audioPage/index",
-    "pages/startup/index",
+    "pages/startup/index",    
+    "pages/audioPage/index",    
     "pages/index/index"
   ],
   "window": {

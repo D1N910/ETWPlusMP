@@ -8,23 +8,16 @@
     <view
       class="vudioPlayer-container"
       bindtap="handleVudiPlayertap">
-        <image   
-          mode="aspectFill"
-          class="vudioPlayer-cover"
-          src="{{audioInformationList.header}}"
-          bindload="haveLoad">
-        </image>
-        <image
-          wx:if="{{!logoVisiable}}"        
-          mode="aspectFill"
-          class="vudioPlayer-cover-show"
-          src="{{audioInformationList.header}}">
-        </image>
-        <image
-          wx:if="{{logoVisiable}}"
-          class="vudioPlayer-cover-logo-show"        
-          src="../../static/logo.jpg">
-        </image>
+      <image
+        mode="aspectFill"
+        class="vudioPlayer-cover-show"
+        src="{{audioInformationList.header}}">
+      </image>
+      <image
+        wx:if="{{logoVisiable}}"
+        class="vudioPlayer-cover-logo-show"        
+        src="../../static/logo.jpg">
+      </image>
     </view>
       <!-- 播放器控制容器 -->
     <vudioPlayer-controller-contianer

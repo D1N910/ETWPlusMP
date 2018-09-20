@@ -244,7 +244,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.audioInformationList.title,
+      path: `pages/audioPage/index?_id=${this.data._id}`
+    }
   },
   // 播放条修改事件
   handSlider(e){

@@ -4,7 +4,7 @@
 }
 /* pages/audioPage/index.wxss */
 .play-tc{
-  width: 100%;
+  width: 100vw;
   height: 600rpx;
   position: relative;
   overflow: hidden;  
@@ -17,20 +17,10 @@
   overflow: hidden;
   background-color: #f3f3f3;
 }
-/* 音频背景高斯模糊 */
-.vudioPlayer-cover{
-  width: 150%;
-  height: 150%;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  filter: blur(60px);
-}
 /* 音频图片 */
 .vudioPlayer-cover-show{
-  width: 340rpx;
-  height: 340rpx;
-  border-radius: 50%;
+  width: 100vw;
+  height: 100%;
   position: absolute;
   left: 0px;
   right: 0px;
@@ -39,6 +29,7 @@
   margin: auto;
   box-shadow: 0 0 20px #fff;
   border:1px solid #fff;
+  z-index: 2；  
 }
 /* 缓冲图片 */
 .vudioPlayer-cover-logo-show{
@@ -51,7 +42,7 @@
   bottom: 0px;
   margin: auto;
   opacity: 0.3;
-  z-index: 999；
+  z-index: 1；
 }
 
 /* 音频播放控制器 */
