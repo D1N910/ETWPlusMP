@@ -1,4 +1,5 @@
 .container{
+  min-height: 100vh;
   padding-bottom: 0rpx;
 }
 /* pages/audioPage/index.wxss */
@@ -143,5 +144,5 @@
 }
 .play-bt .playContentShowContainer{
   display: block;
-  height: 100%;
+  height: calc(100% - 74rpx);
 }

@@ -23,7 +23,19 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    // 跳转页面
+    navigateTo(e) {
+      console.log(e.currentTarget.dataset.status)
+      if (e.currentTarget.dataset.status == '-1') {
+        wx.navigateBack({
+          delta: 1
+        })
+      } else {
+        wx.redirectTo({
+          url: '/pages/index/index'
+        })
+      }
+    }
   },
   attached(){
     setStatusBarHeight(app, this)    
