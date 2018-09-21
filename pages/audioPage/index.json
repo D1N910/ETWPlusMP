@@ -4,7 +4,6 @@
     "audio-blurb": "./_components/blurb/index",
     "play-bt-nav": "./_components/play-bt-nav/index",
     "vudioPlayer-controller-contianer": "./_components/vudioPlayer-controller-contianer/index",
-      
     "nav-top": "../../components/nav-top/index"
     }
 }

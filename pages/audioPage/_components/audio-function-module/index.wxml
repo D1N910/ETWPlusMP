@@ -1,0 +1,14 @@
+<!--pages/audioPage/_components/audio-function-module/index.wxml-->
+<view
+  class="audio-function-module_container">
+  <view>
+    <text class="iconfont icon-biaoji"></text>
+    <view
+      class="number-container">100</view>    
+  </view>
+  <view>
+    <text class="iconfont icon-fenxiang"></text>
+    <view
+      class="number-container">100</view>    
+  </view>
+</view>

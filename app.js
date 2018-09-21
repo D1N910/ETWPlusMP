@@ -1,6 +1,10 @@
 //app.js
 App({
   onLaunch() {
+    // 完成初始化
+    wx.cloud.init({
+      env: 'etwplus-test-485c18'
+    })
     var that = this
     wx.getSystemInfo({
       success(res){
@@ -15,9 +19,6 @@ App({
       }
     })
     // 获取首页轮播图内容
-    // wx.cloud.init({
-    //   env: 'etwplus-test-485c18'
-    // })
     // const db = wx.cloud.database()
     // db.collection('audioList').where({
     // }).get({

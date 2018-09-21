@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    inAllScreen:[],// 全屏
     hiddenController: false,// 隐藏控制器
-    logoVisiable: true,
     playPosition: 0,
     maxLength: 0,
     touchSlip: false,
@@ -21,44 +21,40 @@ Page({
     nowTimeSecond:0,
     nowTimeMinutes: 0,
     audioInformationList: [],
-    ifping: false,
+    ifping: 0,
     current: 0
   },
 
+  // 全屏显示
+  ToMaximize() {
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+
+    this.animation = animation
+
+    animation.height('100vh').step()
+
+    this.setData({
+      inAllScreen: animation.export()
+    })
+
+  },
+
   /**
-   * clickNav
+   * 点击导航栏
    */
   clickNav(e){
-    if (e.detail.currentTarget.dataset.nav == '0'){
-      this.data.ifping = false
-      this.data.current = 0
-    }else{
-      this.data.ifping = true      
-      this.data.current = 1      
-    }
     this.setData({
-      ifping: this.data.ifping,
-      current: this.data.current
+      ifping: parseInt(e.detail.currentTarget.dataset.nav),
+      current: parseInt(e.detail.currentTarget.dataset.nav)
     })
   },
   swiperChange(e){
-    this.data.current = e.detail.current
-    if (e.detail.current==0){
-      this.data.ifping = false      
-    }else{
-      this.data.ifping = true      
-    }
+    console.log(e.detail.current)
     this.setData({
-      ifping: this.data.ifping
-    })
-  },
-  /**
-   * 图片加载完成
-   */
-  haveLoad(){
-    // 图片加载完成后隐藏logo
-    this.setData({
-      logoVisiable:false      
+      ifping: e.detail.current
     })
   },
   /**
@@ -92,10 +88,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.cloud.callFunction({
+      name:'test',
+      success(res){
+        console.log(res)
+      }
+    })
     this.data._id = options._id || '5b9a869e97880d3b822d5e8d'
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })
+
     const db = wx.cloud.database()
     db.collection('audioList').where({
       _id: this.data._id

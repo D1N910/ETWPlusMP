@@ -1,6 +1,6 @@
 /* pages/audioPage/_components/play-bt-nav/index.wxss */
 .play-bt-nav{
-  height: 60rpx;
+  height: 50rpx;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);  
 }
 .nav-container{
@@ -15,6 +15,11 @@
 }
 .nav-item{
   flex: 1;
+  color: #666666;  
+  transition: color 0.4s;  
+}
+.nav-item-choice{
+  color: #e23f3e;
 }
 .underLine{
   position: absolute;
@@ -23,9 +28,15 @@
   border-radius: 6rpx;
   background-color: #e23f3e;
   bottom: 0px;
-  left: calc(25% - 28rpx);
-  transition: left 0.4s ease;
+  left: calc(100vw/6 - 28rpx);
+  transition: all 0.4s ease;
 }
-.underLinePing{
-  left: calc(75% - 28rpx);
+.underLine0{
+  left: calc(100vw/6 - 28rpx);
+}
+.underLine1{
+  left: calc(50vw - 28rpx);
+}
+.underLine2{
+  left: calc(100vw - 100vw/6 - 28rpx);
 }

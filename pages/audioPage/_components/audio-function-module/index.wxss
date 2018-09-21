@@ -1,0 +1,14 @@
+/* pages/audioPage/_components/audio-function-module/index.wxss */
+@import '../../../../static/css/iconfont.wxss';
+.audio-function-module_container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.audio-function-module_container .iconfont{
+  font-size: 50rpx;  
+}
+.number-container{
+  font-size: 18rpx;
+  text-align: center;
+}

@@ -1,13 +1,10 @@
-// pages/audioPage/_components/play-bt-nav/index.js
+// pages/audioPage/_components/audio-function-module/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    ifping: {
-      type: Number,
-      value: 0
-    }
+
   },
 
   /**
@@ -21,8 +18,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    clickNav(e){
-      this.triggerEvent('clickNav', e)
-    }
+
   }
 })

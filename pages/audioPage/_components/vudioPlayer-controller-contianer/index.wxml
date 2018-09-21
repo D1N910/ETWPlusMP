@@ -45,9 +45,15 @@
           percent="{{percent}}"
           active />
       </view>
+      <!-- 显示全部时间 -->
       <view class="audio-time">
         <view
           wx:if="{{allTime!=''}}"
         >{{onTimeUpdate}} / {{allTime}}</view>
       </view>
+      <!-- 全屏 -->
+      <text
+        bindtap="ToMaximize"
+        class="iconfont icon-zhankaishangxia allPing">
+      </text>
     </view>

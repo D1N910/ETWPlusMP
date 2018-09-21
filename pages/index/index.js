@@ -55,6 +55,7 @@ Page({
         dataList: app.gobalData.audioList
       },()=>{
         setTimeout(()=>{
+          clearInterval(loadingInterval)
           wx.stopPullDownRefresh()
           this.setData({
             isRefreshing: false

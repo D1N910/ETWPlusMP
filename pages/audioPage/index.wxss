@@ -135,5 +135,5 @@
 }
 .play-bt .playContentShowContainer{
   display: block;
-  height: calc(100% - 74rpx);
+  height: calc(100% - 50rpx);
 }

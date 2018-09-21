@@ -45,6 +45,14 @@
   font-size: 56rpx;
   color: #fff;
 }
+/* 全屏 */
+.allPing{
+  color:#fff;
+  font-weight: bolder;
+  font-size: 40rpx;
+  text-align: center;
+  padding: 0 30rpx 0 0;
+}
 /* 加载动画 */
 .weuiLoading {
     width: 50rpx;

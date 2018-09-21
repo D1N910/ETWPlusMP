@@ -1,20 +1,22 @@
 <!--pages/audioPage/index.wxml-->
 <view class="container">
-  <view class="play-tc">
+  <view
+    class="play-tc"
+    animation="{{inAllScreen}}">
     <!-- 顶部容器 -->
     <nav-top
       hiddenController="{{hiddenController}}"/>
       <!-- 播放器容器 -->
     <view
       class="vudioPlayer-container"
-      bindtap="handleVudiPlayertap">
+      bindtap="handleVudiPlayertap"
+      animation="{{inAllScreen}}">      
       <image
         mode="aspectFill"
         class="vudioPlayer-cover-show"
         src="{{audioInformationList.header}}">
       </image>
       <image
-        wx:if="{{logoVisiable}}"
         class="vudioPlayer-cover-logo-show"        
         src="../../static/logo.jpg">
       </image>
@@ -27,6 +29,7 @@
       playPosition="{{playPosition}}"
       maxLength="{{maxLength}}"
       percent="{{percent}}"
+      bindToMaximize="ToMaximize"      
       bindhandlePlay="handlePlay"
       bindhandlePause="handlePause"
       bindhandSlider="handSlider"
@@ -44,6 +47,11 @@
       bindchange="swiperChange"
       current="{{current}}"
       class="playContentShowContainer">
+      <swiper-item>
+        <audio-blurb
+          audioInformationList="{{audioInformationList}}"
+        />
+      </swiper-item>
       <swiper-item>
         <audio-blurb
           audioInformationList="{{audioInformationList}}"

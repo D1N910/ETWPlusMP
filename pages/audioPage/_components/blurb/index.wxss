@@ -1,14 +1,28 @@
+@import '../../../../static/css/iconfont.wxss';
 /* 底部内容容器 */
 .button_container{
   height: calc(100vh - 600rpx - 16rpx);
   padding: 16rpx 0 0 30rpx;
   width: calc(100vw - 30rpx);
+  color: #666666;  
 }
 /* 标题 */
 .audioTitle{
-  padding: 0 0 8rpx 0;
-  margin: 16rpx 0 0 0;
+  font-size: 32rpx;
+  margin: 16rpx 0 30rpx 0;
   width: 100%;
+}
+.audioInformation{
+  font-size: 24rpx;
+  display: flex;
+  margin: 0 0 30rpx 0;  
+}
+.audioInformationItem{
+  margin: 0 16rpx 0 0;
+}
+.audioInformation .iconfont{
+  font-size: 22rpx;
+  margin: 0 10rpx 0 0;
 }
 .keywords-container{
   display: flex;

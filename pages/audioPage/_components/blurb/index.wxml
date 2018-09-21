@@ -3,6 +3,27 @@
   scroll-y="true"
   class="button_container"
   wx:if="{{audioInformationList.title}}">
+  <!-- 标题 -->
+  <view class="audioTitle">
+    #{{audioInformationList.audioId}} {{audioInformationList.title}}
+  </view>
+  <!-- 音频流信息 -->  
+  <view
+    class="audioInformation">
+    <view
+      class="audioInformationItem">
+      <text class="iconfont icon-touting"></text>1.3万
+    </view>
+    <view
+      class="audioInformationItem">    
+      <text class="iconfont icon-danmu"></text>999
+    </view>
+    <view
+      class="audioInformationItem">
+      {{audioInformationList.pubDate}}
+    </view>
+  </view>
+  <audio-function-module />
   <!-- 节目出声 -->
   <view
     class="audioSingerContainer">
@@ -43,10 +64,6 @@
       </view>
     </block>
   </view>
-  <!-- 音频流信息 -->
-  <view class="audioTitle">
-    #{{audioInformationList.audioId}} {{audioInformationList.title}}
-  </view>
   <!-- 关键词 -->
   <view
     class="keywords-container">
@@ -56,12 +73,6 @@
       wx:key="index">
       {{item}}
     </view>          
-  </view>
-  <!-- 标题 -->
-  <view
-    class="audioInformation">
-    {{audioInformationList.pubDate}}
-    
   </view>
   <!-- 详细内容 -->
   <view

@@ -55,6 +55,10 @@ Component({
     handlePause() {
       this.triggerEvent('handlePause')            
     },
+    // 最大化
+    ToMaximize() {
+      this.triggerEvent('ToMaximize')            
+    },
     /**
      * 开始更改
      */
