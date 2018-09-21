@@ -132,6 +132,7 @@
 /* 播放底部 */
 .play-bt{
   height: calc(100vh - 600rpx);
+  overflow: hidden;
 }
 .play-bt .playContentShowContainer{
   display: block;

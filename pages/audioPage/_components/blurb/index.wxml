@@ -27,42 +27,16 @@
   <!-- 节目出声 -->
   <view
     class="audioSingerContainer">
-    <block
+    <audio-singer-item 
       wx:for="{{audioInformationList.participant.host}}"
-      wx:key="item">
-      <view class="singerItem">
-        <image
-          mode="widthFix"
-          class="audioSingerIcon"
-          src="{{item.icon}}">
-        </image>
-        <view>
-          {{item.name}}
-        </view>
-        <view
-          class="Identity">
-          EPISODE HOST
-        </view>
-      </view>
-    </block>
-    <block
-      wx:for="{{audioInformationList.participant.guest}}"
-      wx:key="item">
-      <view class="singerItem guest">
-        <image
-          mode="widthFix"
-          class="audioSingerIcon"
-          src="{{item.icon}}">
-        </image>
-        <view>
-          {{item.name}}
-        </view>
-        <view
-          class="Identity">
-          SPECIAL GUEST
-        </view>
-      </view>
-    </block>
+      wx:key="item"
+      ifHost="{{true}}"
+      item="{{item}}"/>
+      <audio-singer-item 
+        wx:for="{{audioInformationList.participant.guest}}"
+        wx:key="item"
+        ifHost="{{false}}"
+        item="{{item}}"/>
   </view>
   <!-- 关键词 -->
   <view

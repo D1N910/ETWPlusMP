@@ -1,0 +1,16 @@
+<!-- 主持人子容器  -->
+<view
+  class="singerItem {{ifHost?'':'guest'}}">
+  <image
+    mode="widthFix"
+    class="audioSingerIcon"
+    src="{{item.icon}}">
+  </image>
+  <view>
+    {{item.name}}
+  </view>
+  <view
+    class="Identity">
+    EPISODE HOST
+  </view>
+</view>

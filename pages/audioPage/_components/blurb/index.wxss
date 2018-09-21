@@ -56,35 +56,8 @@
   display: flex;
   font-size: 28rpx;
   flex-wrap: wrap;
-  margin: 0 0 30rpx 0;
-}
-/* 主持人子容器 */
-.singerItem{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 30rpx 16rpx 0;
-  flex: 1;
-  min-width: 150rpx;
-}
-/* 头像 */
-.audioSingerIcon{
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #ededed;
-}
-/* 身份 */
-.Identity{
-  background-color: #e23f3e;
-  color: #fff;
-  padding: 0 8rpx;
-  border-radius: 6rpx;
-  font-size: 18rpx;
-}
-.guest .Identity{
-  background-color: #337ab7;
+  margin: 30rpx 0 30rpx 0;
+  justify-content: space-around;
 }
 .footer{
   height: 70rpx;

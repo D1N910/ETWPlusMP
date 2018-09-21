@@ -42,7 +42,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    ToMaximize: false
   },
 
   /**
@@ -57,7 +57,17 @@ Component({
     },
     // 最大化
     ToMaximize() {
+      this.setData({
+        ToMaximize: true
+      })
       this.triggerEvent('ToMaximize')            
+    },
+    // 最小化
+    ToMinimize() {
+      this.setData({
+        ToMaximize: false
+      })
+      this.triggerEvent('ToMinimize')            
     },
     /**
      * 开始更改

@@ -29,6 +29,7 @@
       playPosition="{{playPosition}}"
       maxLength="{{maxLength}}"
       percent="{{percent}}"
+      bindToMinimize="ToMinimize"
       bindToMaximize="ToMaximize"      
       bindhandlePlay="handlePlay"
       bindhandlePause="handlePause"
@@ -39,6 +40,7 @@
       <!-- bindhandleSliderChange="handleSliderChange" -->
   
   <view
+    animation="{{toNone}}"
     class="play-bt">
     <play-bt-nav
       bindclickNav="clickNav"

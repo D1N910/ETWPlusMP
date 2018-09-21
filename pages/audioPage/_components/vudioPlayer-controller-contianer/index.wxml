@@ -54,6 +54,12 @@
       <!-- 全屏 -->
       <text
         bindtap="ToMaximize"
-        class="iconfont icon-zhankaishangxia allPing">
+        wx:if="{{!ToMaximize}}"
+        class="iconfont icon-zhankai allPing">
+      </text>
+        <text
+        wx:if="{{ToMaximize}}"        
+        bindtap="ToMinimize"
+        class="iconfont icon-shouqi allPing">
       </text>
     </view>

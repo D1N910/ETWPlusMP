@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ifInAllScreen: false,
     inAllScreen:[],// 全屏
+    toNone: [],// 缩小屏幕
     hiddenController: false,// 隐藏控制器
     playPosition: 0,
     maxLength: 0,
@@ -25,19 +27,50 @@ Page({
     current: 0
   },
 
-  // 全屏显示
-  ToMaximize() {
+  // 最小化
+  ToMinimize() {
     var animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'ease',
     })
 
-    this.animation = animation
+    var animationToNone = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
 
-    animation.height('100vh').step()
+    this.animation = animation
+    this.animationToNone = animationToNone
+
+    animation.height('600rpx').step()
+    animationToNone.height('calc(100vh - 600rpx)').step()
 
     this.setData({
-      inAllScreen: animation.export()
+      inAllScreen: animation.export(),
+      toNone: animationToNone.export()
+    })
+  },
+
+  // 最大化
+  ToMaximize() {
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+    var animationToNone = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+
+    this.animation = animation
+    this.animationToNone = animationToNone
+
+    animation.height('100vh').step()
+    animationToNone.height('0').step()
+
+    this.setData({
+      inAllScreen: animation.export(),
+      toNone: animationToNone.export()      
     })
 
   },
