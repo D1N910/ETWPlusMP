@@ -3,6 +3,7 @@
   "pages": [
     "pages/audioPage/index",    
     "pages/startup/index",    
+    "pages/login/index",    
     "pages/index/index"
   ],
   "window": {

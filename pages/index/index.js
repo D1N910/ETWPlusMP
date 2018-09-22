@@ -50,9 +50,9 @@ Page({
       })
       return false
     }
-    if (app.gobalData.audioList){
+    if (app.globalData.audioList){
       this.setData({
-        dataList: app.gobalData.audioList
+        dataList: app.globalData.audioList
       },()=>{
         setTimeout(()=>{
           clearInterval(loadingInterval)
@@ -62,7 +62,7 @@ Page({
           })
 
           var blockAnimation = wx.createAnimation({
-            duration: 600,
+            duration: 300,
             timingFunction: 'ease',
           })
 
@@ -75,12 +75,12 @@ Page({
           })
           setTimeout(()=>{
 
-            blockAnimation.rotateX(0).opacity(1).step()
+            blockAnimation.rotateX(360).opacity(1).step()
 
             this.setData({
               blockAnimation: blockAnimation.export()
             })
-          },800)
+          },400)
         }, 1000)
       })
     }else{

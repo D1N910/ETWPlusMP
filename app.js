@@ -1,20 +1,35 @@
 //app.js
 App({
   onLaunch() {
+    var that = this    
     // 完成初始化
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })
-    var that = this
+    // 展示本地存储能力
+    var logs = wx.getStorageSync('logs') || []
+    logs.unshift(Date.now())
+    wx.setStorageSync('logs', logs)
+
+    wx.cloud.callFunction({
+      name: 'ifhaveLogin',
+      success(res) {
+        if (res.result.status == 200) {
+          that.globalData.userInfo = res.result.data[0]
+          that.globalData.login = true
+        }else{
+          that.globalData.login = false          
+        }
+      }
+    })
     wx.getSystemInfo({
       success(res){
-        that.gobalData.statusBarHeight = res.statusBarHeight
-        console.log()
+        that.globalData.statusBarHeight = res.statusBarHeight
         // 检测是安卓还是苹果
         if (res.system.indexOf('Android')==0){
-          that.gobalData.capsuleHeight = 48
+          that.globalData.capsuleHeight = 48
         }else{
-          that.gobalData.capsuleHeight = 44
+          that.globalData.capsuleHeight = 44
         }
       }
     })
@@ -23,15 +38,13 @@ App({
     // db.collection('audioList').where({
     // }).get({
     //   success: res => {
-    //     console.log(res.data)
-    //     this.gobalData.audioList = res.data
-    //     for (let i in this.gobalData.audioList){
+    //     this.globalData.audioList = res.data
+    //     for (let i in this.globalData.audioList){
     //       wx.downloadFile({
-    //         url: this.gobalData.audioList[i].header, 
+    //         url: this.globalData.audioList[i].header,
     //         success(res) {
     //           if (res.statusCode === 200) {
-    //             that.gobalData.audioList[i].tempFilePath = res.tempFilePath
-    //             console.log(res.tempFilePath)
+    //             that.globalData.audioList[i].tempFilePath = res.tempFilePath
     //           }
     //         }
     //       })
@@ -43,10 +56,10 @@ App({
     //       icon: 'none',
     //       title: '查询记录失败'
     //     })
-    //     console.error('[数据库] [查询记录] 失败：', err)
     //   }
     // })
   },
-  gobalData: {
+  globalData: {
+    userInfo: null
   }
 })

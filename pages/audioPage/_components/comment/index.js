@@ -1,18 +1,10 @@
-// pages/audioPage/_component/blurb/index.js
+// pages/audioPage/_components/comment/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    audioInformationList:{
-      type:Object,
-      value: {}
-    },
-    hasUserInfo: {
-      type: Boolean,
-      value: false
-    }
-    
+
   },
 
   /**
@@ -26,5 +18,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
   }
 })

@@ -1,0 +1,56 @@
+<!--pages/login/index.wxml-->
+<view class="container">
+    <!-- 顶部容器 -->
+    <view
+      class="etwplus-tc">
+      <nav-top
+        class="toTop"
+        hiddenController="{{hiddenController}}"/>
+      <image
+        mode="aspectFill"
+        class="img-bg"      src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/img/header (2).jpg"
+        ></image>
+        <view
+          class="hero-content">
+          <view
+            class="who">
+            声东击西
+          </view>
+          <view class="solgan">
+            登录后，获取更多能力
+          </view>
+        </view>
+    </view>
+<view>
+  <view
+    class="list">
+    <view
+      class="listItem">
+      <text class="iconfont icon-dianzan"></text> 带名打call <text class="iconfont icon-wancheng"></text>
+    </view>
+    <view
+      class="listItem">
+      <text class="iconfont icon-danmu"></text> 发射弹幕 <text class="iconfont icon-wancheng"></text>
+    </view>
+    <view
+      class="listItem">
+      <text class="iconfont icon-shoucang"></text> 收藏音频 <text class="iconfont icon-wancheng"></text>
+    </view>
+    <view
+      class="listItem">
+      <text class="iconfont icon-biaoji"></text> 标记片段 <text class="iconfont icon-wancheng"></text>
+    </view>
+      <view
+      class="listItem">
+      <text class="iconfont icon-pinglun"></text> 发表评论 <text class="iconfont icon-wancheng"></text>
+    </view>
+  </view>
+</view>
+    <button
+      bindgetuserinfo="getUserInfoFun"
+      open-type="getUserInfo"
+      class="login-button">
+      点此登录
+    </button>
+</view>
+    

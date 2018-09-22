@@ -1,8 +1,6 @@
 {
 	"description": "项目配置文件",
-  "miniprogramRoot": {
-      "cloudfunctionRoot": "./cloud-functions"
-  },
+  "cloudfunctionRoot": "./cloud-functions",
 	"packOptions": {
 		"ignore": []
 	},

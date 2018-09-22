@@ -1,14 +1,39 @@
 <!--pages/audioPage/_components/audio-function-module/index.wxml-->
 <view
   class="audio-function-module_container">
-  <view>
-    <text class="iconfont icon-biaoji"></text>
+  <!-- 喜欢 -->
+  <view
+    data-type="like"
+    bindtap="updateAudio"
+    class="audio-function-module_item">
+    <text class="iconfont icon-dianzan {{audioInformationList.iflike?'haveClick':''}}"></text>
     <view
-      class="number-container">100</view>    
+      class="number-container">{{audioInformationList.like || 0}}</view>    
   </view>
-  <view>
+  <!-- 收藏 -->
+  <view
+    data-type="star"  
+    bindtap="updateAudio"
+    class="audio-function-module_item">
+    <text class="iconfont icon-shoucang {{audioInformationList.ifstar?'haveClick':''}}"></text>
+    <view
+      class="number-container">{{audioInformationList.star || 0}}</view>    
+  </view>
+  <!-- <view
+    data-type="mark"  
+    bindtap="updateAudio"
+    class="audio-function-module_item">
+    <text class="iconfont icon-biaoji {{audioInformationList.ifmark?'haveClick':''}}"></text>
+    <view
+      class="number-container">{{audioInformationList.mark || 0}}</view>    
+  </view> -->
+  <button
+    data-type="share"    
+    open-type="share"
+    bindtap="updateAudioNormal"
+    class="audio-function-module_item">
     <text class="iconfont icon-fenxiang"></text>
     <view
-      class="number-container">100</view>    
-  </view>
+      class="number-container">{{audioInformationList.share || 0}}</view>    
+  </button>
 </view>

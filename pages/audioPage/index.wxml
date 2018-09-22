@@ -51,6 +51,7 @@
       class="playContentShowContainer">
       <swiper-item>
         <audio-blurb
+          hasUserInfo="{{hasUserInfo}}"
           audioInformationList="{{audioInformationList}}"
         />
       </swiper-item>

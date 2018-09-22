@@ -1,14 +1,23 @@
 const setStatusBarHeight = (app,that) => {
-  console.log(app.gobalData.statusBarHeight)
-  if (typeof app.gobalData.statusBarHeight != 'undefined') {
+  if (typeof app.globalData.statusBarHeight != 'undefined') {
     that.setData({
-      topStatus: app.gobalData.statusBarHeight,
-      capsuleHeight: app.gobalData.capsuleHeight,
+      topStatus: app.globalData.statusBarHeight,
+      capsuleHeight: app.globalData.capsuleHeight,
       pageLength: getCurrentPages().length
     })
   }
 }
 
+const checkIfLogin = (app, that) => {
+  that.data.login = app.globalData.login
+  let hasUserInfo = wx.getStorageSync('hasUserInfo')
+  that.setData({
+    hasUserInfo: hasUserInfo
+    }
+  )
+}
+
 module.exports = {
-  setStatusBarHeight: setStatusBarHeight
+  setStatusBarHeight: setStatusBarHeight,
+  checkIfLogin: checkIfLogin
 }

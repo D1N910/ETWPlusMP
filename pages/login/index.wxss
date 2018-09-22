@@ -1,0 +1,58 @@
+/* pages/login/index.wxss */
+.etwplus-tc{
+  width: 100%;
+  height: 600rpx;
+  position: relative;
+}
+.toTop{
+  position: relative;
+  z-index: 2;
+}
+.hero-content {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;  
+}
+.hero-content .who{
+  font-size: 100rpx;
+}
+.img-bg{
+  width: 100%;
+  height: 100%;
+}
+.list{
+  color: #666;
+  margin: 60rpx 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.listItem{
+  width: 50%;
+  color: #666;
+  margin: 30rpx 0;
+}
+.listItem .iconfont{
+  font-size: 48rpx;
+}
+.listItem .icon-danmu{
+  font-size: 40rpx;
+}
+.login-button{
+  width: 400rpx;
+  margin: 0 auto;
+  background-color: inherit;
+  border: 2px solid #000;
+  border-radius: 0;
+}
+.listItem .icon-wancheng{
+  color: #09bb07;
+}

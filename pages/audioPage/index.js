@@ -1,3 +1,5 @@
+import { checkIfLogin } from "../../utils/util.js"
+var app = getApp()
 // 定义全局的音频
 var audioManager = wx.getBackgroundAudioManager()
 
@@ -8,6 +10,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userInfo: {},
+    hasUserInfo: false,
     ifInAllScreen: false,
     inAllScreen:[],// 全屏
     toNone: [],// 缩小屏幕
@@ -85,7 +90,6 @@ Page({
     })
   },
   swiperChange(e){
-    console.log(e.detail.current)
     this.setData({
       ifping: e.detail.current
     })
@@ -116,56 +120,43 @@ Page({
       })   
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud.callFunction({
-      name:'test',
-      success(res){
-        console.log(res)
-      }
-    })
+    var that = this
     this.data._id = options._id || '5b9a869e97880d3b822d5e8d'
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })
 
-    const db = wx.cloud.database()
-    db.collection('audioList').where({
-      _id: this.data._id
-    }).get({
-      success: res => {
-        console.log(res.data)
-        if (res.data.length>=1){
-          this.setData({
-            audioInformationList: res.data[0]
-          },()=>{
-            // 音频链接
-            audioManager.src = this.data.audioInformationList.audioUrl;
-            // 音频标题
-            audioManager.title = this.data.audioInformationList.title;
-            // 专辑名
-            audioManager.epname = '声东击西'
-            audioManager.WebUrl = 'https://www.etw.fm/'
-            let audioSinger = ''
-            for (let i in this.data.audioInformationList.participant) {
-              for (let j in this.data.audioInformationList.participant[i]) {
-                audioSinger += ` ${this.data.audioInformationList.participant[i][j].name}`
-              }
-            }
-            audioManager.singer = audioSinger
-            audioManager.coverImgUrl = this.data.audioInformationList.header
-          })
-        }
+    // 获得音频信息
+    wx.cloud.callFunction({
+      name: 'getAudio',
+      data:{
+        _id: this.data._id
       },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
+      success(res) {
+        console.log(res)
+        that.setData({
+          audioInformationList: res.result.data
+        }, () => {
+          // 音频链接
+          audioManager.src = that.data.audioInformationList.audioUrl;
+          // 音频标题
+          audioManager.title = that.data.audioInformationList.title;
+          // 专辑名
+          audioManager.epname = '声东击西'
+          audioManager.WebUrl = 'https://www.etw.fm/'
+          let audioSinger = ''
+          for (let i in that.data.audioInformationList.participant) {
+            for (let j in that.data.audioInformationList.participant[i]) {
+              audioSinger += ` ${that.data.audioInformationList.participant[i][j].name}`
+            }
+          }
+          audioManager.singer = audioSinger
+          audioManager.coverImgUrl = that.data.audioInformationList.header
         })
-        console.error('[数据库] [查询记录] 失败：', err)
       }
     })
 
@@ -230,7 +221,6 @@ Page({
       this.setData({
         playStatus: 1
       })
-      console.log(audioManager.src)
     })
   },
 
@@ -245,6 +235,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    checkIfLogin(app, this)
     this.hiddenControl(false)
   },
 
@@ -290,7 +281,6 @@ Page({
     if (e.detail.touchSlip){
       this.data.touchSlip = e.detail.touchSlip      
     }else{
-      console.log(e)
       this.data.touchSlip = e.detail.touchSlip      
       this.seekAudio(e.detail.value)
     }
@@ -299,7 +289,6 @@ Page({
    * 点击播放
    */
   handlePlay(){
-    console.log(audioManager)
     if (typeof audioManager.src == 'undefined' || audioManager.src == '') {
       audioManager.src = this.data.audioInformationList.audioUrl;
     }else{
@@ -337,7 +326,6 @@ Page({
   },
  // 复制链接
   copyUrl(e) {
-    console.log(e.target.dataset.url)
     if (e.target.dataset.url!='0'){
       wx.setClipboardData({
         data: e.target.dataset.url,

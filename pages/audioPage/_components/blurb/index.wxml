@@ -12,7 +12,7 @@
     class="audioInformation">
     <view
       class="audioInformationItem">
-      <text class="iconfont icon-touting"></text>1.3万
+      <text class="iconfont icon-touting"></text>{{audioInformationList.watch}}
     </view>
     <view
       class="audioInformationItem">    
@@ -23,7 +23,9 @@
       {{audioInformationList.pubDate}}
     </view>
   </view>
-  <audio-function-module />
+  <audio-function-module
+    hasUserInfo="{{hasUserInfo}}"
+    audioInformationList="{{audioInformationList}}"/>
   <!-- 节目出声 -->
   <view
     class="audioSingerContainer">
