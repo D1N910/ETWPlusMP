@@ -13,7 +13,7 @@
   transition: all 0.4s ease;
 }
 .controllerShow{
-  bottom: 0;
+  bottom: 80rpx;
 }
 /* 播放控制条 */
 .progressBar{

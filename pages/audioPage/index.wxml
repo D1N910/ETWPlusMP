@@ -1,25 +1,31 @@
 <!--pages/audioPage/index.wxml-->
 <view class="container">
+  <!-- 顶部容器 -->
   <view
     class="play-tc"
     animation="{{inAllScreen}}">
-    <!-- 顶部容器 -->
+    <!-- 顶部导航栏 -->
     <nav-top
       hiddenController="{{hiddenController}}"/>
-      <!-- 播放器容器 -->
+    <!-- 播放器容器 -->
     <view
       class="vudioPlayer-container"
       bindtap="handleVudiPlayertap"
       animation="{{inAllScreen}}">      
+      <!-- 封面背景 -->
       <image
         mode="aspectFill"
         class="vudioPlayer-cover-show"
         src="{{audioInformationList.header}}">
       </image>
+      <!-- logo -->
       <image
         class="vudioPlayer-cover-logo-show"        
         src="../../static/logo.jpg">
       </image>
+      <!-- 弹幕 -->
+      <barrage-container
+        catchtap/>
     </view>
       <!-- 播放器控制容器 -->
     <vudioPlayer-controller-contianer

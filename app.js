@@ -17,8 +17,11 @@ App({
         if (res.result.status == 200) {
           that.globalData.userInfo = res.result.data[0]
           that.globalData.login = true
+          wx.setStorageSync('hasUserInfo', true)
+          wx.setStorageSync('userInfo', res.result.data[0])
         }else{
-          that.globalData.login = false          
+          that.globalData.login = false       
+          wx.setStorageSync('hasUserInfo', false)             
         }
       }
     })

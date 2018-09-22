@@ -27,8 +27,10 @@ Component({
   methods: {
     // 无需权限更新数据
     updateAudioNormal(e) {
-      var that = this
       this.data.audioInformationList[e.currentTarget.dataset.type] = this.data.audioInformationList[e.currentTarget.dataset.type] + 1
+      this.setData({
+        audioInformationList: this.data.audioInformationList
+      })
       wx.cloud.callFunction({
         name: 'updateAudioNormal',
         data: {
@@ -36,12 +38,6 @@ Component({
           updata: {
             [e.currentTarget.dataset.type]: 1
           }
-        },
-        success(res) {
-          console.log(res)
-          that.setData({
-            audioInformationList: that.data.audioInformationList
-          })
         }
       })
     },

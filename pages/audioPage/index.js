@@ -125,7 +125,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    this.data._id = options._id || '5b9a869e97880d3b822d5e8d'
+    this.data._id = options._id || '5b9a850f97880d3b822d5dd7'
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })

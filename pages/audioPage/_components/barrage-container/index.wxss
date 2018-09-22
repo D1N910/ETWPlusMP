@@ -1,0 +1,31 @@
+@import '../../../../static/css/iconfont.wxss';
+/* pages/audioPage/_components/Barrage/index.wxss */
+.barrage-container{
+  width: 100%;
+  height: 80rpx;
+  background-color: #000;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+.input{
+  flex: 1;
+  margin: 0 30rpx;
+  padding: 0 24rpx;
+  height: 60rpx;
+  background-color: #666666;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+.inputFocus{
+  background-color: #fff;  
+}
+.barrage-container-icon{
+  color:#fff;
+  font-weight:bolder;
+  font-size:60rpx;
+  text-align:center;
+  padding:0 30rpx 0 0;
+}

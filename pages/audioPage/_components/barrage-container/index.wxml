@@ -1,0 +1,18 @@
+<!--pages/audioPage/_components/Barrage/index.wxml-->
+<view
+  class="barrage-container"
+  >
+  <input
+    adjust-position="false"
+    confirm-type="send"
+    value="{{barrageText}}"
+    bindconfirm="handleConfirm"    
+    bindinput="handleInput"
+    bindfocus="handleInputFocus"
+    bindblur="handleInputBlur"
+    placeholder="你想说..."
+    placeholder-style="#ededed"
+    class="input {{inputFocus||barrageText.length>0?'inputFocus':''}}"
+    maxlength="30" />
+    <text class="iconfont icon-bofangqi-danmuguan barrage-container-icon"></text>
+</view>
