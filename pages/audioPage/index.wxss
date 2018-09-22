@@ -17,6 +17,10 @@
   overflow: hidden;
   background-color: #f3f3f3;
 }
+.header-avator{
+  position: relative;
+  height: 100%;
+}
 /* 音频图片 */
 .vudioPlayer-cover-show{
   width: 100vw;

@@ -43,7 +43,6 @@ Component({
     },
     // 更新数据
     updateAudio(e) {
-      console.log(this.data.hasUserInfo)
       if (!this.data.hasUserInfo){
         wx.navigateTo({
           url: '/pages/login/index',

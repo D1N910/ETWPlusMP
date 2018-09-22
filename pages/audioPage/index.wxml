@@ -11,21 +11,28 @@
     <view
       class="vudioPlayer-container"
       bindtap="handleVudiPlayertap"
-      animation="{{inAllScreen}}">      
-      <!-- 封面背景 -->
-      <image
-        mode="aspectFill"
-        class="vudioPlayer-cover-show"
-        src="{{audioInformationList.header}}">
-      </image>
-      <!-- logo -->
-      <image
-        class="vudioPlayer-cover-logo-show"        
-        src="../../static/logo.jpg">
-      </image>
-      <!-- 弹幕 -->
-      <barrage-container
-        catchtap/>
+      animation="{{inAllScreen}}">   
+      <!-- 图片背景容器    -->
+      <view
+        class="header-avator">
+        <!-- 封面背景 -->
+        <image
+          mode="aspectFill"
+          class="vudioPlayer-cover-show"
+          src="{{audioInformationList.header}}">
+        </image>
+        <!-- logo -->
+        <image
+          class="vudioPlayer-cover-logo-show"        
+          src="../../static/logo.jpg">
+        </image>
+      </view>
+      <!-- 弹幕容器    -->
+      <barrageContainer
+        />
+      <!-- 弹幕控制器 -->
+      <barrage-control-container
+        playPosition="{{playPosition}}"/>
     </view>
       <!-- 播放器控制容器 -->
     <vudioPlayer-controller-contianer

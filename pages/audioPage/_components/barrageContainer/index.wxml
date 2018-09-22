@@ -1,0 +1,12 @@
+<!-- 弹幕容器 -->
+<view
+  class="barrageContainer">
+  
+  <!-- 子弹 -->
+  <view
+    style="top:10rpx;"
+    class="bullet">
+    测试测试测试
+  </view>
+
+</view>
