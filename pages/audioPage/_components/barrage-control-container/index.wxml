@@ -10,7 +10,7 @@
     bindinput="handleInput"
     bindfocus="handleInputFocus"
     bindblur="handleInputBlur"
-    placeholder="你想说..."
+    placeholder="你现在想说..."
     placeholder-style="#ededed"
     class="input {{inputFocus||barrageText.length>0?'inputFocus':''}}"
     maxlength="30" />

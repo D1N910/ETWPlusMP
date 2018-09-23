@@ -1,0 +1,61 @@
+.container{
+  min-height:calc(100vh - 92rpx - 630rpx);
+  padding-top: 630rpx;
+}
+.play-tc{
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+}
+/* pages/hotTalk/index.wxss */
+.hotListen-contianer{
+  width: 100%;
+  height: 600rpx;
+  padding:0 80rpx 0 0;
+  position: relative;
+  background-color: hsl(341, 100%, 59%);    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/* 热议－标题 */
+.hotListen-contianer .hotListen-title{
+  color: #fff;
+  font-size: 150rpx;
+}
+/* 热议－英文标题 */
+.hotListen-contianer .hotListen-title_english{
+  color: #fff;
+  font-size: 46rpx;  
+}
+/* 热议－小图标 */
+.hotListen-image{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  z-index: 999;
+}
+
+
+.hotContainer{
+  display: flex;
+  margin: 0 30rpx;
+  padding: 16rpx 0 16rpx 0;
+  border-bottom: 1px solid #ededed;
+}
+.hotContainer .hotContainerImg{
+  width: 250rpx;
+  height: 180rpx;
+}
+.hotContainer .hotContainerRi{
+  font-size: 28rpx;
+  color: #000;
+  margin: 0 0 0 16rpx;
+}
+.title{
+  margin: 0 0 30rpx 0;
+}
+.watch{
+  color: #666;
+}

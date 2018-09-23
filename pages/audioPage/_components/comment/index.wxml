@@ -21,7 +21,7 @@
       bindinput="handleInput"
       bindconfirm="handleConfirm"    
       class="inputCommit"
-      placeholder="评论也可以很优雅"
+      placeholder="优雅地谈谈"
       />
       <view
         bindtap="handleConfirm"

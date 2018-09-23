@@ -20,20 +20,20 @@
   <view
     class="navigationBar"
     style="height:{{capsuleHeight}}px;">
-      <view
+      <!-- <view
         class="userAvatar">
         <open-data
           type="userAvatarUrl"
         ></open-data>
-      </view>
-      <view
+      </view> -->
+      <!-- <view
         class="seach-container">
         <i
           class="iconfont icon-web-icon- input-icon"></i>
         <input
           placeholder="搜索喜欢的内容"
           class="input"></input>
-      </view>      
+      </view>       -->
     </view>
   <!-- 轮播图，展示最新的一期和推荐 -->
   <swiper
@@ -101,23 +101,26 @@
   <!-- 核心信息流入口 -->
   <view class="informationFlowEntry">
     <!-- 热议 -->
-    <view
-      class="hotListen-contianer"
-      animation="{{blockAnimation}}">
-      <view>
-        <view class="hotListen-title">
-          热议      
+    <navigator
+      url="/pages/hotTalk/index">
+      <view
+        class="hotListen-contianer"
+        animation="{{blockAnimation}}">
+        <view>
+          <view class="hotListen-title">
+            热听      
+          </view>
+          <view class="hotListen-title_english">
+            Hot Discussion      
+          </view>
         </view>
-        <view class="hotListen-title_english">
-          Hot Discussion      
-        </view>
+        <image
+          src="../../static/miaoEgg.png"
+          class="hotListen-image"
+          >
+        </image>
       </view>
-      <image
-        src="../../static/miaoEgg.png"
-        class="hotListen-image"
-        >
-      </image>
-    </view>
+    </navigator>
     <view class="right-label">
       <!-- 热标签 -->
       <view
@@ -164,18 +167,21 @@
       </view>
     </view>    
   </view>
-  <!-- 全部音频 -->
-  <view
-    class="allAudio"
-    animation="{{blockAnimation}}">
-    <view class="allAudio-title">
-      全部[声东击西]音频      
+  <navigator
+  url="/pages/allAudio/index">
+    <!-- 全部音频 -->
+    <view
+      class="allAudio"
+      animation="{{blockAnimation}}">
+      <view class="allAudio-title">
+        全部[声东击西]音频      
+      </view>
+      <image
+        mode="center"
+        src='../../static/allAudio.png'>
+      </image>
     </view>
-    <image
-      mode="center"
-      src='../../static/allAudio.png'>
-    </image>
-  </view>
+  </navigator>
   <!-- 其他小程序信息 -->
   <view
     class="footer">

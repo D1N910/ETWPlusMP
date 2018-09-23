@@ -29,15 +29,15 @@
   height: 100%;
   background-color: #e23f3e;
   bottom: 0px;
-  left: calc(100vw/6 - 40rpx);
+  left: calc(50% - 40rpx);
   transition: all 0.4s ease;
   z-index: 1;
 }
 .underLine0{
-  left: calc(100vw/6 - 40rpx);
+  left: calc(25% - 40rpx);
 }
 .underLine1{
-  left: calc(50vw - 40rpx);
+  left: calc(75% - 40rpx);
 }
 .underLine2{
   left: calc(100vw - 100vw/6 - 40rpx);

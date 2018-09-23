@@ -1,0 +1,35 @@
+  <!-- 热议 -->
+<!--pages/audioPage/index.wxml-->
+<view class="container">
+  <!-- 顶部容器 -->
+  <view
+    class="play-tc"
+    animation="{{inAllScreen}}">
+    <!-- 顶部导航栏 -->
+    <nav-top
+      hiddenController="{{hiddenController}}"/>
+
+    <!-- 热议 -->
+    <view
+      class="hotListen-contianer"
+      animation="{{blockAnimation}}">
+      <view
+        class="headerTitle">
+        <view class="hotListen-title">
+          声东击西      
+        </view>
+        <view class="hotListen-title_english">
+          两个驻美记者主持的播客，带你看不一样的世界      
+        </view>
+      </view>
+      <image
+        class="Bg"
+        mode="center"
+        src='https://images.fireside.fm/podcasts/images/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/header.jpg'>
+      </image>
+    </view>
+
+  </view>
+
+
+</view>

@@ -1,10 +1,13 @@
 {
   "cloud": true,
   "pages": [
-    "pages/startup/index",    
-    "pages/audioPage/index",    
-    "pages/login/index",
-    "pages/index/index"
+    "pages/About/index",
+    "pages/index/index",
+    "pages/audioPage/index",
+    "pages/startup/index",
+    "pages/allAudio/index",
+    "pages/hotTalk/index",
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

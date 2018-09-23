@@ -82,11 +82,11 @@
           totalComment="{{totalComment}}"
           />
       </swiper-item>
-      <swiper-item>
+      <!-- <swiper-item>
         <audio-blurb
           audioInformationList="{{audioInformationList}}"
         />
-      </swiper-item>
+      </swiper-item> -->
     </swiper>
   </view>
 </view>
