@@ -1,12 +1,27 @@
 <!-- 弹幕容器 -->
-<view
+<scroll-view
+  scroll-y="true"
+  scroll-top="{{scrollTop}}"
   class="barrageContainer">
-  
-  <!-- 子弹 -->
   <view
-    style="top:10rpx;"
-    class="bullet">
-    测试测试测试
+    wx:for="{{barrageList}}"
+    wx:key="_id"
+    class="barrageItem"
+    animation="{{item.toAnimation}}">
+    <image
+      src="{{item.avatarUrl}}"
+      class="userAvator">
+    </image>
+    <view
+      class="textContainer">
+      <view
+        class="nickName">
+        {{item.nickName}}
+      </view>
+      <view
+        class="barragrText">
+        {{item.barrageText}}
+      </view>
+    </view>
   </view>
-
-</view>
+</scroll-view>

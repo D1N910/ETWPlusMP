@@ -140,3 +140,9 @@
   display: block;
   height: calc(100% - 50rpx);
 }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

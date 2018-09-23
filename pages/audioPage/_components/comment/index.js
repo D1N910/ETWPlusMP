@@ -81,10 +81,6 @@ Component({
           commentList: that.data.commentList
         },()=>{
           wx.hideLoading()
-          wx.showToast({
-            title: '声东击西:已是最新评论',
-            icon: 'none'
-          })
         })
       })
         .catch(res => console.error(res))

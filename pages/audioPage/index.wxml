@@ -29,10 +29,13 @@
       </view>
       <!-- 弹幕容器    -->
       <barrageContainer
+        barrageList="{{barrageList}}"
         />
-      <!-- 弹幕控制器 -->
+      <!-- 弹幕发射器 -->
       <barrage-control-container
+        bindaddNewBarrage="addNewBarrage"
         catchtap="barrageControlContainerTap"
+        _id="{{audioInformationList._id}}"
         playPosition="{{playPosition}}"/>
     </view>
       <!-- 播放器控制容器 -->

@@ -19,7 +19,7 @@
         class="nav-item {{ifping==2?'nav-item-choice':''}}"      
         data-nav='2'      
         bindtap="clickNav">
-        宇宙
+        赞助
       </view>
       <view class="underLine {{ifping==0?'underLine0':ifping==1?'underLine1':'underLine2'}}"></view>
     </view>

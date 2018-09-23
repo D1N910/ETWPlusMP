@@ -1,15 +1,50 @@
 /* pages/audioPage/_components/barrageContainer/index.wxss */
 .barrageContainer{
   width: 100%;
-  height: 100%;
+  height: calc(100% - 100rpx);
+  padding-bottom: 20rpx;
   left: 0px;
   top: 0px;
   position: absolute;
-  background-color: #255;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 .bullet{
   position: absolute;
   color: #fff;
   font-weight: bolder;
   font-size: 38rpx;
+}
+.barrageItem{
+  width: 100%;
+  display: flex;
+  font-size: 24rpx;
+  align-items: center;
+  height:70rpx;  
+  margin:8rpx 16rpx 0 16rpx;  
+}
+.barrageItem .userAvator{
+  width:70rpx;
+  height:70rpx;
+  border-radius:50%;
+}
+.barrageItem .nickName{
+  background-color: #337ab7;
+  color: #fff;
+  padding: 0 8rpx;
+  margin: 0 16rpx;
+}
+.textContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16rpx;
+  max-width: 70%;
+  background-color: #fff;
+  border-radius: 50rpx;
+  min-height: 50rpx;
 }

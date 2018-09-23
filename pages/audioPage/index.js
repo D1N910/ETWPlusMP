@@ -30,8 +30,11 @@ Page({
     nowTimeMinutes: 0,
     audioInformationList: [],
     ifping: 0,
+    
     current: 0,
     commentList: [],
+    barrageList: [],
+    getBarrageList:[],
     totalComment: 0
   },
 
@@ -133,6 +136,7 @@ Page({
       env: 'etwplus-test-485c18'
     })
     this.getList(this.data._id)
+    this.getBarrage(this.data._id)
     // 获得音频信息
     wx.cloud.callFunction({
       name: 'getAudio',
@@ -331,8 +335,6 @@ Page({
     this.hiddenControl(!this.data.hiddenController)
   },
 
-  // 获得全部数量
-
   // 获得评论
   getList(_id){
     const db = wx.cloud.database()
@@ -376,5 +378,54 @@ Page({
       })
     })
       .catch(res=>console.error(res))
+  },
+
+  // 获得弹幕
+  getBarrage(_id) {
+    const db = wx.cloud.database()
+    var that = this
+    db.collection('barrage').where({
+      audioId: _id
+    }).count({
+      success: function (res) {
+        that.setData({
+          totalBarrage: res.total
+        })
+      }
+    })
+    console.log(_id)
+    db.collection('barrage').where({
+      audioId: _id
+    }).orderBy('audioPlayTime', 'asc').get().then(res => {
+      that.setData({
+        getBarrageList: [...res.data]
+      },()=>{
+        that.StarShootbarrage()
+      })
+    })
+      .catch(res => console.error(res))
+  },
+  StarShootbarrage() {
+    for (let i in this.data.getBarrageList){
+      setTimeout(()=>{
+        this.data.barrageList.push(this.data.getBarrageList[i])
+        this.setData({
+          barrageList: this.data.barrageList
+        })
+      }, this.data.getBarrageList.audioPlayTime)
+    }
+  },
+  addNewBarrage(e){
+    let newBarrage = {}
+    let userInfo = wx.getStorageSync('userInfo')
+    for(let i in e.detail){
+      newBarrage[i] = e.detail[i]
+    }
+    newBarrage.avatarUrl = userInfo.avatarUrl
+    newBarrage.nickName = userInfo.nickName
+    this.data.barrageList.push(newBarrage)
+    this.setData({
+      barrageList: this.data.barrageList
+    })
   }
 })

@@ -7,6 +7,10 @@ Component({
     playPosition: {
       type: Number,
       value: 0
+    },
+    _id: {
+      type: String,
+      value: ''
     }
   },
 
@@ -61,23 +65,31 @@ Component({
         return false
       }
       var that = this
-      
+      let barrageText = this.data.barrageText
+      let playPosition = this.data.playPosition
       wx.cloud.callFunction({
         name: 'postBarrage',
         data: {
-          barrageText: this.data.barrageText,
-          audioPlayTime: this.data.playPosition
+          barrageText,
+          audioPlayTime: playPosition,
+          _id: this.data._id
         },
         success(res) {
           console.log(res)
-          that.setData({
-            barrageText: ''
+          that.triggerEvent('addNewBarrage', {
+            _id: res.result._id,
+            barrageText,
+            playPosition
           })
-          wx.showToast({
-            title: '声东击西:弹幕发射成功',
-            icon: 'none'
-          })
+          
         }
+      })
+      that.setData({
+        barrageText: ''
+      })
+      wx.showToast({
+        title: '声东击西:弹幕发射成功',
+        icon: 'none'
       })
     }
   }

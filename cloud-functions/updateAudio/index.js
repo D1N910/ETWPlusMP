@@ -34,7 +34,6 @@ exports.main = async (event, context) => {
         ifhave.data[0][i].splice(ifhave.data[0][i].indexOf(event._id), 1)
         await db.collection('user').doc(ifhave.data[0]._id).update({
           data: {
-          
           [i]: ifhave.data[0][i]
           }
         })

@@ -1,5 +1,33 @@
 //app.js
 App({
+  getLunbo() {
+    var that = this    
+    
+    const db = wx.cloud.database()
+    db.collection('audioList').where({
+    }).get({
+      success: res => {
+        this.globalData.audioList = res.data
+        for (let i in this.globalData.audioList) {
+          wx.downloadFile({
+            url: this.globalData.audioList[i].header,
+            success(res) {
+              if (res.statusCode === 200) {
+                that.globalData.audioList[i].tempFilePath = res.tempFilePath
+              }
+            }
+          })
+
+        }
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+      }
+    })
+  },
   onLaunch() {
     var that = this    
     // 完成初始化
@@ -37,30 +65,7 @@ App({
       }
     })
     // 获取首页轮播图内容
-    const db = wx.cloud.database()
-    db.collection('audioList').where({
-    }).get({
-      success: res => {
-        this.globalData.audioList = res.data
-        for (let i in this.globalData.audioList){
-          wx.downloadFile({
-            url: this.globalData.audioList[i].header,
-            success(res) {
-              if (res.statusCode === 200) {
-                that.globalData.audioList[i].tempFilePath = res.tempFilePath
-              }
-            }
-          })
-
-        }
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
-        })
-      }
-    })
+    // this.getLunbo()
   },
   globalData: {
     userInfo: null

@@ -14,5 +14,7 @@
     placeholder-style="#ededed"
     class="input {{inputFocus||barrageText.length>0?'inputFocus':''}}"
     maxlength="30" />
-    <text class="iconfont icon-bofangqi-danmuguan barrage-container-icon"></text>
+    <text
+      bindtap="handleConfirm"
+      class="iconfont icon-huojian barrage-container-icon"></text>
 </view>

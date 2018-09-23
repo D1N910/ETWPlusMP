@@ -14,7 +14,8 @@
     commentItem="{{item}}"/>
   <view
     class="putCommmentContainer">
-    <input
+    <textarea
+      auto-height
       value="{{commitText}}"
       bindfocus="ifLogin"
       bindinput="handleInput"

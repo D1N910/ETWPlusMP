@@ -18,6 +18,7 @@ exports.main = async (event, context) => {
   } else {
     let data = {}
     let nowData = new Date()
+    data.audioId = event._id        
     data.barrageText = event.barrageText
     data.audioPlayTime = event.audioPlayTime
 
@@ -25,14 +26,18 @@ exports.main = async (event, context) => {
     data.nickName = ifhave.data[0].nickName
     data.avatarUrl = ifhave.data[0].avatarUrl
     data.saveTime = nowData.getTime()
-    await db.collection('audioList').doc(event._id).update({
-      data:{
-        barrage: _.push(data)
-      }
-    })
 
-    return true
-  }
+    var getBarrage
+    await db.collection('barrage').add({
+      data
+    })
+      .then(res => {
+        getBarrage = res
+      })
+      .catch(console.error)
+
+    return getBarrage
+  } 
 
 
 }
