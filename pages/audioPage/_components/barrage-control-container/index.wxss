@@ -29,3 +29,6 @@
   text-align:center;
   padding:0 30rpx 0 0;
 }
+.barrage-container-iconCan{
+  color:#e23f3e;  
+}

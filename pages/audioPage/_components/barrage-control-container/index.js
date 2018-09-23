@@ -64,6 +64,9 @@ Component({
         })
         return false
       }
+      if (this.data.barrageText == ''){
+        return false
+      }
       var that = this
       let barrageText = this.data.barrageText
       let playPosition = this.data.playPosition

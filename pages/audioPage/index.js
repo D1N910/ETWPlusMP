@@ -407,12 +407,13 @@ Page({
   },
   StarShootbarrage() {
     for (let i in this.data.getBarrageList){
+      console.log(this.data.getBarrageList[i].audioPlayTime * 1000)
       setTimeout(()=>{
         this.data.barrageList.push(this.data.getBarrageList[i])
         this.setData({
           barrageList: this.data.barrageList
         })
-      }, this.data.getBarrageList.audioPlayTime)
+      }, this.data.getBarrageList[i].audioPlayTime*1000)
     }
   },
   addNewBarrage(e){

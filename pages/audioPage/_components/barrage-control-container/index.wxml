@@ -16,5 +16,5 @@
     maxlength="30" />
     <text
       bindtap="handleConfirm"
-      class="iconfont icon-huojian barrage-container-icon"></text>
+      class="iconfont icon-huojian barrage-container-icon {{barrageText.length!=0?'barrage-container-iconCan':''}}"></text>
 </view>

@@ -1,8 +1,8 @@
 {
   "cloud": true,
   "pages": [
-    "pages/audioPage/index",    
     "pages/startup/index",    
+    "pages/audioPage/index",    
     "pages/login/index",
     "pages/index/index"
   ],

@@ -65,7 +65,7 @@ App({
       }
     })
     // 获取首页轮播图内容
-    // this.getLunbo()
+    this.getLunbo()
   },
   globalData: {
     userInfo: null
