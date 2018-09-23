@@ -11,8 +11,11 @@ Component({
     hasUserInfo: {
       type: Boolean,
       value: false
+    },
+    barrageList:{
+      type: Array,
+      value: []
     }
-    
   },
 
   /**

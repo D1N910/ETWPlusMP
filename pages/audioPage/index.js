@@ -30,7 +30,6 @@ Page({
     nowTimeMinutes: 0,
     audioInformationList: [],
     ifping: 0,
-    
     current: 0,
     commentList: [],
     barrageList: [],

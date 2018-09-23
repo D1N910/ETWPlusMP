@@ -16,7 +16,7 @@
     </view>
     <view
       class="audioInformationItem">    
-      <text class="iconfont icon-danmu"></text>999
+      <text class="iconfont icon-danmu"></text>{{barrageList.length}}
     </view>
     <view
       class="audioInformationItem">

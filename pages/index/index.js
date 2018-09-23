@@ -33,7 +33,25 @@ Page({
     wx.setBackgroundTextStyle({
       textStyle: 'dark'
     })
-    wx.startPullDownRefresh()    
+    wx.startPullDownRefresh()   
+
+    const db = wx.cloud.database()
+    db.collection('barrage').get({
+      success: res => {
+        for(let i in res.data){
+          res.data[i].audioPlayTime = `${parseInt(res.data[i].audioPlayTime / 60)}分${parseInt((res.data[i].audioPlayTime / 60 - parseInt(res.data[i].audioPlayTime / 60)) * 60)}秒`
+        }
+        this.setData({
+          barrage: [...res.data]
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+      }
+    }) 
   },
   LoadingResources(){
     clearTimeout(LoadingResourcesSet)

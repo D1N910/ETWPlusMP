@@ -79,17 +79,21 @@
     circular
   >
     <swiper-item
-      wx:for="{{5}}"
-      wx:key="index">  
+      wx:for="{{barrage}}"
+      wx:key="index"
+      bindtap="jumpToaudioPage"      
+      data-_id="{{item.audioId}}">  
       <view
         class="LatestBarrage-item">
         <image
-          src="../../static/test_avator/avator{{item+1}}.png"
+          src="{{item.avatarUrl}}"
           >
         </image>
         <view
           class="LatestBarrage-content">
-          “感谢主播。希望后续能够跟进” <text class="whereNWhen">#2{{item}}第5分44秒 <text class="When">八分钟前</text></text>
+          <!-- #2{{item}} -->
+          <!-- <text class="When">八分钟前</text> -->
+          “{{item.barrageText}}” <text class="whereNWhen">第{{item.audioPlayTime}} </text>
         </view>
       </view>
     </swiper-item>  

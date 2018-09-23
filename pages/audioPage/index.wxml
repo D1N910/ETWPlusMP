@@ -68,6 +68,7 @@
       class="playContentShowContainer">
       <swiper-item>
         <audio-blurb
+          barrageList="{{getBarrageList}}"
           hasUserInfo="{{hasUserInfo}}"
           audioInformationList="{{audioInformationList}}"
         />

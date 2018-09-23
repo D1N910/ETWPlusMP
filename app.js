@@ -5,7 +5,7 @@ App({
     
     const db = wx.cloud.database()
     db.collection('audioList').where({
-    }).get({
+    }).limit(3).get({
       success: res => {
         this.globalData.audioList = res.data
         for (let i in this.globalData.audioList) {
