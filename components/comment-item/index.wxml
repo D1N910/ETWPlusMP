@@ -3,7 +3,7 @@
   class="commit-item-container">
   <!-- 评论者头像 -->
   <image 
-    class="cic-lf"      src="https://wx.qlogo.cn/mmopen/vi_32/GxJwIssfhVWrwn6JcZthhzsiby3kibJeJCJQKMwGyq4tDlho3tt1nTLp9xeHB1eNN1hdHOiboIG7ExFia9cBG8hlog/132">
+    class="cic-lf" src="{{commentItem.avatarUrl}}">
   </image>
   <view
     class="cic-ri">
@@ -11,23 +11,28 @@
       class="cic-ri-tp">
       <view
         class="nickName">
-        D1n910
+        {{commentItem.nickName}}
       </view>
-      <view
-        class="time">
-        发布于2017-10-15
-      </view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <text class="iconfont icon-gengduo"></text>
+      </picker>
     </view>
     <view
       class="cic-ri-bd">
-        sfsdf
+        {{commentItem.commitText}}
     </view>
     <view
       class="cic-ri-bt">
-
       <view
-        class="otherInformationItem">
-        点赞数
+        class="time">
+        {{commentItem.saveTime}}
+      </view>
+      <view
+        class="commit-fm-c">
+        <view class="commit-fm-it">
+          <view>{{commentIndex}}楼</view>
+          <!-- <text class="iconfont icon-dianzan {{audioInformationList.iflike?'haveClick':''}}"></text> -->
+        </view>
       </view>
     </view>
   </view>

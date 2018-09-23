@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    limit:6,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userInfo: {},
     hasUserInfo: false,
@@ -29,7 +30,9 @@ Page({
     nowTimeMinutes: 0,
     audioInformationList: [],
     ifping: 0,
-    current: 0
+    current: 0,
+    commentList: [],
+    totalComment: 0
   },
 
   // 最小化
@@ -129,7 +132,7 @@ Page({
     wx.cloud.init({
       env: 'etwplus-test-485c18'
     })
-
+    this.getList(this.data._id)
     // 获得音频信息
     wx.cloud.callFunction({
       name: 'getAudio',
@@ -320,22 +323,58 @@ Page({
     }
 
   },
+  barrageControlContainerTap(){
+    console.log('点击了弹幕')
+  },
   // 点击了主播放器
   handleVudiPlayertap(){
     this.hiddenControl(!this.data.hiddenController)
   },
- // 复制链接
-  copyUrl(e) {
-    if (e.target.dataset.url!='0'){
-      wx.setClipboardData({
-        data: e.target.dataset.url,
-        success: function (res) {
-          wx.showToast({
-            icon:'none',
-            title: '链接成功复制到剪贴板'
-          })
+
+  // 获得全部数量
+
+  // 获得评论
+  getList(_id){
+    const db = wx.cloud.database()
+
+    var that = this
+    db.collection('comment').where({
+      audioId: _id
+    }).count({
+      success: function (res) {
+        that.setData({
+          totalComment: res.total
+        })
+      }
+    })
+    console.log(_id)
+    db.collection('comment').where({
+      audioId: _id
+    }).orderBy('saveTime', 'desc').limit(this.data.limit).get().then(res=>{
+      let nowDate = new Date()
+      for(let i in res.data){
+        let thisDate = new Date(res.data[i].saveTime)
+        let cha = nowDate.getTime() - thisDate.getTime()
+        if ( cha < 86400000){
+          if (cha/1000/60 <=1){
+            res.data[i].saveTime = '刚刚'
+          } else if (cha/1000/60 <60){
+            res.data[i].saveTime = `${Math.round(cha/1000/60)}分钟前`      
+          }else{
+            res.data[i].saveTime = `${Math.round(cha/1000/60/60)}小时前`      
+          }
+        } else if (cha < 172800000){
+          res.data[i].saveTime = '一天前'
+        }else if(thisDate.getFullYear()==now.getFullYear()){
+          res.data[i].saveTime = `${thisDate.getMonth() + 1 < 10 ? '0' + (thisDate.getMonth() + 1) : thisDate.getMonth() + 1}月${thisDate.getDate() < 10 ? '0' + thisDate.getDate() : thisDate.getDate()}日`          
         }
+        console.log(res.data[i].saveTime)
+      }
+      that.data.commentList.push(...res.data)
+      that.setData({
+        commentList: that.data.commentList
       })
-    }
+    })
+      .catch(res=>console.error(res))
   }
 })

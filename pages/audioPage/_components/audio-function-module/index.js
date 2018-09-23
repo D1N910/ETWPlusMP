@@ -72,22 +72,22 @@ Component({
           }
         },
         success(res) {
-          console.log(res)
-          if (changeNumber==1){
-            wx.showToast({
-              title: `声东击西:成功 ${e.currentTarget.dataset.type}`,
-              icon: 'none'
-            })
-          }else{
-            wx.showToast({
-              title: `声东击西:成功取消 ${e.currentTarget.dataset.type}`,
-              icon: 'none'
-            })
-          }
-          that.setData({
-            audioInformationList: that.data.audioInformationList
-          })
+
         }
+      })
+      if (changeNumber == 1) {
+        wx.showToast({
+          title: `声东击西:成功 ${e.currentTarget.dataset.type}`,
+          icon: 'none'
+        })
+      } else {
+        wx.showToast({
+          title: `声东击西:成功取消 ${e.currentTarget.dataset.type}`,
+          icon: 'none'
+        })
+      }
+      that.setData({
+        audioInformationList: that.data.audioInformationList
       })
     }
   }

@@ -7,11 +7,14 @@ const _ = db.command
 // 云函数入口函数
 let data = {}
 exports.main = async (event, context) => {
-  await db.collection('audioList').doc(event._id).update({
+  await db.collection('audioList').update({
     data:{
       watch: _.inc(1)
     }
   })
+
+  await db.collection('comment').doc(event._id).get().then(res => data = res)
+
   await db.collection('audioList').doc(event._id).get().then(res=>data = res)
 
   let ifhave = await db.collection('user').where({

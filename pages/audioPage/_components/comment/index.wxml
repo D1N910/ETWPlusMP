@@ -1,16 +1,31 @@
 <!--pages/audioPage/_components/comment/index.wxml-->
-<view
-  class="commmentContainer">
-  <comment-item />
+<scroll-view
+  bindscrolltoupper="getNews"
+  bindscrolltolower="getMore"
+  scroll-y="true"
+  class="button_container">
+    <view
+      class="totalComment">{{commentList.length==0?'这里还没有评论':'共'+totalComment+'条评论'}}</view>
+  <comment-item
+    wx:for="{{commentList}}"
+    wx:key="_id"
+    wx:for-index="idx"
+    commentIndex="{{totalComment-idx}}"
+    commentItem="{{item}}"/>
   <view
     class="putCommmentContainer">
     <input
+      value="{{commitText}}"
+      bindfocus="ifLogin"
+      bindinput="handleInput"
+      bindconfirm="handleConfirm"    
       class="inputCommit"
       placeholder="评论也可以很优雅"
       />
       <view
-        class="send">
+        bindtap="handleConfirm"
+        class="send {{commitText.length>0?'canSend':''}}">
         发送
       </view>
   </view>
-</view>
+</scroll-view>

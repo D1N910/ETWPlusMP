@@ -32,6 +32,7 @@
         />
       <!-- 弹幕控制器 -->
       <barrage-control-container
+        catchtap="barrageControlContainerTap"
         playPosition="{{playPosition}}"/>
     </view>
       <!-- 播放器控制容器 -->
@@ -63,14 +64,19 @@
       current="{{current}}"
       class="playContentShowContainer">
       <swiper-item>
-        <comment
-          />
-      </swiper-item>
-      <swiper-item>
         <audio-blurb
           hasUserInfo="{{hasUserInfo}}"
           audioInformationList="{{audioInformationList}}"
         />
+      </swiper-item>
+      <swiper-item>
+        <comment
+          onTimeUpdate="{{onTimeUpdate}}"
+          playPosition="{{playPosition}}"
+          _id="{{audioInformationList._id}}"
+          commentList="{{commentList}}"
+          totalComment="{{totalComment}}"
+          />
       </swiper-item>
       <swiper-item>
         <audio-blurb

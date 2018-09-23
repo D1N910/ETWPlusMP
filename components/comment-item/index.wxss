@@ -1,14 +1,16 @@
+@import '/static/css/iconfont.wxss';
 /* components/commitItem/index.wxss */
 .commit-item-container{
   display: flex;
-  margin: 16rpx 30rpx;
+  padding: 16rpx 30rpx;
   color: #666;  
+  border-bottom: 1px solid #ededed;
 }
 .cic-lf{
-  width: 80rpx;
-  height: 80rpx;
+  width: 70rpx;
+  height: 70rpx;
   border-radius: 50%;
-  margin:0 16rpx 0 0;
+  margin:8rpx 16rpx 0 0;
 }
 .cic-ri{
   flex: 1;
@@ -18,12 +20,27 @@
 .cic-ri-tp{
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
 }
 .cic-ri-tp .nickName{
-  font-size: 36rpx;  
+  font-size: 28rpx;
+  font-weight: bold;
   color: #000;    
 }
-.cic-ri-tp .time{
-  font-size: 24rpx;
-  padding: 0 16rpx;
+.cic-ri-bd{
+  color: #000;      
+  font-size: 28rpx;  
+  margin: 8rpx 30rpx 30rpx 0;
+}
+.cic-ri-bt{
+  font-size: 24rpx;  
+  display: flex;
+  color: #666;
+  justify-content: space-between;
+}
+.cic-ri-bt .commit-fm-it{
+  display: flex;
+}
+.cic-ri-bt .commit-fm-it .iconfont{
+  margin: 0 0 0 8rpx;
 }
