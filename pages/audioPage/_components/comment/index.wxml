@@ -1,2 +1,16 @@
 <!--pages/audioPage/_components/comment/index.wxml-->
-<text>pages/audioPage/_components/comment/index.wxml</text>
+<view
+  class="commmentContainer">
+  <comment-item />
+  <view
+    class="putCommmentContainer">
+    <input
+      class="inputCommit"
+      placeholder="评论也可以很优雅"
+      />
+      <view
+        class="send">
+        发送
+      </view>
+  </view>
+</view>

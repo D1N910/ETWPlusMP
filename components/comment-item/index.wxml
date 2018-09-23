@@ -1,0 +1,35 @@
+<!-- 评论子容器 -->
+<view
+  class="commit-item-container">
+  <!-- 评论者头像 -->
+  <image 
+    class="cic-lf"      src="https://wx.qlogo.cn/mmopen/vi_32/GxJwIssfhVWrwn6JcZthhzsiby3kibJeJCJQKMwGyq4tDlho3tt1nTLp9xeHB1eNN1hdHOiboIG7ExFia9cBG8hlog/132">
+  </image>
+  <view
+    class="cic-ri">
+    <view
+      class="cic-ri-tp">
+      <view
+        class="nickName">
+        D1n910
+      </view>
+      <view
+        class="time">
+        发布于2017-10-15
+      </view>
+    </view>
+    <view
+      class="cic-ri-bd">
+        sfsdf
+    </view>
+    <view
+      class="cic-ri-bt">
+
+      <view
+        class="otherInformationItem">
+        点赞数
+      </view>
+    </view>
+  </view>
+
+</view>

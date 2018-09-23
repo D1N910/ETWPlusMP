@@ -1,6 +1,7 @@
 {
   "navigationBarTextStyle": "white",
   "usingComponents": {
+    "comment": "./_components/comment/index",
     "barrageContainer": "./_components/barrageContainer/index",
     "barrage-control-container": "./_components/barrage-control-container/index",
     "audio-blurb": "./_components/blurb/index",
