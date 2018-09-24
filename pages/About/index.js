@@ -38,7 +38,17 @@ Page({
   onUnload: function () {
 
   },
-
+  // 查看图片
+  seeImg1(){
+    wx.previewImage({
+      urls:["cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/jzIpJNkM.png"]
+    })
+  },
+  seeImg2() {
+    wx.previewImage({
+      urls: ["cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/SNJ8uISf.png"]
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

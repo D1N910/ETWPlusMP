@@ -5,9 +5,23 @@ App({
     
     const db = wx.cloud.database()
     db.collection('audioList').where({
-    }).limit(3).get({
+      type: "news"
+    }).limit(1).get({
       success: res => {
-        this.globalData.audioList = res.data
+        this.globalData.audioList.push(...res.data)        
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+      }
+    })
+    db.collection('audioList').where({
+      type:"recommend"
+    }).limit(2).get({
+      success: res => {
+        this.globalData.audioList.push(...res.data)
         for (let i in this.globalData.audioList) {
           wx.downloadFile({
             url: this.globalData.audioList[i].header,
@@ -68,6 +82,7 @@ App({
     this.getLunbo()
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    audioList: []
   }
 })

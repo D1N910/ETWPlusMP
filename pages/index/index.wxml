@@ -155,15 +155,18 @@
           >
           </image>
         </view>
+     <navigator
+      url="/pages/About/index">
         <!-- 关于声东击西 -->
-        <view
-          class="about-contianer"
-          animation="{{blockAnimation}}">
-          <image
-            mode="widthFix"
-            src="../../static/logo.jpg"
-          ></image>
-        </view>
+          <view
+            class="about-contianer"
+            animation="{{blockAnimation}}">
+            <image
+              mode="widthFix"
+              src="../../static/logo.jpg"
+            ></image>
+          </view>
+      </navigator>
       </view>
     </view>    
   </view>

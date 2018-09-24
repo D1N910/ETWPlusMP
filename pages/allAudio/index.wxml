@@ -47,7 +47,7 @@
       <view class="hotContainerRi">
         <view
           class="title">
-          {{item.title}}
+         #{{item.audioId}} {{item.title}}
         </view>
         <view
           class="watch">
