@@ -1,0 +1,8 @@
+<!--components/support/index.wxml-->
+<navigator
+  url="/pages/support/index">
+  <view
+    class="supportUs">
+    支持我们
+  </view>
+</navigator>

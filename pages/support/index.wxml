@@ -1,0 +1,59 @@
+  <!-- 热议 -->
+<!--pages/audioPage/index.wxml-->
+<view class="container">
+  <!-- 顶部容器 -->
+  <view
+    class="play-tc"
+    animation="{{inAllScreen}}">
+    <!-- 顶部导航栏 -->
+    <nav-top
+      hiddenController="{{hiddenController}}"/>
+
+    <!-- 热议 -->
+    <view
+      class="hotListen-contianer"
+      animation="{{blockAnimation}}">
+      <view
+        class="headerTitle">
+        <view class="hotListen-title">
+          支持我们      
+        </view>
+        <view class="hotListen-title_english">
+          多谢千山万水跋涉至此来支持我们！     
+        </view>
+      </view>
+      <image
+        class="Bg"
+        mode="center"
+        src='https://images.fireside.fm/podcasts/images/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/header.jpg'>
+      </image>
+    </view>
+
+  </view>
+  <view
+    class="textContainer">
+    <view>
+  虽然只是一个播客节目，但除去我们花费的时间精力外，我们也有一些成本开支。例如每月几十美元的 fireside 音频托管费用，以及每年上百美元的域名费用。你们的帮助将让我们接着把这档节目做得更好。
+    </view>
+
+    <view>
+      微信
+    </view>
+      <image
+      class="seeImg"
+        
+      bindtap="seeImg1"        src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/jzIpJNkM.png">
+      
+      </image>
+    <view>
+      支付宝
+    </view>
+ <image
+      class="seeImg"
+      bindtap="seeImg2"       
+        src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/SNJ8uISf.png">
+      
+      </image>
+  </view>
+  
+</view>

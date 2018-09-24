@@ -6,7 +6,6 @@
   position: fixed;
   top: 0rpx;
   width: 100%;
-  z-index: 999;  
 }
 /* pages/hotTalk/index.wxss */
 .hotListen-contianer{
@@ -14,7 +13,7 @@
   height: 400rpx;
   padding:0 80rpx 0 0;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.3);    
+  background-color: hsl(341, 100%, 59%);    
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,25 +46,14 @@
   height: 100%;
   z-index: 1;
 }
-.solgan{
-  font-style: italic;
-  color: #666;
-  padding: 30rpx;
-}
-.textContainer-text{
-  color: #404040;
-  font-size: 32rpx;
-  margin: 30rpx 0;
-}
+
 .textContainer{
   margin: 0 30rpx;
+  font-size: 28rpx;
 }
 .seeImg{
   width: 300rpx;
   height: 300rpx;
   margin: 0 auto;
   display: block;
-}
-.audio-singer-item-container{
-  display: flex;
 }

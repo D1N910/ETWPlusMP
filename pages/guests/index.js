@@ -34,7 +34,6 @@ Page({
     var that = this
 
     const db = wx.cloud.database()
-    const _ = db.command
     db.collection('participant').where({
       identify:'guest'
     }).count({
@@ -70,7 +69,6 @@ Page({
     var that = this
 
     const db = wx.cloud.database()
-    const _ = db.command
     db.collection.collection('participant').where({
       identify: 'guest'
     }).skip(this.data.participantList.length).get({

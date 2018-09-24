@@ -1,6 +1,8 @@
 {
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "nav-top": "../../components/nav-top/index"
+    "nav-top": "../../components/nav-top/index",
+    "audio-singer-item": "/components/audioSingerItem/index",
+    "support-item": "/components/support/index"
   }
 }

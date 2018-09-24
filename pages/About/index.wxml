@@ -16,10 +16,10 @@
       <view
         class="headerTitle">
         <view class="hotListen-title">
-          支持我们      
+          声东击西      
         </view>
         <view class="hotListen-title_english">
-          多谢千山万水跋涉至此来支持我们！     
+          两个驻美记者主持的播客，带你看不一样的世界     
         </view>
       </view>
       <image
@@ -32,28 +32,40 @@
   </view>
   <view
     class="textContainer">
-    <view>
-  虽然只是一个播客节目，但除去我们花费的时间精力外，我们也有一些成本开支。例如每月几十美元的 fireside 音频托管费用，以及每年上百美元的域名费用。你们的帮助将让我们接着把这档节目做得更好。
+    <view
+      class="title">
+      ABOUT THE SHOW
     </view>
-
-    <view>
-      微信
+    <view
+      class="solgan">
+      *“Bigger Than Us” *
     </view>
-      <image
+    <view
+      class="audio-singer-item-container">
+      <audio-singer-item 
+        wx:for="{{participantList}}"
+        wx:key="item"
+        ifHost="{{true}}"
+        item="{{item}}"/>
+    </view>
+    <support-item />
+    <view
+      class="textContainer-text">
+      这是一档两个驻美记者为您带来的播客。我们谈论技术和创新，也聊电影、城市和未来。这里有一手的现场观察和体验，还有不定期出现的神秘嘉宾。你可以感受星球大战粉丝大会现场的沸腾，也能想象一下未来世界里的出行，以及美国年轻人都在关心什么新鲜事儿。
+    </view>
+    <view
+      class="textContainer-text">
+      也可以加入我们的[Telegram听众群](bit.ly/etwtelegram)。
+    </view>
+    <view
+      class="textContainer-text">
+      如果你对我们的节目感兴趣，可以关注我们的微信公众号:
+    </view>
+  </view>  
+    <image
       class="seeImg"
         
-      bindtap="seeImg1"        src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/jzIpJNkM.png">
+      bindtap="seeImg1"        src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/img/下载.png">
       
       </image>
-    <view>
-      支付宝
-    </view>
- <image
-      class="seeImg"
-      bindtap="seeImg2"       
-        src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/SNJ8uISf.png">
-      
-      </image>
-  </view>
-  
 </view>

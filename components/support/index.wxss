@@ -1,0 +1,9 @@
+/* components/support/index.wxss */
+.supportUs{
+  background-color: #e23f3e;
+  font-size: 36rpx;
+  width: 200rpx;
+  color: #fff;
+  text-align: center;
+  padding: 16rpx 30rpx;
+}

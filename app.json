@@ -2,14 +2,15 @@
   "cloud": true,
   "pages": [
     "pages/startup/index",    
-    "pages/index/index",    
-    "pages/audioPage/index",    
-    "pages/guests/index",    
+    "pages/About/index",    
+    "pages/index/index",
+    "pages/audioPage/index",
+    "pages/guests/index",
     "pages/searchPage/index",
-    "pages/About/index",
     "pages/allAudio/index",
     "pages/hotTalk/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/support/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
