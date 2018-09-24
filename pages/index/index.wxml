@@ -26,14 +26,15 @@
           type="userAvatarUrl"
         ></open-data>
       </view> -->
-      <!-- <view
-        class="seach-container">
-        <i
-          class="iconfont icon-web-icon- input-icon"></i>
-        <input
-          placeholder="搜索喜欢的内容"
-          class="input"></input>
-      </view>       -->
+        <view
+          bindtap="navigator2search"
+          class="seach-container">
+          <i
+            class="iconfont icon-web-icon- input-icon"></i>
+          <input
+            placeholder="搜，你想要的"
+            class="input"></input>
+        </view>      
     </view>
   <!-- 轮播图，展示最新的一期和推荐 -->
   <swiper

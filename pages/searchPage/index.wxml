@@ -1,0 +1,95 @@
+<!--pages/searchPage/index.wxml-->
+<view class="container">
+  <!-- 顶部容器 -->
+  <view
+    class="play-tc"
+    style="padding-top:{{topStatus+capsuleHeight}}px;"    
+    animation="{{inAllScreen}}">
+    <!-- 顶部导航栏 -->
+    <nav-top
+      logo="{{'声东击西ETWPlus'}}"
+      color="{{'#000000'}}"
+      hiddenController="{{hiddenController}}"/>
+        <view
+          class="inputContainer"> 
+          <view   
+        class="seach-container">
+        <i
+          class="iconfont icon-web-icon- input-icon"></i>
+        <input
+          value="{{searchValue}}"
+          bindinput="handleInput"
+          bindconfirm="search"
+          placeholder="搜，你想要的"
+          class="input"></input>
+      </view>  
+      <view
+        bindtap="cancel"
+        class="cancel">
+        取消
+      </view>
+  </view>
+
+  </view>
+
+<view
+  class="searchList"
+  style="padding-top:{{topStatus+capsuleHeight+60}}px;">
+  <view
+    wx:if="{{historySearchList.length!=0}}"
+    class="historySearch">
+    <view
+      bindtap="search"
+      wx:for="{{historySearchList}}"
+      wx:key="index"
+      data-history="{{item}}"      
+      class="historySearchItem">{{item}}</view>
+    <view
+      bindtap="clearHistory"
+      class="delate"
+      >
+      清空
+    </view>
+  </view>
+  <block
+    wx:for="{{hotAudioList}}"
+    wx:key="_id">
+    <view
+      bindtap="jumpToaudioPage"
+      data-_id="{{item._id}}"
+      class="hotContainer">
+      <view class="hotContainerLf">
+        <image
+          mode="aspectFill"
+          src="{{item.header}}"
+          class="hotContainerImg"></image>
+      </view>
+      <view class="hotContainerRi">
+        <view
+          class="title">
+         #{{item.audioId}} {{item.title}}
+        </view>
+        <view
+          class="watch">
+          {{item.watch}}次听过
+        </view>
+      </view>
+      <view
+        class="host">
+
+      </view>
+    </view>
+  </block>
+  <view
+    wx:if="{{hotAudioList.length>0}}"
+    class="searchNumber">
+    共 <text> {{hotAudioList.length}} </text> 条搜索结果
+  </view>
+  <view
+    wx:if="{{hotAudioList.length==0}}"  
+    class="null">
+    声东击西：这里还没有回声
+  </view>
+  </view>
+
+</view>

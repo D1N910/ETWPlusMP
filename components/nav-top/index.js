@@ -9,6 +9,18 @@ Component({
     hiddenController: {
       type: Boolean,
       value: false
+    },
+    color:{
+      type: String,
+      value: '#ffffff'
+    },
+    position: {
+      type: String,
+      value: 'absolute'
+    },
+    logo:{
+      type: String,
+      value: ''
     }
   },
 

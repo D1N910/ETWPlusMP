@@ -53,6 +53,14 @@ Page({
       }
     }) 
   },
+  navigator2search(){
+    wx.navigateTo({
+      url: '../searchPage/index',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   LoadingResources(){
     clearTimeout(LoadingResourcesSet)
     // 如果超时

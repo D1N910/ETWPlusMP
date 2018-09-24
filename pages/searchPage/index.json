@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "nav-top": "../../components/nav-top/index"
+  }
+}

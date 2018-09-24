@@ -1,25 +1,34 @@
 <!-- 顶部导航栏 -->
 <view
-  class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}}">
+  style="position:{{position}};"
+  class="topOuterBorder {{hiddenController?'':'topOuterBorderShow'}} {{color=='#000000'?'topOuterBorderWhite':''}}">
     <!-- 状态栏撑高 -->
   <view
     style="height:{{topStatus}}px;"></view>
     <view
       class="navigationBar"
       style="height:{{capsuleHeight}}px;">
-      <view
-        class="navigationController">
+      <view               
+        class="navigationController {{color=='#000000'?'topOuterBorderWhite':''}}">
         <!-- 返回 -->
         <i
+          style="color:{{color}};"        
           wx:if="{{pageLength>1}}"
           data-status="-1"
           bindtap="navigateTo"
           class="iconfont icon-fanhui"></i>
         <!-- 回到主页 -->            
         <i
+          style="color:{{color}};"
           data-status="999"            
           bindtap="navigateTo"            
           class="iconfont icon-shouye"></i>  
+      </view>
+
+      <view
+        style="color:{{color}};"
+        class="logo">
+        {{logo}}
       </view>
     </view>
   </view>      
