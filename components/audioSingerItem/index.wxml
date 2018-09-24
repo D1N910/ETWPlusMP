@@ -2,15 +2,17 @@
 <view
   class="singerItem {{ifHost?'':'guest'}}">
   <image
+    lazy-load="true"
     mode="widthFix"
     class="audioSingerIcon"
-    src="{{item.icon}}">
+    src="{{item.icon||item.avatar_small}}">
   </image>
-  <view>
+  <view
+    class="name">
     {{item.name}}
   </view>
   <view
     class="Identity">
-    EPISODE HOST
+    {{ifHost?'EPISODE HOST':'SPECIAL GUEST'}}
   </view>
 </view>

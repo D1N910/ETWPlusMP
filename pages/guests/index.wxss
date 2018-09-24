@@ -1,0 +1,108 @@
+/* pages/searchPage/index.wxss */
+.play-tc{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+}
+.in-seach-container{
+  width: calc(100% - 60rpx);
+  margin: 0 auto;
+}
+.inputContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 0;
+  padding: 8rpx 0 8rpx 0;
+  box-shadow:0 6px 2px rgba(0, 0, 0, 0.03);
+}
+.inputContainer .seach-container{
+  flex: 1;
+}
+.inputContainer .cancel{
+  font-size: 32rpx;
+  padding: 0 16rpx;
+  color: #e44a4b;
+}
+.searchNumber{
+  font-size: 28rpx;
+  text-align: right;
+  color: #666;
+  padding: 16rpx 30rpx;
+}
+.searchNumber text{
+  color: #e44a4b;
+}
+.hotContainer{
+  display: flex;
+  margin: 0 30rpx;
+  padding: 16rpx 0 16rpx 0;
+  border-bottom: 1px solid #ededed;
+}
+.hotContainer .hotContainerImg{
+  width: 250rpx;
+  height: 180rpx;
+}
+.hotContainer .hotContainerRi{
+  font-size: 28rpx;
+  color: #000;
+  margin: 0 0 0 16rpx;
+}
+.title{
+  margin: 0 0 30rpx 0;
+}
+.watch{
+  color: #666;
+}
+.null{
+  padding: 30rpx 0;
+  color: #666;
+  font-size: 24rpx;
+  text-align: center;
+}
+.historySearch::before{
+  content: '搜索历史';
+  position: absolute;
+  left: 8px;
+  top: -28rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.historySearch{
+  position: relative;
+  width: calc(100% - 60rpx);
+  padding: 24rpx 30rpx 50rpx 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow:0 6px 2px rgba(0, 0, 0, 0.03);
+}
+.historySearch .historySearchItem{
+  font-size: 28rpx;
+  padding: 4rpx 8rpx;
+  margin: 8rpx 16rpx;
+  max-width: 100rpx;
+  overflow: hidden;
+  background-color: #ededed;
+}
+.delate{
+  background-color: #e44a4b;
+  color: #fff;
+  padding: 4rpx 8rpx;
+  position: absolute;
+  right: 16rpx;
+  bottom: 8rpx;
+  font-size: 28rpx;
+  z-index: 2;
+}
+.input{
+  font-size: 28rpx;
+  color: #000;
+}
+.searchList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

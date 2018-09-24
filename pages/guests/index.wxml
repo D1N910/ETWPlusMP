@@ -1,0 +1,24 @@
+<!--pages/searchPage/index.wxml-->
+<view class="container">
+  <!-- 顶部容器 -->
+  <view
+    class="play-tc"
+    style="padding-top:{{topStatus+capsuleHeight}}px;"    
+    animation="{{inAllScreen}}">
+    <!-- 顶部导航栏 -->
+    <nav-top
+      logo="{{'声东击西|嘉宾'}}"
+      color="{{'#000000'}}"
+      hiddenController="{{hiddenController}}"/>
+  </view>
+
+  <view
+    class="searchList"
+    style="padding-top:{{topStatus+capsuleHeight+10}}px;">
+      <audio-singer-item 
+        wx:for="{{participantList}}"
+        wx:key="item"
+        ifHost="{{false}}"
+        item="{{item}}"/>
+  </view>
+</view>

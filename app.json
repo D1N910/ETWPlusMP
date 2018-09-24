@@ -3,9 +3,10 @@
   "pages": [
     "pages/startup/index",    
     "pages/index/index",    
-    "pages/searchPage/index",    
+    "pages/audioPage/index",    
+    "pages/guests/index",    
+    "pages/searchPage/index",
     "pages/About/index",
-    "pages/audioPage/index",
     "pages/allAudio/index",
     "pages/hotTalk/index",
     "pages/login/index"

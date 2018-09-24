@@ -1,0 +1,7 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "nav-top": "../../components/nav-top/index",
+    "audio-singer-item": "/components/audioSingerItem/index"
+  }
+}

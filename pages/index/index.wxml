@@ -143,6 +143,7 @@
       <view class="other-information">    
         <!-- 特邀嘉宾 -->
         <view
+          bindtap="navigator2guests"
           class="guest-contianer"
           animation="{{blockAnimation}}">
           <view class="guest-title">
@@ -157,9 +158,9 @@
           >
           </image>
         </view>
-     <navigator
-      url="/pages/About/index">
-        <!-- 关于声东击西 -->
+        <navigator
+          url="/pages/About/index">
+          <!-- 关于声东击西 -->
           <view
             class="about-contianer"
             animation="{{blockAnimation}}">
@@ -168,7 +169,7 @@
               src="../../static/logo.jpg"
             ></image>
           </view>
-      </navigator>
+        </navigator>
       </view>
     </view>    
   </view>

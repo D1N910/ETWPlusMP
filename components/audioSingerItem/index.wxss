@@ -5,18 +5,16 @@
   flex-direction: column;
   align-items: center;
   padding: 30rpx 16rpx;
-  margin: 0 30rpx 16rpx 0;
+  margin: 0 30rpx 30rpx 0;
   flex: 1;
   min-width: 150rpx;
+  position: relative;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+  -o-box-shadow:0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
 }
-            .singerItem {
-                position: relative;
-                -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
-                -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
-                box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
-                -o-box-shadow:0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
-            }
-            
+
 
 /* 头像 */
 .audioSingerIcon{
@@ -36,4 +34,7 @@
 }
 .guest .Identity{
   background-color: #337ab7;
+}
+.name{
+  font-size: 24rpx;
 }
