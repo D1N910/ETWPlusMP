@@ -123,13 +123,14 @@
       </view>
     </navigator>
     <view class="right-label">
-      <!-- 热标签 -->
+      <!-- 随意一听 -->
       <view
+        bindtap="RandomListen"
         class="hotLaber-container"
         animation="{{blockAnimation}}">
         <view>
           <view class="hotLaber-title">
-            热标签 <text class="hotLaber-title_english">Hot label</text>
+            随意一听 <text class="hotLaber-title_english">Random listening</text>
           </view>
         </view>
         <image

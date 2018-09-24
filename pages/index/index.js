@@ -12,7 +12,8 @@ Page({
     dataList:[],
     blockAnimation: [],
     isRefreshing: false,
-    outTime: 0
+    outTime: 0,
+    randomAudio:[]
   },
   /**
    * 跳转页面
@@ -126,7 +127,39 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection('audioList').count({
+      success(res) {
+        that.data.audioListCount = res.total
+        let Rand = Math.random()
+        let randNumber = Math.round(Rand * res.total)
+        if(randNumber==0){
+          randNumber=1
+        }else{
+          if (randNumber == res.total){
+            randNumber = res.total - 1
+          }
+        }
+        db.collection('audioList').skip(randNumber).limit(1).get({
+          success(res) {
+            that.data.randomAudio = res.data[0]
+            that.setData({
+              randomAudio: that.data.randomAudio
+            })
+          }
+        })
+      }
+    })
+  },
+  RandomListen(){
+    wx.navigateTo({
+      url: `../audioPage/index?_id=${this.data.randomAudio._id ||'5b9a924a97880d3b822d62ab'}`,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏

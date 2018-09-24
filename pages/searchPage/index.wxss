@@ -63,7 +63,7 @@
   text-align: center;
 }
 .historySearch::before{
-  content: '历史搜索';
+  content: '搜索历史';
   position: absolute;
   left: 8px;
   top: -28rpx;
@@ -79,7 +79,7 @@
   box-shadow:0 6px 2px rgba(0, 0, 0, 0.03);
 }
 .historySearch .historySearchItem{
-  font-size: 24rpx;
+  font-size: 28rpx;
   padding: 4rpx 8rpx;
   margin: 8rpx 16rpx;
   max-width: 100rpx;
@@ -93,6 +93,10 @@
   position: absolute;
   right: 16rpx;
   bottom: 8rpx;
-  font-size: 18rpx;
+  font-size: 28rpx;
   z-index: 2;
+}
+.input{
+  font-size: 28rpx;
+  color: #000;
 }

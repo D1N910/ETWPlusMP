@@ -34,12 +34,42 @@ Page({
 
     const db = wx.cloud.database()
     const _ = db.command
+    db.collection('audioList').count({
+      success(res) {
+        that.data.audioListCount = res.total
+      }
+    })
+
     db.collection('audioList').get({
       success: res => {
         console.log(res)
-        this.setData({
-          allAudioList: [...res.data]
+        that.data.allAudioList.push(...res.data)
+        if (that.data.allAudioList.length < that.data.audioListCount) {
+          that.getAllList()
+        }
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
         })
+      }
+    })
+    
+
+  },
+  getAllList(){
+    var that = this
+
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection('audioList').skip(this.data.allAudioList.length).get({
+      success: res => {
+        console.log(res)
+        that.data.allAudioList.push(...res.data)
+        if(that.data.allAudioList.length<that.data.audioListCount){
+          that.getAllList()          
+        }
       },
       fail: err => {
         wx.showToast({
