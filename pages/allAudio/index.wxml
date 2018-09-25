@@ -60,5 +60,5 @@
       </view>
     </view>
   </block>
-
+  <miniPlay />
 </view>

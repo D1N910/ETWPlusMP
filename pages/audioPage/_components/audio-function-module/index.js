@@ -62,7 +62,7 @@ Component({
         changeNumber = 1        
         that.data.audioInformationList[`if${e.currentTarget.dataset.type}`] = true        
       }
-      that.data.audioInformationList[e.currentTarget.dataset.type] = that.data.audioInformationList[e.currentTarget.dataset.type] + changeNumber
+      that.data.audioInformationList[e.currentTarget.dataset.type] = that.data.audioInformationList[e.currentTarget.dataset.type]||0 + changeNumber
       wx.cloud.callFunction({
         name: 'updateAudio',
         data: {

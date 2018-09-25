@@ -21,4 +21,5 @@
         ifHost="{{false}}"
         item="{{item}}"/>
   </view>
+  <miniPlay />
 </view>

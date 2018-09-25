@@ -1,7 +1,7 @@
+var audioManager = wx.getBackgroundAudioManager()
+
 import { checkIfLogin } from "../../utils/util.js"
 var app = getApp()
-// 定义全局的音频
-var audioManager = wx.getBackgroundAudioManager()
 
 // pages/audioPage/index.js
 Page({
@@ -136,7 +136,6 @@ Page({
       env: 'etwplus-test-485c18'
     })
     this.getList(this.data._id)
-    this.getBarrage(this.data._id)
     // 获得音频信息
     wx.cloud.callFunction({
       name: 'getAudio',
@@ -148,6 +147,7 @@ Page({
         that.setData({
           audioInformationList: res.result.data
         }, () => {
+          that.getBarrage(that.data._id)          
           if (audioManager.src && audioManager.src == that.data.audioInformationList.audioUrl){
             that.setData({
               playStatus: 0,              
@@ -222,6 +222,10 @@ Page({
       this.data.ifStop = false      
       this.setData({
         playStatus: 0
+      })
+      wx.setStorageSync('onPlayAudio', {
+        _id: this.data._id,
+        header: this.data.audioInformationList.header
       })
     })
     // 监听音频加载中事件，当音频因为数据不足，需要停下来加载时会触发
@@ -383,7 +387,7 @@ Page({
           }
         } else if (cha < 172800000){
           res.data[i].saveTime = '一天前'
-        }else if(thisDate.getFullYear()==now.getFullYear()){
+        }else if(thisDate.getFullYear()==nowDate.getFullYear()){
           res.data[i].saveTime = `${thisDate.getMonth() + 1 < 10 ? '0' + (thisDate.getMonth() + 1) : thisDate.getMonth() + 1}月${thisDate.getDate() < 10 ? '0' + thisDate.getDate() : thisDate.getDate()}日`          
         }
         console.log(res.data[i].saveTime)

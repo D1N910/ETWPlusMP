@@ -2,49 +2,33 @@
 /* components/miniPlay/index.wxss */
 .miniPlay-container{
   position: fixed;
-  width: 130rpx;
-  padding-left: 70rpx;
-  height: 72rpx;
-  background-color: rgba(0,0,0,0.3);
-  border-top-left-radius: 72rpx;
-  border-bottom-left-radius: 72rpx;
-  right: 0;
+  right: 20rpx;
   bottom: 100rpx;
   z-index: 999;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
   color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px 3px rgba(0,0,0,0.5);
 }
 .miniPlay-container .mini_header{
-  width: 50rpx;
-  height: 50rpx;
-  border: 5rpx solid #fff;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
-  margin: 0 0 0 6rpx;
   display: inline-block;
-  position: absolute;
-  left: 0px;
+  border: 4rpx solid #fff;
 }
 
-.miniPlay-container .control{
-  flex: 1;
-  display: flex;
-  justify-content: space-around;
+@-webkit-keyframes rotation{
+from {-webkit-transform: rotate(0deg);}
+to {-webkit-transform: rotate(360deg);}
 }
-.miniPlay-container .iconfont{
-  font-size: 42rpx;
-}
-.miniPlay-container .delate{
-  position: absolute;
-  right: 0px;
-  top: -50rpx;
-  width: 50rpx;
-  height: 50rpx;
-  text-align: center;
-  line-height: 50rpx;
-  border-radius: 50%;
-  display: inline-block; 
-  font-size: 36rpx;
-  background-color: rgba(0,0,0,0.3);
+
+.Rotation{
+-webkit-transform: rotate(360deg);
+animation: rotation 6s linear infinite;
+-moz-animation: rotation 6s linear infinite;
+-webkit-animation: rotation 6s linear infinite;
+-o-animation: rotation 6s linear infinite;
 }

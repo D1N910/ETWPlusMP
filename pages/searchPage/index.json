@@ -1,6 +1,7 @@
 {
   "navigationBarTextStyle": "black",
   "usingComponents": {
-    "nav-top": "../../components/nav-top/index"
+    "nav-top": "../../components/nav-top/index",
+    "miniPlay": "/components/miniPlay/index"
   }
 }

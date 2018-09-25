@@ -68,4 +68,5 @@
       bindtap="seeImg1"        src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/img/下载.png">
       
       </image>
+  <miniPlay />
 </view>
