@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
       "audio-function-module": "../audio-function-module/index",
-      "audio-singer-item": "/components/audioSingerItem/index"
+      "audio-singer-item": "/components/audioSingerItem/index",
+      "support-item": "/components/support/index"
   }
 }

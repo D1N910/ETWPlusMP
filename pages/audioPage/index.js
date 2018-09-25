@@ -147,21 +147,28 @@ Page({
         that.setData({
           audioInformationList: res.result.data
         }, () => {
-          // 音频链接
-          audioManager.src = that.data.audioInformationList.audioUrl;
-          // 音频标题
-          audioManager.title = that.data.audioInformationList.title;
-          // 专辑名
-          audioManager.epname = '声东击西'
-          audioManager.WebUrl = 'https://www.etw.fm/'
-          let audioSinger = ''
-          for (let i in that.data.audioInformationList.participant) {
-            for (let j in that.data.audioInformationList.participant[i]) {
-              audioSinger += ` ${that.data.audioInformationList.participant[i][j].name}`
+          if (audioManager.src && audioManager.src == that.data.audioInformationList.audioUrl){
+            that.setData({
+              playStatus: 0,              
+              ifShowLoading:true
+            })
+          }else{
+            // 音频链接
+            audioManager.src = that.data.audioInformationList.audioUrl;
+            // 音频标题
+            audioManager.title = that.data.audioInformationList.title;
+            // 专辑名
+            audioManager.epname = '声东击西'
+            audioManager.WebUrl = 'https://www.etw.fm/'
+            let audioSinger = ''
+            for (let i in that.data.audioInformationList.participant) {
+              for (let j in that.data.audioInformationList.participant[i]) {
+                audioSinger += ` ${that.data.audioInformationList.participant[i][j].name}`
+              }
             }
+            audioManager.singer = audioSinger
+            audioManager.coverImgUrl = that.data.audioInformationList.header
           }
-          audioManager.singer = audioSinger
-          audioManager.coverImgUrl = that.data.audioInformationList.header
         })
       }
     })
@@ -207,7 +214,6 @@ Page({
       this.setData({
         playStatus: 0
       })
-      wx.hideLoading()
     })
     // 监听音频加载中事件，当音频因为数据不足，需要停下来加载时会触发
     audioManager.onWaiting(() => {
@@ -217,7 +223,6 @@ Page({
     })
     // 监听音频进入可以播放状态的事件，但不保证后面可以流畅播放
     audioManager.onCanplay(() => {
-      wx.hideLoading()
       this.setData({
         ifShowLoading: true
       })

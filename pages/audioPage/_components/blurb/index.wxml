@@ -78,6 +78,7 @@
       <!-- {{item.url}} -->
     </view>
   </view>
+  <support-item />
   <view class="footer">
   </view>
 </scroll-view>
