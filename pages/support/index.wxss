@@ -51,9 +51,25 @@
   margin: 0 30rpx;
   font-size: 28rpx;
 }
+.textContainer view{
+  margin: 30rpx 0 30rpx 0;
+}
 .seeImg{
   width: 300rpx;
   height: 300rpx;
   margin: 0 auto;
   display: block;
+}
+.egg{
+  display: flex;
+}
+.egg .input{
+  flex: 1;
+  border-bottom: 1rpx solid #e44a4b;
+}
+.egg view{
+  margin: 0 16rpx;
+  padding: 4rpx 16rpx;
+  color: #fff;
+  background-color: #e44a4b;
 }

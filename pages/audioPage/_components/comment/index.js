@@ -72,7 +72,7 @@ Component({
             }
           } else if (cha < 172800000) {
             res.data[i].saveTime = '一天前'
-          } else if (thisDate.getFullYear() == now.getFullYear()) {
+          } else if (thisDate.getFullYear() == nowDate.getFullYear()) {
             res.data[i].saveTime = `${thisDate.getMonth() + 1 < 10 ? '0' + (thisDate.getMonth() + 1) : thisDate.getMonth() + 1}月${thisDate.getDate() < 10 ? '0' + thisDate.getDate() : thisDate.getDate()}日`
           }
         }
@@ -122,7 +122,7 @@ Component({
               }
             } else if (cha < 172800000) {
               res.data[i].saveTime = '一天前'
-            } else if (thisDate.getFullYear() == now.getFullYear()) {
+            } else if (thisDate.getFullYear() == nowDate.getFullYear()) {
               res.data[i].saveTime = `${thisDate.getMonth() + 1 < 10 ? '0' + (thisDate.getMonth() + 1) : thisDate.getMonth() + 1}月${thisDate.getDate() < 10 ? '0' + thisDate.getDate() : thisDate.getDate()}日`
             }
             console.log(res.data[i].saveTime)

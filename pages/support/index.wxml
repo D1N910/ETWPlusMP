@@ -54,6 +54,33 @@
         src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/SNJ8uISf.png">
       
       </image>
+      <view>
+      所有打赏并愿意[留下地址]的听众，会收到下面这张特别版插画明信片！可以联系邮箱：etwstudio@gmail.com
+    </view>
+    <image
+      mode="widthFix"    
+      class="seeImg"
+      bindtap="seeImg3"       
+        src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/About/c5S7h9bl.jpg">
+      
+      </image>
+    <text
+      wx:if="{{iflogin}}">
+      这只考拉的两眼之间间距多少cm？
+    </text>
+    <view
+      wx:if="{{iflogin}}"
+      class="egg">
+      <input
+        value="{{eggCm}}"
+        type="digit"
+        bindinput="changeEgg"
+        class="input"></input>cm
+      <view
+        bindtap="confirm">
+        确认
+      </view>
+    </view>
   </view>
   <miniPlay />
 </view>

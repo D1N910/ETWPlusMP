@@ -2,6 +2,7 @@
   "cloud": true,
   "pages": [
     "pages/startup/index",    
+    "pages/support/index",
     "pages/index/index",
     "pages/About/index",
     "pages/audioPage/index",
@@ -9,8 +10,7 @@
     "pages/searchPage/index",
     "pages/allAudio/index",
     "pages/hotTalk/index",
-    "pages/login/index",
-    "pages/support/index"
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -34,7 +34,7 @@ Component({
    */
   methods: {
     navigator2audio(){
-      wx.navigateTo({
+      wx.redirectTo({
         url: `/pages/audioPage/index?_id=${this.data.onPlayAudio._id}`,
         success: function (res) { },
         fail: function (res) { },
