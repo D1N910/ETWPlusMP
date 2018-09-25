@@ -34,7 +34,8 @@ Page({
     commentList: [],
     barrageList: [],
     getBarrageList:[],
-    totalComment: 0
+    totalComment: 0,
+    ifStop:false
   },
 
   // 最小化
@@ -209,8 +210,16 @@ Page({
         playStatus: 1
       })
     })
+    // 监听背景音频停止
+    audioManager.onStop(()=>{
+      this.data.ifStop = true
+      this.setData({
+        playStatus: 1
+      })
+    })
     // 监听背景音频播放事件
     audioManager.onPlay(() => {
+      this.data.ifStop = false      
       this.setData({
         playStatus: 0
       })
@@ -303,6 +312,9 @@ Page({
     if (typeof audioManager.src == 'undefined' || audioManager.src == '') {
       audioManager.src = this.data.audioInformationList.audioUrl;
     }else{
+      if (this.data.ifStop){
+        audioManager.src = this.data.audioInformationList.audioUrl;
+      }
       audioManager.play()
     }
   },
