@@ -1,0 +1,50 @@
+@import '/static/css/iconfont.wxss';
+/* components/miniPlay/index.wxss */
+.miniPlay-container{
+  position: fixed;
+  width: 130rpx;
+  padding-left: 70rpx;
+  height: 72rpx;
+  background-color: rgba(0,0,0,0.3);
+  border-top-left-radius: 72rpx;
+  border-bottom-left-radius: 72rpx;
+  right: 0;
+  bottom: 100rpx;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+}
+.miniPlay-container .mini_header{
+  width: 50rpx;
+  height: 50rpx;
+  border: 5rpx solid #fff;
+  border-radius: 50%;
+  margin: 0 0 0 6rpx;
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+}
+
+.miniPlay-container .control{
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+}
+.miniPlay-container .iconfont{
+  font-size: 42rpx;
+}
+.miniPlay-container .delate{
+  position: absolute;
+  right: 0px;
+  top: -50rpx;
+  width: 50rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 50%;
+  display: inline-block; 
+  font-size: 36rpx;
+  background-color: rgba(0,0,0,0.3);
+}

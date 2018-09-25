@@ -1,0 +1,27 @@
+  <!-- 迷你播放器 -->
+  <view
+    class="miniPlay-container">
+    <view
+      class="pullOut">
+    </view>
+    <image
+      class="mini_header"
+      src="../../static/allAudio.png">
+    </image>
+    <view
+      class="control">
+      <text
+        class="iconfont icon-play">
+      </text>
+      <text
+        wx:if="{{false}}"
+        class="iconfont icon-pause">
+      </text>
+      <text
+        class="iconfont icon-jinru">
+      </text>
+    </view>
+    <text
+      class="iconfont icon-shanchu delate">
+    </text>
+  </view>
