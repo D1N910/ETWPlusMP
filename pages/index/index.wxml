@@ -20,12 +20,12 @@
   <view
     class="navigationBar"
     style="height:{{capsuleHeight}}px;">
-      <!-- <view
+      <view
         class="userAvatar">
         <open-data
           type="userAvatarUrl"
         ></open-data>
-      </view> -->
+      </view>
         <view
           bindtap="navigator2search"
           class="seach-container">
@@ -195,4 +195,31 @@
     1767 在线 <text class="fade">最高记录 3762</text>
   </view>
   <miniPlay />
+  <view
+    class="user-left-label_container">
+    <view
+      class="user-left-label"
+      >
+      <view
+        class="u-top">
+        <view
+          class="inforamtion-c">
+          <view
+            class="userAvatar">
+            <open-data
+              type="userAvatarUrl"
+            ></open-data>
+          </view>
+          <view
+            class="nickName">
+            {{nickName||'未登录'}}
+          </view>
+        </view>
+        <image
+          mode="aspectFill"
+          class="ut-bg"
+           src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/img/header (3).jpg"></image>
+      </view>
+    </view>
+  </view>
 </view>
