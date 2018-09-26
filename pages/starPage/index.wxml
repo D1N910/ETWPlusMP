@@ -1,0 +1,49 @@
+<!--pages/searchPage/index.wxml-->
+<view class="container">
+  <!-- 顶部容器 -->
+  <view
+    class="play-tc"
+    style="padding-top:{{topStatus+capsuleHeight}}px;"    
+    animation="{{inAllScreen}}">
+    <!-- 顶部导航栏 -->
+    <nav-top
+      logo="{{'收藏音频'}}"
+      color="{{'#000000'}}"
+      hiddenController="{{hiddenController}}"/>
+  </view>
+
+  <view
+    style="padding-top:{{topStatus+capsuleHeight+10}}px;">
+  </view>
+  <block
+    wx:for="{{starList}}"
+    wx:key="_id">
+    <view
+      bindtap="jumpToaudioPage"
+      data-_id="{{item._id}}"
+      class="hotContainer">
+      <view class="hotContainerLf">
+        <image
+          mode="aspectFill"
+          src="{{item.header}}"
+          class="hotContainerImg"></image>
+      </view>
+      <view class="hotContainerRi">
+        <view
+          class="title">
+         #{{item.audioId}} {{item.title}}
+        </view>
+        <view
+          class="watch">
+          {{item.watch}}次听过
+        </view>
+      </view>
+      <view
+        class="host">
+
+      </view>
+    </view>
+  </block>
+
+  <miniPlay />
+</view>

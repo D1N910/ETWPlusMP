@@ -264,17 +264,29 @@
   color: #ccc;
 }
 
-.user-left-label_container{
+.userConainer{
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.3);
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 999;
 }
+.mask{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+}
+.user-left-label_container{
+  width: calc(82vw + 1000rpx);
+  height: 100vh;
+  position: absolute;
+  left: -1000rpx;
+  top: 0px;
+  z-index: 999;
+}
 .user-left-label{
-  width: calc(100vw - 18vw);
+  width: 82vw;
   background-color: #fff;
   height: 100vh;
   box-shadow:10px 0 10px rgba(0,0,0,0.3);
@@ -286,7 +298,7 @@
 .inforamtion-c{
   position: relative;
   z-index: 2;
-  padding: 50rpx 0 0 30rpx;
+  padding: 50rpx 0 0 0;
   height: calc(100% - 50rpx);
   display: flex;
   flex-direction: column;
@@ -295,11 +307,18 @@
 .inforamtion-c .userAvatar{
   width: 120rpx;
   height: 120rpx;
-  margin: 0 0 0 0;
+  margin: 0 0 0 60rpx;
 }
 .inforamtion-c .nickName{
   color: #fff;
-  margin: 0 0 30rpx 0;
+  padding: 0 0 16rpx 60rpx;
+  font-size: 32rpx;
+  height: 120rpx;
+  line-height: 150rpx;
+  background: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.2),rgba(0,0,0,0.4));
+}
+.inforamtion-c .nickName text{
+  color: #e44a4b;
 }
 .u-top .ut-bg{
   width: 100%;
@@ -309,4 +328,23 @@
   top: 0px;
   z-index: 1;
   background-color: #ededed;
+}
+.user-left-list{
+
+}
+.user-left-list_item{
+  width: calc(100% - 60rpx);
+  padding: 60rpx 0 60rpx 60rpx;
+  font-size: 32rpx;
+  font-weight: bolder;
+  color: #666;  
+}
+.supportTap{
+  display: inline-block;
+  background-color: #e44a4b;
+  height: 40rpx;
+  width: 120rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #fff;
 }

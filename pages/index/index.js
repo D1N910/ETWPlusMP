@@ -9,6 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasUserInfo: false,
+    movableViewX:'0rpx',
+    userConainerShow:true,
     dataList:[],
     blockAnimation: [],
     isRefreshing: false,
@@ -135,6 +138,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (wx.getStorageSync('hasUserInfo')) {
+      this.setData({
+        hasUserInfo: true,
+        userInformation: wx.getStorageSync('userInfo')
+      })
+    }
     var that = this
     const db = wx.cloud.database()
     const _ = db.command
@@ -245,5 +254,40 @@ Page({
    */
   StopAudioStop(){
 
+  },
+  /**
+   * 隐藏用户
+   */
+  showUser(){
+    console.log('ddd')
+    this.setData({
+      userConainerShow: false
+    },()=>{
+      this.setData({
+        movableViewX: '1000rpx'
+      })
+    })
+  },
+  /**
+   * 隐藏用户
+   */
+  hiddenUser(){
+    this.setData({
+      movableViewX: '0rpx'
+    },()=>{
+      setTimeout(()=>{
+        this.setData({
+          userConainerShow: true
+        })
+      },200)
+    })
+  },
+  showThanks(){
+    wx.showModal({
+      title: '感谢您的支持',
+      content: '拥有这个徽章，说明您曾今支持过声东击西，并且找到了考拉彩蛋，输入了正确的考拉密码。日后声东击西ETWPlus将推出一些针对支持者的福利更新。请继续支持我们！',
+      showCancel:false,
+      confirmColor:"#e44a4b"
+    })
   }
 })

@@ -21,6 +21,7 @@
     class="navigationBar"
     style="height:{{capsuleHeight}}px;">
       <view
+        bindtap="showUser"                    
         class="userAvatar">
         <open-data
           type="userAvatarUrl"
@@ -196,30 +197,74 @@
   </view>
   <miniPlay />
   <view
-    class="user-left-label_container">
-    <view
-      class="user-left-label"
-      >
-      <view
-        class="u-top">
+    hidden="{{userConainerShow}}"
+    class="userConainer">
+    <movable-area
+      class="user-left-label_container">
+      <movable-view
+        x="{{movableViewX}}"
+        direction="horizontal"
+        class="user-left-label"
+        >
         <view
-          class="inforamtion-c">
+          class="u-top">
           <view
-            class="userAvatar">
-            <open-data
-              type="userAvatarUrl"
-            ></open-data>
+            class="inforamtion-c">
+            <view
+              class="userAvatar">
+              <open-data
+                type="userAvatarUrl"
+              ></open-data>
+            </view>
+            <view
+              wx:if="{{hasUserInfo}}"            
+              class="nickName">
+              {{userInformation.nickName}}
+              <view
+                bindtap="showThanks"
+                wx:if="{{userInformation.support}}"
+                class="supportTap">
+                支持者
+              </view>
+            </view>
+            <navigator
+              wx:if="{{!hasUserInfo}}"                          
+              url="/pages/login/index">
+              <view
+                class="nickName">
+                未登录,<text> 点此登录</text>
+              </view>
+            </navigator>
+
           </view>
-          <view
-            class="nickName">
-            {{nickName||'未登录'}}
-          </view>
+          <image
+            mode="aspectFill"
+            class="ut-bg"
+            src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/img/header (2).jpg"></image>
         </view>
-        <image
-          mode="aspectFill"
-          class="ut-bg"
-           src="cloud://etwplus-test-485c18.6574-etwplus-test-485c18/img/header (3).jpg"></image>
-      </view>
-    </view>
+        <view
+          wx:if="{{hasUserInfo}}"
+          class="user-left-list">
+          <navigator
+            url="/pages/starPage/index">
+            <view
+              class="user-left-list_item">
+              收藏音频
+            </view>
+          </navigator>          
+          <!-- <view
+            class="user-left-list_item">          
+            评论
+          </view>
+          <view
+            class="user-left-list_item">          
+            弹幕
+          </view> -->
+        </view>
+      </movable-view>
+    </movable-area>
+    <view
+      bindtap="hiddenUser"
+      class="mask"></view>
   </view>
 </view>
