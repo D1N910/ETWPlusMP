@@ -296,7 +296,8 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: this.data.audioInformationList.title,
+      imageUrl: this.data.audioInformationList.header,
+      title: `#${this.data.audioInformationList.audioId} ${this.data.audioInformationList.title}`,
       path: `pages/audioPage/index?_id=${this.data._id}`
     }
   },
